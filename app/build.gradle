@@ -26,5 +26,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //ALCHEMY
+    compile 'tech.sirwellington.alchemy:alchemy-arguments:1.5'
+    compile 'tech.sirwellington.alchemy:alchemy-test:1.6'
+
+
     testCompile 'junit:junit:4.12'
 }
