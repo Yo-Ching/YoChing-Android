@@ -1,8 +1,9 @@
 package tech.redroma.yoching
 
+import org.hamcrest.CoreMatchers.equalTo
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertThat
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -11,11 +12,17 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest
 {
-    
     @Test
     @Throws(Exception::class)
-    fun addition_isCorrect()
+    fun testAddition()
     {
         assertEquals(4, (2 + 2).toLong())
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun testSubtract()
+    {
+        assertThat(3 -1 , equalTo(2))
     }
 }
