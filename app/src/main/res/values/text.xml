@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="default_greeting">WHAT\'S UP?</string>
+
+    <string-array name="greetings">
+        <item>WHAT'S UP?</item>
+        <item>WHAT'S HAPPENING?</item>
+        <item>WHAT'S THE SITUATION?</item>
+        <item>WHAT'S YOUR QUESTION?</item>
+    </string-array>
+</resources>
