@@ -34,7 +34,14 @@ class FontsInstrumentedTest
     @Before
     fun setUp()
     {
-        context = InstrumentationRegistry.getContext()
+        context = InstrumentationRegistry.getTargetContext()
+    }
+
+    @Test
+    fun testExoThin()
+    {
+        val font = context.exoThin()
+        assertThat(font, notNull)
     }
 
     @Test
@@ -43,5 +50,84 @@ class FontsInstrumentedTest
         val font = context.exoExtraLight()
         assertThat(font, notNull)
     }
+
+    @Test
+    fun testExoLight()
+    {
+        val font = context.exoLight()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExoRegular()
+    {
+        val font = context.exoRegular()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExoDemiBold()
+    {
+        val font = context.exoDemiBold()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExoBold()
+    {
+        val font = context.exoBold()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExo()
+    {
+        val font = context.exoThin()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExoExtraBold()
+    {
+        val font = context.exoExtraBold()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testExoBlack()
+    {
+        val font = context.exoBlack()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testSignikaLight()
+    {
+        val font = context.signikaLight()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testSignikaRegular()
+    {
+        val font = context.signikaRegular()
+        assertThat(font, notNull)
+    }
+
+
+    @Test
+    fun testSignikaSemiBold()
+    {
+        val font = context.signikaSemiBold()
+        assertThat(font, notNull)
+    }
+
+    @Test
+    fun testSignikaBold()
+    {
+        val font = context.signikaBold()
+        assertThat(font, notNull)
+    }
+
 
 }
