@@ -64,6 +64,13 @@ class FontsInstrumentedTest
         val font = context.exoRegular()
         assertThat(font, notNull)
     }
+    
+    @Test
+    fun testExoMedium()
+    {
+        val font = context.exoMedium()
+        assertThat(font, notNull)
+    }
 
     @Test
     fun testExoDemiBold()
@@ -76,13 +83,6 @@ class FontsInstrumentedTest
     fun testExoBold()
     {
         val font = context.exoBold()
-        assertThat(font, notNull)
-    }
-
-    @Test
-    fun testExo()
-    {
-        val font = context.exoThin()
         assertThat(font, notNull)
     }
 
