@@ -64,7 +64,7 @@ class FontsInstrumentedTest
         val font = context.exoRegular()
         assertThat(font, notNull)
     }
-    
+
     @Test
     fun testExoMedium()
     {
