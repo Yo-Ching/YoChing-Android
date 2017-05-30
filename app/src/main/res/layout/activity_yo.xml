@@ -17,19 +17,88 @@
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/galaxy_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        android:layout_marginTop="16dp">
+
+        <ImageView
+            android:id="@+id/coin_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:foregroundGravity="center_vertical"
+            android:visibility="visible"
+            app:srcCompat="@drawable/coin_heads_slick" />
+
+        <ImageView
+            android:id="@+id/coin_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:foregroundGravity="center_vertical"
+            android:visibility="visible"
+            app:srcCompat="@drawable/coin_heads_slick" />
+
+        <ImageView
+            android:id="@+id/coin_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:foregroundGravity="center_vertical"
+            android:visibility="visible"
+            app:srcCompat="@drawable/coin_heads_slick" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/galaxy_background"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:srcCompat="@drawable/galaxy_white_transparent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/galaxy_white_transparent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
