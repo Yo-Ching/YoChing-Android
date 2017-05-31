@@ -9,9 +9,9 @@
     <android.support.v7.widget.Toolbar android:layout_width="match_parent"
                                        android:layout_height="wrap_content"
                                        android:background="@color/colorPrimary"
-                                       android:layout_marginRight="0dp" app:layout_constraintRight_toRightOf="parent"
-                                       android:layout_marginLeft="0dp" app:layout_constraintLeft_toLeftOf="parent"
-                                       app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="0dp"
+                                       app:layout_constraintRight_toRightOf="parent"
+                                       app:layout_constraintLeft_toLeftOf="parent"
+                                       app:layout_constraintTop_toTopOf="parent"
                                        android:id="@+id/yo_action_bar">
 
         <TextView android:layout_width="wrap_content"
@@ -25,22 +25,6 @@
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.constraint.Guideline
-            android:id="@+id/guideline4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.6"
-            tools:layout_editor_absoluteY="307dp"
-            tools:layout_editor_absoluteX="0dp"/>
-    <android.support.constraint.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="192dp"/>
     <ImageView
             android:id="@+id/galaxy_background"
             android:layout_width="0dp"
@@ -122,5 +106,21 @@
                 android:visibility="visible"
                 app:srcCompat="@drawable/coin_heads_slick_shadow"/>
     </LinearLayout>
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="192dp"/>
+    <android.support.constraint.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6"
+            tools:layout_editor_absoluteY="340dp"
+            tools:layout_editor_absoluteX="0dp"/>
 
 </android.support.constraint.ConstraintLayout>
