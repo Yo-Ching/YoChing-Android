@@ -1,7 +1,7 @@
 package tech.redroma.yoching
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
 
 class YoActivity : AppCompatActivity()
@@ -16,5 +16,8 @@ class YoActivity : AppCompatActivity()
 
         prompt = findViewById(R.id.yo_prompt) as TextView
         prompt.typeface = applicationContext.exoBlack()
+
+        setActionBarFont(applicationContext.exoBold()!!, 30)
+
     }
 }

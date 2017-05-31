@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="default_greeting">WHAT\'S UP?</string>
+    <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
 
     <string-array name="greetings">
         <item>WHAT\'S UP?</item>
