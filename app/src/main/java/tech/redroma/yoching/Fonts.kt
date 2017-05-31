@@ -17,7 +17,13 @@
 package tech.redroma.yoching
 
 import android.content.Context
+import android.graphics.Paint
 import android.graphics.Typeface
+import android.support.v4.util.LruCache
+import android.support.v7.app.ActionBar
+import android.text.*
+import android.text.style.MetricAffectingSpan
+import android.text.style.TypefaceSpan
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -73,4 +79,36 @@ private fun Context.loadTypeface(asset: String): Typeface?
     }
 
     return font
+}
+
+
+internal class TypefaceSpan(val typeface: Typeface) : MetricAffectingSpan()
+{
+    private companion object
+    {
+        val cache = LruCache<String, Typeface>(12)
+    }
+
+    override fun updateMeasureState(p: TextPaint?)
+    {
+        if (p == null)
+        {
+            return
+        }
+
+        p.typeface = this.typeface
+        p.flags = p.flags or Paint.SUBPIXEL_TEXT_FLAG
+    }
+
+    override fun updateDrawState(tp: TextPaint?)
+    {
+        if (tp == null)
+        {
+            return
+        }
+
+        tp.typeface = this.typeface
+        tp.flags = tp.flags or Paint.SUBPIXEL_TEXT_FLAG
+    }
+
 }
