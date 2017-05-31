@@ -17,7 +17,7 @@ class YoActivity : AppCompatActivity()
         prompt = findViewById(R.id.yo_prompt) as TextView
         prompt.typeface = applicationContext.exoBlack()
 
-        setActionBarFont(applicationContext.exoBold()!!, 30)
+        setActionBarFont(applicationContext.exoBlack()!!, 30)
 
     }
 }
