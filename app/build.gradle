@@ -45,38 +45,51 @@ android {
     }
 }
 
-dependencies {
-
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
-//    LOGGING
-    compile 'org.slf4j:slf4j-api:1.7.22'
-    compile 'eu.lp0.slf4j:slf4j-android:1.7.22-0'
-
-    //KOTLIN
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    //==============================================
-    //TEST DEPENDENCIES
-    testCompile 'junit:junit:4.12'
-    testCompile 'com.natpryce:hamkrest:1.4.0.0'
-    androidTestCompile 'com.natpryce:hamkrest:1.4.0.0'
-
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-
-    androidTestCompile('com.android.support.test:runner:0.5') {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-
-    androidTestCompile('com.android.support.test:rules:0.5') {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-}
 repositories {
+    dependencies {
+
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+
+        //==============================================
+        //KOTLIN
+        //==============================================
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+        //==============================================
+        //ANDROID SUPPORT LIBRARIES
+        //==============================================
+
+        compile 'com.android.support:appcompat-v7:25.3.1'
+        compile 'com.android.support.constraint:constraint-layout:1.0.2'
+        compile 'com.android.support:design:25.3.1'
+
+        //==============================================
+        //LOGGING
+        //==============================================
+
+        compile 'org.slf4j:slf4j-api:1.7.22'
+        compile 'eu.lp0.slf4j:slf4j-android:1.7.22-0'
+
+        //==============================================
+        //TEST DEPENDENCIES
+        //==============================================
+
+        androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+
+        androidTestCompile('com.android.support.test:runner:0.5') {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }
+
+        androidTestCompile('com.android.support.test:rules:0.5') {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        }
+
+
+        testCompile 'junit:junit:4.12'
+        testCompile 'com.natpryce:hamkrest:1.4.0.0'
+        androidTestCompile 'com.natpryce:hamkrest:1.4.0.0'
+    }
     mavenCentral()
 }
