@@ -20,7 +20,8 @@
         <activity
                 android:name=".ReadWrexagramActivity"
                 android:label="@string/title_activity_read_wrexagram"
-                android:theme="@style/YoChingTheme">
+                android:theme="@style/YoChingTheme"
+                android:exported="true">
         </activity>
     </application>
 
