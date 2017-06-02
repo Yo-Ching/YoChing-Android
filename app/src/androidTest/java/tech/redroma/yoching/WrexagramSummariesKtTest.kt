@@ -28,7 +28,7 @@ import tech.redroma.yoching.test.notEmptyString
 import tech.redroma.yoching.test.notNull
 
 @RunWith(AndroidJUnit4::class)
-class WrexagramsKtTest
+class WrexagramSummariesKtTest
 {
     private lateinit var context: Context
 
