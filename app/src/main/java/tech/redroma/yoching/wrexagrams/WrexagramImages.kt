@@ -19,6 +19,7 @@ package tech.redroma.yoching.wrexagrams
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import tech.redroma.yoching.checkValidWrexNumber
 
 
 /**
@@ -29,12 +30,15 @@ import android.graphics.BitmapFactory
 
 internal fun Context.idForWrexagramImage(wrexagramNumber: Int): Int?
 {
+    checkValidWrexNumber(wrexagramNumber)
+
     val name = "wrex_$wrexagramNumber"
     return resources.getIdentifier(name, "drawable", packageName)
 }
 
 internal fun Context.loadWrexagramImage(wrexagramNumber: Int): Bitmap?
 {
+    checkValidWrexNumber(wrexagramNumber)
 
     val id = idForWrexagramImage(wrexagramNumber) ?: return null
 

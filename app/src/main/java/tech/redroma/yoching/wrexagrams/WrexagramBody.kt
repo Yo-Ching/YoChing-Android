@@ -16,6 +16,8 @@
 
 package tech.redroma.yoching.wrexagrams
 
+import tech.redroma.yoching.checkValidWrexNumber
+
 
 /**
  *
@@ -39,10 +41,12 @@ private object WrexagramBodies
 
 internal fun android.content.Context.loadWrexagramBody(wrexagramNumber: Int): String?
 {
-    if (tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies.isEmpty())
+    checkValidWrexNumber(wrexagramNumber)
+
+    if (WrexagramBodies.bodies.isEmpty())
     {
-        tech.redroma.yoching.wrexagrams.WrexagramBodies.loadAllBodies(this)
+        WrexagramBodies.loadAllBodies(this)
     }
 
-    return tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies.getOrNull(wrexagramNumber - 1)
+    return WrexagramBodies.bodies.getOrNull(wrexagramNumber - 1)
 }

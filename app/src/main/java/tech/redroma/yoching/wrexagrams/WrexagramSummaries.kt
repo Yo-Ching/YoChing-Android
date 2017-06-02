@@ -19,6 +19,7 @@ package tech.redroma.yoching.wrexagrams
 import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
+import tech.redroma.yoching.checkValidWrexNumber
 import java.io.*
 
 
@@ -74,6 +75,8 @@ private object Summaries
 
 fun Context.loadWrexagramSummary(wrexagramNumber: Int): WrexagramSummary?
 {
+    checkValidWrexNumber(wrexagramNumber)
+
     if (Summaries.wrexagramSummaries.isNotEmpty())
     {
         return Summaries.wrexagramSummaries.getOrNull(wrexagramNumber - 1)
