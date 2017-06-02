@@ -28,7 +28,7 @@ private object WrexagramBodies
 
     fun loadAllBodies(context: android.content.Context)
     {
-        tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies = context.assets.list("text")
+        bodies = context.assets.list("text")
                 .map { context.assets.open("text/$it") }
                 .map { java.io.InputStreamReader(it) }
                 .map { java.io.BufferedReader(it) }

@@ -16,6 +16,9 @@ package tech.redroma.yoching.wrexagrams
  * limitations under the License.
  */
 
+import android.content.Context
+import android.support.test.InstrumentationRegistry
+import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import tech.redroma.yoching.test.notEmptyString
 import tech.redroma.yoching.test.notNull
@@ -23,12 +26,12 @@ import tech.redroma.yoching.test.notNull
 @org.junit.runner.RunWith(android.support.test.runner.AndroidJUnit4::class)
 class WrexagramSummariesKtTest
 {
-    private lateinit var context: android.content.Context
+    private lateinit var context: Context
 
     @org.junit.Before
     fun setup()
     {
-        context = android.support.test.InstrumentationRegistry.getTargetContext()
+        context = InstrumentationRegistry.getTargetContext()
 
     }
 
@@ -39,13 +42,13 @@ class WrexagramSummariesKtTest
         for (wrex in 1..64)
         {
             var summary = context.loadWrexagramSummary(wrex)
-            com.natpryce.hamkrest.assertion.assertThat(summary, notNull)
+            assertThat(summary, notNull)
             summary = summary ?: return
 
-            com.natpryce.hamkrest.assertion.assertThat(summary.number, equalTo(wrex))
-            com.natpryce.hamkrest.assertion.assertThat(summary.title, notEmptyString)
-            com.natpryce.hamkrest.assertion.assertThat(summary.subTitle, notEmptyString)
-            com.natpryce.hamkrest.assertion.assertThat(summary.whatsUp, notEmptyString)
+            assertThat(summary.number, equalTo(wrex))
+            assertThat(summary.title, notEmptyString)
+            assertThat(summary.subTitle, notEmptyString)
+            assertThat(summary.whatsUp, notEmptyString)
         }
     }
 

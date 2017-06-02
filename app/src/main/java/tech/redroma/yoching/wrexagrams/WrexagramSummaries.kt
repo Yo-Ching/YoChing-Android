@@ -39,15 +39,14 @@ private object Summaries
 
     fun loadSummaries(context: Context)
     {
-        val jsonFile = context.assets.open("json/wrexagrams.json") ?: return
-
-        val string = jsonFile.readToString() ?: return
-
-        val jsonArray = JSONArray(string)
+        val jsonArray = context.assets
+                               .open("json/wrexagrams.json")
+                               .readToString()
+                               .let { JSONArray(it) }
 
         wrexagramSummaries = (0 until jsonArray.length())
-                .map { jsonArray.getJSONObject(it) }
-                .map { readSummaryFrom(it) }
+                             .map { jsonArray.getJSONObject(it) }
+                             .map { readSummaryFrom(it) }
 
     }
 
