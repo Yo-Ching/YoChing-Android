@@ -21,7 +21,7 @@ class YoActivity : AppCompatActivity()
     {
         setContentView(R.layout.activity_yo)
 
-        actionBar = findViewById(R.id.yo_action_bar) as Toolbar
+        actionBar = findViewById(R.id.action_toolbar) as Toolbar
         prompt = findViewById(R.id.yo_prompt) as TextView
         prompt.typeface = applicationContext.exoBlack()
 
