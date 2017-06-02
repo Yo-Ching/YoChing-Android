@@ -32,6 +32,7 @@ data class WrexagramSummary(val number: Int,
                             val subTitle: String,
                             val whatsUp: String)
 
+
 private object Summaries
 {
     var wrexagramSummaries: List<WrexagramSummary> = listOf()
