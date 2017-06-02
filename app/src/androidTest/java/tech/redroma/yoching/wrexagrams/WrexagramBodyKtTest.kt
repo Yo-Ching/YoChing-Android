@@ -1,4 +1,4 @@
-package tech.redroma.yoching
+package tech.redroma.yoching.wrexagrams
 
 /*
  * Copyright 2017 RedRoma, Inc.

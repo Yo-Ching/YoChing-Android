@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
+package tech.redroma.yoching.wrexagrams
 
 import android.content.Context
 import org.json.JSONArray
@@ -47,7 +47,7 @@ private object Summaries
 
         wrexagramSummaries = (0 until jsonArray.length())
                 .map { jsonArray.getJSONObject(it) }
-                .map { this.readSummaryFrom(it) }
+                .map { readSummaryFrom(it) }
 
     }
 

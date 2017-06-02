@@ -14,11 +14,7 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
-
-import android.content.Context
-import java.io.BufferedReader
-import java.io.InputStreamReader
+package tech.redroma.yoching.wrexagrams
 
 
 /**
@@ -30,23 +26,23 @@ private object WrexagramBodies
 {
     var bodies: List<String> = listOf()
 
-    fun loadAllBodies(context: Context)
+    fun loadAllBodies(context: android.content.Context)
     {
-        this.bodies = context.assets.list("text")
+        tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies = context.assets.list("text")
                 .map { context.assets.open("text/$it") }
-                .map { InputStreamReader(it) }
-                .map { BufferedReader(it) }
+                .map { java.io.InputStreamReader(it) }
+                .map { java.io.BufferedReader(it) }
                 .map { it.readText() }
     }
 }
 
 
-internal fun Context.loadWrexagramBody(wrexagramNumber: Int): String?
+internal fun android.content.Context.loadWrexagramBody(wrexagramNumber: Int): String?
 {
-    if (WrexagramBodies.bodies.isEmpty())
+    if (tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies.isEmpty())
     {
-        WrexagramBodies.loadAllBodies(this)
+        tech.redroma.yoching.wrexagrams.WrexagramBodies.loadAllBodies(this)
     }
 
-    return WrexagramBodies.bodies.getOrNull(wrexagramNumber - 1)
+    return tech.redroma.yoching.wrexagrams.WrexagramBodies.bodies.getOrNull(wrexagramNumber - 1)
 }
