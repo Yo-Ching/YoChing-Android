@@ -22,5 +22,10 @@ class ReadWrexagramActivity : AppCompatActivity()
 
         LOG.info("Loading Wrexagram #$wrexagramNumber")
         toolbar = findViewById(R.id.action_toolbar) as Toolbar
+
+        Aroma.send {
+            it.sendMediumPriorityMessage("Android Launched!")
+        }
+
     }
 }
