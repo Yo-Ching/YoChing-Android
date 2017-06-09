@@ -57,7 +57,7 @@ dependencies {
     //==============================================
     //AROMA
     //==============================================
-    compile "tech.aroma:aroma-java-client:2.0-SNAPSHOT"
+    compile "tech.aroma:aroma-java-client:2.0"
 
     //==============================================
     //KOTLIN
