@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
 
 class ReadActivity : AppCompatActivity()
@@ -55,31 +56,29 @@ class ReadActivity : AppCompatActivity()
 
     }
 
-
-}
-
-private class Views
-{
-    lateinit var toolbar: Toolbar
-    lateinit var actionBarTitle: TextView
-    lateinit var image: ImageView
-    lateinit var title: TextView
-    lateinit var body: TextView
-
-    fun inflate(activity: AppCompatActivity)
+    private class Views : ViewContainer
     {
-        activity.perform {
+        lateinit var toolbar: Toolbar
+        lateinit var actionBarTitle: TextView
+        lateinit var image: ImageView
+        lateinit var title: TextView
+        lateinit var body: TextView
 
-            actionBarTitle = findViewById(id.yo_action_bar_title) as TextView
-            toolbar = findViewById(id.action_toolbar) as Toolbar
-            image = findViewById(id.wrexagram_image) as ImageView
-            this@Views.title = findViewById(id.wrexagram_title) as TextView
-            body = findViewById(id.wrexagram_body) as TextView
+        override fun inflate(activity: AppCompatActivity)
+        {
+            activity.perform {
 
-            actionBarTitle.typeface = exoBlack()
-            this@Views.title.typeface = exoBlack()
-            body.typeface = signikaRegular()
+                actionBarTitle = findViewById(id.yo_action_bar_title) as TextView
+                toolbar = findViewById(id.action_toolbar) as Toolbar
+                image = findViewById(id.wrexagram_image) as ImageView
+                this@Views.title = findViewById(id.wrexagram_title) as TextView
+                body = findViewById(id.wrexagram_body) as TextView
+
+                actionBarTitle.typeface = exoBlack()
+                this@Views.title.typeface = exoBlack()
+                body.typeface = signikaRegular()
+            }
+
         }
-
     }
 }
