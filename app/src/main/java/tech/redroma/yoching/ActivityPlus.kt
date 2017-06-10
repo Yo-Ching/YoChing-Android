@@ -37,3 +37,8 @@ internal fun AppCompatActivity.setActionBarFont(typeface: Typeface, size: Int)
     titleView.typeface = typeface
     titleView.textSize = size.toFloat()
 }
+
+internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
+{
+    block(this)
+}

@@ -4,16 +4,20 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.widget.ImageView
+import android.widget.TextView
 import org.slf4j.LoggerFactory
+import tech.redroma.yoching.wrexagrams.*
 
 class ReadWrexagramActivity : AppCompatActivity()
 {
     private val LOG = LoggerFactory.getLogger(this::class.java)
+    private val DEFAULT_SUMMARY = WrexagramSummary(number = 1, title = "BRING IT", subTitle = "", whatsUp = "")
 
-    private lateinit var toolbar: Toolbar
-    private lateinit var wrexImage: ImageView
+    private lateinit var summary: WrexagramSummary
 
-    private val wrexagramNumber = 2
+    private val views = Views()
+
+    val wrexagramNumber = 15
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -21,10 +25,57 @@ class ReadWrexagramActivity : AppCompatActivity()
         setContentView(R.layout.activity_read_wrexagram)
 
         LOG.info("Loading Wrexagram #$wrexagramNumber")
-        toolbar = findViewById(R.id.action_toolbar) as Toolbar
 
         Aroma.send {
-            it.sendMediumPriorityMessage("Android Launched!")
+            sendMediumPriorityMessage("Wrexagram Viewed", body = "Wrexagram #$wrexagramNumber")
+        }
+
+        views.inflate(this)
+        loadWrexagramInfo()
+
+    }
+
+    private fun loadWrexagramInfo()
+    {
+        views.actionBarTitle.text = "WREXAGRAM #$wrexagramNumber"
+
+        val image = applicationContext.loadWrexagramImage(wrexagramNumber)
+
+        if (image != null)
+            views.image.setImageBitmap(image)
+
+        this.summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
+        views.title.text = summary.title
+
+        val body = applicationContext.loadWrexagramBody(wrexagramNumber)
+        views.body.text = body
+
+    }
+
+
+}
+
+private class Views
+{
+    lateinit var toolbar: Toolbar
+    lateinit var actionBarTitle: TextView
+    lateinit var image: ImageView
+    lateinit var title: TextView
+    lateinit var body: TextView
+
+    fun inflate(activity: AppCompatActivity)
+    {
+        activity.perform {
+
+            actionBarTitle = findViewById(R.id.yo_action_bar_title) as TextView
+            toolbar = findViewById(R.id.action_toolbar) as Toolbar
+            image = findViewById(R.id.wrexagram_image) as ImageView
+            this@Views.title = findViewById(R.id.wrexagram_title) as TextView
+            body = findViewById(R.id.wrexagram_body) as TextView
+
+            actionBarTitle.typeface = exoBlack()
+            this@Views.title.typeface = exoBlack()
+            body.typeface = signikaRegular()
         }
 
     }
