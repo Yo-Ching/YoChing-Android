@@ -31,7 +31,6 @@ internal object Aroma
 {
     private var aroma: AromaClient? = null
 
-
     fun send(callback: AromaClient.() -> Unit)
     {
         AsyncTask.execute block@ {

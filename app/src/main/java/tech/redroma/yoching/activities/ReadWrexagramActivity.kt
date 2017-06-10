@@ -1,4 +1,4 @@
-package tech.redroma.yoching
+package tech.redroma.yoching.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -6,6 +6,9 @@ import android.support.v7.widget.Toolbar
 import android.widget.ImageView
 import android.widget.TextView
 import org.slf4j.LoggerFactory
+import tech.redroma.yoching.*
+import tech.redroma.yoching.R.id
+import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.wrexagrams.*
 
 class ReadWrexagramActivity : AppCompatActivity()
@@ -22,7 +25,7 @@ class ReadWrexagramActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_read_wrexagram)
+        setContentView(layout.activity_read_wrexagram)
 
         LOG.info("Loading Wrexagram #$wrexagramNumber")
 
@@ -67,11 +70,11 @@ private class Views
     {
         activity.perform {
 
-            actionBarTitle = findViewById(R.id.yo_action_bar_title) as TextView
-            toolbar = findViewById(R.id.action_toolbar) as Toolbar
-            image = findViewById(R.id.wrexagram_image) as ImageView
-            this@Views.title = findViewById(R.id.wrexagram_title) as TextView
-            body = findViewById(R.id.wrexagram_body) as TextView
+            actionBarTitle = findViewById(id.yo_action_bar_title) as TextView
+            toolbar = findViewById(id.action_toolbar) as Toolbar
+            image = findViewById(id.wrexagram_image) as ImageView
+            this@Views.title = findViewById(id.wrexagram_title) as TextView
+            body = findViewById(id.wrexagram_body) as TextView
 
             actionBarTitle.typeface = exoBlack()
             this@Views.title.typeface = exoBlack()
