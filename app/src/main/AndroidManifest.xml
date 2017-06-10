@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activities.ReadWrexagramActivity"
+                android:name=".activities.ReadActivity"
                 android:label="@string/title_activity_read_wrexagram"
                 android:theme="@style/YoChingTheme"
                 android:exported="true">

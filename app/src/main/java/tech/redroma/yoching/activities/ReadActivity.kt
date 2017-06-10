@@ -11,7 +11,7 @@ import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.wrexagrams.*
 
-class ReadWrexagramActivity : AppCompatActivity()
+class ReadActivity : AppCompatActivity()
 {
     private val LOG = LoggerFactory.getLogger(this::class.java)
     private val DEFAULT_SUMMARY = WrexagramSummary(number = 1, title = "BRING IT", subTitle = "", whatsUp = "")
