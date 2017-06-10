@@ -21,7 +21,7 @@
                   android:layout_gravity="center"
                   android:textAlignment="center"
                   android:id="@+id/yo_action_bar_title"
-                  android:text="YO CHING"
+                  android:text="@string/yo_ching"
                   android:textColor="#FFFFFF"
                   android:textSize="30sp"
                   android:textStyle="bold"
@@ -92,6 +92,7 @@
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
+                android:contentDescription="@string/yo_ching_coin_description"
                 app:srcCompat="@drawable/coin_heads_slick_shadow" />
 
         <ImageView
@@ -105,6 +106,7 @@
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
+                android:contentDescription="@string/yo_ching_coin_description"
                 app:srcCompat="@drawable/coin_heads_slick_shadow" />
 
         <ImageView
@@ -118,7 +120,9 @@
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
+                android:contentDescription="@string/yo_ching_coin_description"
                 app:srcCompat="@drawable/coin_heads_slick_shadow" />
+
     </LinearLayout>
 
     <android.support.constraint.Guideline

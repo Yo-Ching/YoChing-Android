@@ -26,7 +26,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:id="@+id/yo_action_bar_title"
-                android:text="WREXAGRAM 9"
+                android:text="@string/placeholder_wrexagram_number"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -68,7 +68,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                    android:text="WAIT A MINUTE"
+                    android:text="@string/placeholder_wrexagram_title"
                     android:layout_width="344dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/wrexagram_title"
@@ -105,13 +105,14 @@
                     tools:layout_editor_absoluteY="86dp"
                     tools:layout_editor_absoluteX="33dp" />
 
-            <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                                  android:layout_height="wrap_content"
-                                                  android:id="@+id/right_guideline"
-                                                  android:orientation="vertical"
-                                                  app:layout_constraintGuide_percent="0.95"
-                                                  tools:layout_editor_absoluteY="86dp"
-                                                  tools:layout_editor_absoluteX="343dp" />
+            <android.support.constraint.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/right_guideline"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95"
+                    tools:layout_editor_absoluteY="86dp"
+                    tools:layout_editor_absoluteX="343dp" />
 
             <TextView
                     android:text="@string/large_text"
