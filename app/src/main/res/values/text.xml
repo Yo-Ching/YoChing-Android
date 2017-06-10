@@ -2,6 +2,8 @@
 <resources>
 
     <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
+    <string name="wrexagram_image_content_description">Wrexagram Image</string>
+    <string name="galaxy_background_description">Galaxy Background</string>
 
     <string-array name="greetings">
         <item>WHAT\'S UP?</item>
