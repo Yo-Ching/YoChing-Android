@@ -21,7 +21,7 @@ class ReadActivity : AppCompatActivity()
 
     private val views = Views()
 
-    val wrexagramNumber = 15
+    val wrexagramNumber = 13
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
