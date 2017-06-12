@@ -17,172 +17,207 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-    <LinearLayout
-            android:orientation="vertical"
+    <ScrollView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp">
-        <TextView
-                android:text="Throwing Style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="26sp"
-                android:layout_marginTop="24dp"
-                android:textStyle="bold"/>
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp">
+
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="16dp"
+                android:paddingBottom="32dp">
+
             <TextView
-                    android:text="True Player"
+                    android:text="Throwing Style"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView4"
-                    android:textAllCaps="false"
+                    android:textAllCaps="true"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_marginTop="16dp"/>
-            <TextView
-                    android:text="Build your wrexagram in 6 throws"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView6"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:layout_marginTop="0dp"
-                    android:alpha="0.75"/>
-            <TextView
-                    android:text="Tap That"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView8"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_marginTop="16dp"/>
-            <TextView
-                    android:text="One Throw for players on the go"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView7"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:layout_marginTop="0dp"
-                    android:alpha="0.75"/>
-        </LinearLayout>
-        <TextView
-                android:text="Change Style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView3"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="26sp"
-                android:layout_marginTop="36dp"
-                android:textStyle="bold"/>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
-            <TextView
-                    android:text="Street"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView4"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_marginTop="16dp"/>
-            <TextView
-                    android:text="Straight from the Bodega"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView6"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:layout_marginTop="0dp"
-                    android:alpha="0.75"/>
-            <TextView
-                    android:text="Slick"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView8"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:layout_marginTop="16dp"/>
-            <TextView
-                    android:text="Throw down in style"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView7"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:layout_marginTop="0dp"
-                    android:alpha="0.75"/>
-        </LinearLayout>
-        <TextView
-                android:text="What's up"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9"
-                android:textAllCaps="true"
-                android:textColor="@android:color/background_light"
-                android:textSize="26sp"
-                android:layout_marginTop="36dp"
-                android:textStyle="bold"/>
-        <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                    android:textSize="26sp"
+                    android:layout_marginTop="24dp"
+                    android:textStyle="bold"
+                    android:id="@+id/throwing_style" />
             <LinearLayout
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
                 <TextView
-                        android:text="Buy The Book"
-                        android:layout_width="wrap_content"
+                        android:text="True Player"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView10"
-                        android:layout_weight="0.9"
+                        android:id="@+id/true_player"
+                        android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_gravity="clip_vertical"
-                        android:gravity="center_vertical"
-                        android:foregroundGravity="center_vertical"/>
-                <ImageView
-                        android:layout_height="30dp"
-                        app:srcCompat="@drawable/arrow_right"
-                        android:id="@+id/imageView"
-                        android:layout_weight="0.1"
-                        android:clickable="true"
-                        android:layout_gravity="right|center_vertical"
-                        android:foregroundGravity="right|center_vertical"
-                        android:layout_width="30dp"
-                />
+                        android:layout_marginTop="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true" />
+                <TextView
+                        android:text="Build your wrexagram in 6 throws"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/true_player_description" />
+                <TextView
+                        android:text="Tap That"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tap_that"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:layout_marginTop="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true" />
+                <TextView
+                        android:text="One Throw for players on the go"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/tap_that_description" />
             </LinearLayout>
+            <TextView
+                    android:text="Change Style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="26sp"
+                    android:layout_marginTop="36dp"
+                    android:textStyle="bold"
+                    android:id="@+id/change_style" />
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp">
+                <TextView
+                        android:text="Street"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/street"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:layout_marginTop="16dp" />
+                <TextView
+                        android:text="Straight from the Bodega"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/street_description" />
+                <TextView
+                        android:text="Slick"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/slick"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:layout_marginTop="16dp" />
+                <TextView
+                        android:text="Throw down in style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/slick_description" />
+            </LinearLayout>
+
+            <TextView
+                    android:text="What's up"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="26sp"
+                    android:layout_marginTop="36dp"
+                    android:textStyle="bold"
+                    android:id="@+id/whats_up" />
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true">
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp">
+                    <TextView
+                            android:text="Buy The Book"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/buy_the_book"
+                            android:layout_weight="0.9"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:layout_gravity="clip_vertical"
+                            android:gravity="center_vertical"
+                            android:foregroundGravity="center_vertical" />
+                    <ImageView
+                            android:layout_height="25dp"
+                            app:srcCompat="@drawable/arrow_right"
+                            android:layout_weight="0.1"
+                            android:clickable="true"
+                            android:layout_gravity="right|center_vertical"
+                            android:foregroundGravity="right|center_vertical"
+                            android:layout_width="25dp"
+                    />
+                </LinearLayout>
+                <TextView
+                        android:text="300+ pages of YO CHING Wisdom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/buy_the_book_description" />
+
+            </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
+
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>
