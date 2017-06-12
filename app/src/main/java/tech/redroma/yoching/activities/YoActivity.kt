@@ -1,11 +1,14 @@
 package tech.redroma.yoching.activities
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.View
 import android.widget.ArrayAdapter
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
@@ -16,7 +19,7 @@ import tech.redroma.yoching.views.ViewContainer
 class YoActivity : AppCompatActivity()
 {
 
-    private lateinit var view: Views
+    private val views = Views()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -51,15 +54,16 @@ class YoActivity : AppCompatActivity()
     {
         supportFragmentManager
                 .beginTransaction()
+                .setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right)
                 .replace(R.id.fragment_container, SettingsFragment.newInstance())
+                .addToBackStack("Yo")
                 .commit()
     }
 
     private fun setupView()
     {
         setContentView(layout.activity_yo)
-        view = Views()
-        view.inflate(this)
+        views.inflate(this)
 
         setActionBarFont(applicationContext.exoBlack(), 30)
     }
@@ -78,7 +82,30 @@ class YoActivity : AppCompatActivity()
                 this@Views.actionBar = findViewById(id.action_toolbar) as Toolbar
 
                 drawerLayout = findViewById(id.drawerLayout) as DrawerLayout
+                drawerToggle = DrawerToggle(this, drawerLayout)
+                drawerLayout.addDrawerListener(drawerToggle)
             }
+        }
+
+    }
+
+    private class DrawerToggle(activity: Activity,
+                               drawerLayout: DrawerLayout) : ActionBarDrawerToggle(activity,
+                                                                                   drawerLayout,
+                                                                                   R.string.drawer_open,
+                                                                                   R.string.drawer_close)
+    {
+
+        override fun onDrawerOpened(drawerView: View?)
+        {
+            super.onDrawerOpened(drawerView)
+            LOG.info("Drawer opened!")
+        }
+
+        override fun onDrawerClosed(drawerView: View?)
+        {
+            super.onDrawerClosed(drawerView)
+            LOG.info("Drawer closed!")
         }
     }
 }

@@ -3,6 +3,8 @@
     <string name="action_settings">Settings</string>
     <string name="app_name">Yo Ching</string>
     <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Open navigation drawer</string>
     <string name="galaxy_background_description">Galaxy Background</string>
     <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
     <string name="placeholder_wrexagram_title">WAIT A MINUTE</string>
