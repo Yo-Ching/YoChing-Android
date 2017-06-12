@@ -48,7 +48,7 @@ class YoActivity : AppCompatActivity()
     {
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment, ThrowTheYoFragment.newInstance())
+                .replace(R.id.fragment_container, SettingsFragment.newInstance())
                 .commit()
     }
 

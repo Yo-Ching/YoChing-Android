@@ -36,7 +36,7 @@ class SettingsFragment : Fragment()
         }
     }
 
-    private var listener: YoSettingsListener? = null
+    var listener: YoSettingsListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -57,10 +57,6 @@ class SettingsFragment : Fragment()
         if (context is YoSettingsListener)
         {
             listener = context
-        }
-        else
-        {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
         }
     }
 
