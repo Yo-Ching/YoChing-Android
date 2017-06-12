@@ -2,8 +2,11 @@ package tech.redroma.yoching.activities
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.widget.ArrayAdapter
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
@@ -58,17 +61,23 @@ class YoActivity : AppCompatActivity()
         view = Views()
         view.inflate(this)
 
-        setActionBarFont(applicationContext.exoBlack()!!, 30)
+        setActionBarFont(applicationContext.exoBlack(), 30)
     }
 
     private class Views : ViewContainer
     {
         private lateinit var actionBar: Toolbar
+        private lateinit var drawerToggle: ActionBarDrawerToggle
+        private lateinit var adapter: ArrayAdapter<String>
+        private lateinit var drawerLayout: DrawerLayout
 
         override fun inflate(activity: AppCompatActivity)
         {
             activity.perform {
+
                 this@Views.actionBar = findViewById(id.action_toolbar) as Toolbar
+
+                drawerLayout = findViewById(id.drawerLayout) as DrawerLayout
             }
         }
     }
