@@ -1,13 +1,13 @@
 package tech.redroma.yoching.activities
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import tech.redroma.yoching.*
@@ -50,6 +50,16 @@ class YoActivity : AppCompatActivity()
         super.onAttachFragment(fragment)
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        if (views.drawerToggle.onOptionsItemSelected(item))
+        {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun replaceFragment()
     {
         supportFragmentManager
@@ -70,27 +80,35 @@ class YoActivity : AppCompatActivity()
 
     private class Views : ViewContainer
     {
-        private lateinit var actionBar: Toolbar
-        private lateinit var drawerToggle: ActionBarDrawerToggle
-        private lateinit var adapter: ArrayAdapter<String>
-        private lateinit var drawerLayout: DrawerLayout
+        lateinit var actionToolbar: Toolbar
+        lateinit var drawerToggle: ActionBarDrawerToggle
+        lateinit var adapter: ArrayAdapter<String>
+        lateinit var drawerLayout: DrawerLayout
 
         override fun inflate(activity: AppCompatActivity)
         {
             activity.perform {
 
-                this@Views.actionBar = findViewById(id.action_toolbar) as Toolbar
+                actionToolbar = findViewById(id.action_toolbar) as Toolbar
+                setSupportActionBar(actionToolbar)
+                title = ""
 
                 drawerLayout = findViewById(id.drawerLayout) as DrawerLayout
                 drawerToggle = DrawerToggle(this, drawerLayout)
+                drawerToggle.isDrawerIndicatorEnabled = true
+                drawerToggle.drawerArrowDrawable.color = resources.getColor(R.color.white)
                 drawerLayout.addDrawerListener(drawerToggle)
+                drawerToggle.syncState()
+
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                supportActionBar?.setHomeButtonEnabled(true)
             }
         }
 
     }
 
-    private class DrawerToggle(activity: Activity,
-                               drawerLayout: DrawerLayout) : ActionBarDrawerToggle(activity,
+    private class DrawerToggle(val activity: Activity,
+                               val drawerLayout: DrawerLayout) : ActionBarDrawerToggle(activity,
                                                                                    drawerLayout,
                                                                                    R.string.drawer_open,
                                                                                    R.string.drawer_close)
@@ -100,12 +118,18 @@ class YoActivity : AppCompatActivity()
         {
             super.onDrawerOpened(drawerView)
             LOG.info("Drawer opened!")
+
+            activity.invalidateOptionsMenu()
+            syncState()
         }
 
         override fun onDrawerClosed(drawerView: View?)
         {
             super.onDrawerClosed(drawerView)
             LOG.info("Drawer closed!")
+
+            activity.invalidateOptionsMenu()
+            syncState()
         }
     }
 }
