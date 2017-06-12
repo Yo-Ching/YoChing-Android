@@ -20,12 +20,8 @@ import android.content.Context
 import android.graphics.Paint
 import android.graphics.Typeface
 import android.support.v4.util.LruCache
-import android.support.v7.app.ActionBar
-import android.text.*
+import android.text.TextPaint
 import android.text.style.MetricAffectingSpan
-import android.text.style.TypefaceSpan
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
 
 
 /**
@@ -34,31 +30,23 @@ import org.slf4j.LoggerFactory
  */
 
 object Exo
-{
-
-}
 
 object Signika
-{
 
-}
+fun Context.exoThin() = loadTypeface("fonts/Exo 100.ttf")!!
+fun Context.exoExtraLight() = loadTypeface("fonts/Exo 200.ttf")!!
+fun Context.exoLight() = loadTypeface("fonts/Exo 300.ttf")!!
+fun Context.exoRegular() = loadTypeface("fonts/Exo regular.ttf")!!
+fun Context.exoMedium() = loadTypeface("fonts/Exo 500.ttf")!!
+fun Context.exoDemiBold() = loadTypeface("fonts/Exo 600.ttf")!!
+fun Context.exoBold() = loadTypeface("fonts/Exo 700.ttf")!!
+fun Context.exoExtraBold() = loadTypeface("fonts/Exo 800.ttf")!!
+fun Context.exoBlack() = loadTypeface("fonts/Exo 900.ttf")!!
 
-object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
-
-fun Context.exoThin() = loadTypeface("fonts/Exo 100.ttf")
-fun Context.exoExtraLight() = loadTypeface("fonts/Exo 200.ttf")
-fun Context.exoLight() = loadTypeface("fonts/Exo 300.ttf")
-fun Context.exoRegular() = loadTypeface("fonts/Exo regular.ttf")
-fun Context.exoMedium() = loadTypeface("fonts/Exo 500.ttf")
-fun Context.exoDemiBold() = loadTypeface("fonts/Exo 600.ttf")
-fun Context.exoBold() = loadTypeface("fonts/Exo 700.ttf")
-fun Context.exoExtraBold() = loadTypeface("fonts/Exo 800.ttf")
-fun Context.exoBlack() = loadTypeface("fonts/Exo 900.ttf")
-
-fun Context.signikaLight() = loadTypeface("fonts/Signika 300.ttf")
-fun Context.signikaRegular() = loadTypeface("fonts/Signika regular.ttf")
-fun Context.signikaSemiBold() = loadTypeface("fonts/Signika 600.ttf")
-fun Context.signikaBold() = loadTypeface("fonts/Signika 700.ttf")
+fun Context.signikaLight() = loadTypeface("fonts/Signika 300.ttf")!!
+fun Context.signikaRegular() = loadTypeface("fonts/Signika regular.ttf")!!
+fun Context.signikaSemiBold() = loadTypeface("fonts/Signika 600.ttf")!!
+fun Context.signikaBold() = loadTypeface("fonts/Signika 700.ttf")!!
 
 private fun Context.loadTypeface(asset: String): Typeface?
 {

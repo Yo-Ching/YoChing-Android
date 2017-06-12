@@ -25,7 +25,7 @@ import tech.aroma.client.Aroma as AromaClient
  * @author SirWellington
  */
 
-internal const val AROMA_TOKEN = "d145da35-acba-43fc-b73f-49d9d173e12b"
+private const val AROMA_TOKEN = "d145da35-acba-43fc-b73f-49d9d173e12b"
 
 internal object Aroma
 {
