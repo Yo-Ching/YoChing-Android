@@ -8,12 +8,14 @@
 
 
     <ImageView
-            android:layout_width="344dp"
-            android:layout_height="551dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:srcCompat="@drawable/galaxy_white_transparent"
-            tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp"
-            android:id="@+id/galactic_background"/>
+            android:id="@+id/galactic_background"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <LinearLayout
             android:orientation="vertical"
@@ -25,7 +27,9 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp">
         <TextView
                 android:text="Throwing Style"
                 android:layout_width="match_parent"
