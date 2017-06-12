@@ -18,9 +18,13 @@ package tech.redroma.yoching
 
 import android.app.Activity
 import android.graphics.Typeface
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
+object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 
 internal val Activity.actionBarTitleView: TextView? get()
 {
@@ -39,6 +43,11 @@ internal fun AppCompatActivity.setActionBarFont(typeface: Typeface, size: Int)
 }
 
 internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
+{
+    block(this)
+}
+
+internal fun Fragment.perform(block: Fragment.() -> Unit)
 {
     block(this)
 }

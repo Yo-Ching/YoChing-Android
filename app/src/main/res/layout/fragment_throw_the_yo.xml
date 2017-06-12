@@ -4,31 +4,9 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context="tech.redroma.yoching.activities.YoActivity">
+                                             tools:context="tech.redroma.yoching.activities.YoActivity"
+>
 
-    <android.support.v7.widget.Toolbar android:layout_width="0dp"
-                                       android:layout_height="wrap_content"
-                                       android:background="@color/colorPrimary"
-                                       android:id="@+id/action_toolbar"
-                                       android:paddingBottom="10dp"
-                                       android:paddingTop="10dp"
-                                       app:layout_constraintRight_toRightOf="parent"
-                                       app:layout_constraintLeft_toLeftOf="parent"
-                                       app:layout_constraintTop_toTopOf="parent">
-
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:textAlignment="center"
-                  android:id="@+id/yo_action_bar_title"
-                  android:text="@string/yo_ching"
-                  android:textColor="#FFFFFF"
-                  android:textSize="30sp"
-                  android:textStyle="bold"
-                  android:gravity="center_horizontal"
-                  android:paddingTop="5dp" />
-
-    </android.support.v7.widget.Toolbar>
 
     <ImageView
             android:id="@+id/galaxy_background"

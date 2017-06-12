@@ -43,8 +43,6 @@ object Signika
 
 }
 
-object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
-
 fun Context.exoThin() = loadTypeface("fonts/Exo 100.ttf")
 fun Context.exoExtraLight() = loadTypeface("fonts/Exo 200.ttf")
 fun Context.exoLight() = loadTypeface("fonts/Exo 300.ttf")
