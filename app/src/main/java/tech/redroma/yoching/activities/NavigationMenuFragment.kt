@@ -20,10 +20,8 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import tech.redroma.yoching.LOG
-import tech.redroma.yoching.R
+import android.widget.*
+import tech.redroma.yoching.*
 
 
 /**
@@ -97,7 +95,7 @@ private class NavigationAdapter: ArrayAdapter<String>
             return convertView
         }
 
-        return when (position)
+        val view = when (position)
         {
             0 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
             1 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
@@ -105,6 +103,15 @@ private class NavigationAdapter: ArrayAdapter<String>
             3 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
             else -> super.getView(position, convertView, parent)
         }
+
+        val text = view.findViewById(R.id.text) as? TextView
+
+        if (text != null)
+        {
+            text.typeface = context.exoDemiBold()
+        }
+
+        return view
     }
 
 }

@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
-import android.widget.ArrayAdapter
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
@@ -82,7 +81,6 @@ class YoActivity : AppCompatActivity()
     {
         lateinit var actionToolbar: Toolbar
         lateinit var drawerToggle: ActionBarDrawerToggle
-        lateinit var adapter: ArrayAdapter<String>
         lateinit var drawerLayout: DrawerLayout
 
         override fun inflate(activity: AppCompatActivity)
