@@ -27,11 +27,11 @@ class YoActivity : AppCompatActivity()
 
         setupView()
 
+        Aroma.send { sendMediumPriorityMessage("App Launched") }
     }
 
     override fun onAttachFragment(fragment: Fragment)
     {
-
         LOG.info("Attached fragment! ")
 
         if (fragment is ThrowTheYoFragment)

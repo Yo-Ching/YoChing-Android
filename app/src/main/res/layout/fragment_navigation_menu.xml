@@ -3,7 +3,6 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
-                                             tools:context="tech.redroma.yoching.activities.SettingsFragment"
                                              android:background="@color/colorPrimary">
 
 
@@ -21,6 +20,7 @@
     <ListView
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:id="@android:id/list"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"

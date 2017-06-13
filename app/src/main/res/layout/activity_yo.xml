@@ -29,7 +29,7 @@
                   android:textSize="30sp"
                   android:textStyle="bold"
                   android:gravity="center_horizontal"
-                  android:paddingTop="5dp"/>
+                  android:paddingTop="5dp" />
 
     </android.support.v7.widget.Toolbar>
 
@@ -66,7 +66,7 @@
                         android:name="tech.redroma.yoching.activities.ThrowTheYoFragment"
                         android:id="@+id/fragment"
                         android:layout_width="match_parent"
-                        tools:layout="@layout/fragment_throw_the_yo"/>
+                        tools:layout="@layout/fragment_throw_the_yo" />
 
             </FrameLayout>
 
@@ -74,12 +74,21 @@
 
 
         <!--SIDE MENU-->
-        <ListView
+        <FrameLayout
                 android:id="@+id/navList"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorPrimary">
+
+            <fragment
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:name="tech.redroma.yoching.activities.NavigationMenuFragment"
+                    android:id="@+id/navigationMenuFragment"
+                    tools:layout="@layout/fragment_navigation_menu" />
+
+        </FrameLayout>
 
 
     </android.support.v4.widget.DrawerLayout>
