@@ -6,10 +6,10 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="galaxy_background_description">Galaxy Background</string>
-    <string name="nav_throw_the_yo">Throw The Yo</string>
     <string name="nav_64_wrexagrams">64 Wrexagrams</string>
-    <string name="nav_settings">Settings</string>
     <string name="nav_buy_the_book">Buy The Book</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_throw_the_yo">Throw The Yo</string>
     <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
     <string name="placeholder_wrexagram_title">WAIT A MINUTE</string>
     <string name="title_activity_read_wrexagram">ReadActivity</string>
