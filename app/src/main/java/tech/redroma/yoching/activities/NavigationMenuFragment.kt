@@ -17,6 +17,8 @@
 package tech.redroma.yoching.activities
 
 import android.content.Context
+import android.graphics.BitmapFactory
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.*
@@ -86,7 +88,7 @@ private class NavigationAdapter: ArrayAdapter<String>
 
     private val inflater = LayoutInflater.from(context)
 
-    constructor(context: Context) : super(context, R.layout.menu_throw_the_yo, listOf("1", "2", "3", "4"))
+    constructor(context: Context) : super(context, R.layout.nav_item_template, listOf("1", "2", "3", "4"))
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View?
     {
@@ -95,23 +97,42 @@ private class NavigationAdapter: ArrayAdapter<String>
             return convertView
         }
 
-        val view = when (position)
-        {
-            0 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
-            1 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
-            2 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
-            3 -> inflater.inflate(R.layout.menu_throw_the_yo, parent, false)
-            else -> super.getView(position, convertView, parent)
-        }
 
-        val text = view.findViewById(R.id.text) as? TextView
-
-        if (text != null)
-        {
-            text.typeface = context.exoDemiBold()
-        }
+        val view = inflater.inflate(R.layout.nav_item_template, parent, false)
+        view.setTextForPosition(position)
+        view.setIconForPosition(position)
 
         return view
+    }
+
+    private fun View.setTextForPosition(position: Int)
+    {
+        val text = findViewById(R.id.text) as? TextView ?: return
+        text.typeface = context.exoDemiBold()
+
+        when (position)
+        {
+            0 -> text.text = "Throw The Yo"
+            1 -> text.text = "64 Wrexagrams"
+            2 -> text.text = "Settings"
+            else -> text.text = "Buy The Book"
+        }
+    }
+
+    private fun View.setIconForPosition(position: Int)
+    {
+        val iconView = findViewById(R.id.icon) as? ImageView  ?: return
+
+        val resourceId = when (position)
+        {
+            0 -> R.drawable.nav_yo_bro
+            1 -> R.drawable.nav_wrexagrams
+            2 -> R.drawable.nav_settings
+            else -> R.drawable.nav_buy
+        }
+
+        val icon = resources.getDrawable(resourceId)
+        iconView.setImageDrawable(icon)
     }
 
 }
