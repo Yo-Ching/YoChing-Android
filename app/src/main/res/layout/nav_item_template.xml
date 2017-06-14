@@ -16,7 +16,7 @@
             android:layout_gravity="center_vertical" />
 
     <TextView
-            android:text="Throw The Yo"
+            android:text="@string/nav_throw_the_yo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/text"

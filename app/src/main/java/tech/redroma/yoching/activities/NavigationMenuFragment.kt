@@ -17,13 +17,12 @@
 package tech.redroma.yoching.activities
 
 import android.content.Context
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.*
 import android.widget.*
 import tech.redroma.yoching.*
+import tech.redroma.yoching.R.string
 
 
 /**
@@ -112,10 +111,10 @@ private class NavigationAdapter: ArrayAdapter<String>
 
         when (position)
         {
-            0 -> text.text = "Throw The Yo"
-            1 -> text.text = "64 Wrexagrams"
-            2 -> text.text = "Settings"
-            else -> text.text = "Buy The Book"
+            0 -> text.text = context.getString(string.nav_throw_the_yo)
+            1 -> text.text = context.getString(string.nav_64_wrexagrams)
+            2 -> text.text = context.getString(string.nav_settings)
+            else -> text.text = context.getString(string.nav_buy_the_book)
         }
     }
 
