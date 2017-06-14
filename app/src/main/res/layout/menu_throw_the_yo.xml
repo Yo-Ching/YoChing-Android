@@ -9,7 +9,7 @@
     <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/yo_bro"
+            app:srcCompat="@drawable/nav_yo_bro"
             android:id="@+id/icon"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
