@@ -90,12 +90,12 @@ class NavigationMenuFragment: ListFragment()
 
 }
 
-private class NavigationAdapter: ArrayAdapter<String>
+private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
+                                                                      R.layout.nav_item_template,
+                                                                      (1..4).toList())
 {
 
     private val inflater = LayoutInflater.from(context)
-
-    constructor(context: Context) : super(context, R.layout.nav_item_template, listOf("1", "2", "3", "4"))
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View?
     {
