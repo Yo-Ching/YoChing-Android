@@ -3,37 +3,40 @@
                                              xmlns:app="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
-                                             android:layout_height="80dp">
+                                             android:layout_height="80dp"
+                                             android:background="?android:attr/selectableItemBackground">
 
     <TextView
             android:id="@+id/wrexagram_number"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginStart="0dp"
             android:layout_width="wrap_content"
             android:text="1"
             android:textColor="@color/colorPrimary"
             android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/left_margin"
             app:layout_constraintTop_toTopOf="parent"
-    />
+            app:layout_constraintVertical_bias="0.5" />
 
     <TextView
             android:id="@+id/wrexagram_title"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:text="Bring It"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintRight_toLeftOf="@+id/guideline"
+            android:layout_marginRight="0dp"
             app:layout_constraintLeft_toRightOf="@+id/wrexagram_number"
+            android:layout_marginLeft="24dp"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintTop_toTopOf="parent"
-    />
+            android:layout_marginTop="16dp" />
 
     <TextView
             android:id="@+id/wrexagram_summary"
@@ -49,14 +52,15 @@
             app:layout_constraintRight_toLeftOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/wrexagram_title"
             app:layout_constraintVertical_bias="0.5"
-    />
+            android:textSize="11sp"
+            android:lineSpacingExtra="0sp" />
 
     <ImageView
             android:id="@+id/wrexagram_icon"
             android:layout_height="0dp"
             android:layout_marginBottom="0dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
             android:layout_width="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,15 +69,18 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/wrex_1"
     />
 
     <android.support.constraint.Guideline
             android:id="@+id/guideline"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.7"
             android:layout_width="wrap_content"
-    />
+            app:layout_constraintGuide_percent="0.75" />
+    <android.support.constraint.Guideline android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:id="@+id/left_margin"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_begin="16dp" />
 
 </android.support.constraint.ConstraintLayout>
