@@ -77,6 +77,14 @@ class NavigationMenuFragment: ListFragment()
     override fun onListItemClick(l: ListView?, v: View?, position: Int, id: Long)
     {
         LOG.info("List item clicked at position $position")
+
+        when (position)
+        {
+            0 -> listener?.onSelectThrowTheYo()
+            1 -> listener?.onSelect64Wrexagrams()
+            2 -> listener?.onSelectSettings()
+            3 -> listener?.onSelectBuyTheBook()
+        }
     }
 
 
@@ -95,7 +103,6 @@ private class NavigationAdapter: ArrayAdapter<String>
         {
             return convertView
         }
-
 
         val view = inflater.inflate(R.layout.nav_item_template, parent, false)
         view.setTextForPosition(position)

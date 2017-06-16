@@ -61,12 +61,13 @@
                     android:layout_marginBottom="0dp"
                     android:id="@+id/fragment_container">
 
-                <fragment
-                        android:layout_height="match_parent"
-                        android:name="tech.redroma.yoching.activities.ThrowTheYoFragment"
-                        android:id="@+id/fragment"
-                        android:layout_width="match_parent"
-                        tools:layout="@layout/fragment_throw_the_yo" />
+                <!--<fragment-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:name="tech.redroma.yoching.activities.ThrowTheYoFragment"-->
+                        <!--android:id="@+id/fragment"-->
+                        <!--android:tag="Yo"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--tools:layout="@layout/fragment_throw_the_yo" />-->
 
             </FrameLayout>
 
