@@ -113,16 +113,18 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setTextForPosition(position: Int)
     {
-        val text = findViewById(R.id.text) as? TextView ?: return
-        text.typeface = context.exoDemiBold()
+        val textView = findViewById(R.id.text) as? TextView ?: return
+        textView.typeface = context.exoDemiBold()
 
-        when (position)
+        val text = when (position)
         {
-            0 -> text.text = context.getString(string.nav_throw_the_yo)
-            1 -> text.text = context.getString(string.nav_64_wrexagrams)
-            2 -> text.text = context.getString(string.nav_settings)
-            else -> text.text = context.getString(string.nav_buy_the_book)
+            0 -> context.getString(string.nav_throw_the_yo)
+            1 -> context.getString(string.nav_64_wrexagrams)
+            2 -> context.getString(string.nav_settings)
+            else -> context.getString(string.nav_buy_the_book)
         }
+
+        textView.text = text
     }
 
     private fun View.setIconForPosition(position: Int)
