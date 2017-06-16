@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching.activities
+package tech.redroma.yoching.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -22,14 +22,14 @@ import android.support.v4.app.ListFragment
 import android.view.*
 import android.widget.*
 import tech.redroma.yoching.*
-import tech.redroma.yoching.R.string
+import tech.redroma.yoching.R.*
 
 
 /**
  *
  * @author SirWellington
  */
-class NavigationMenuFragment: ListFragment()
+class NavigationMenuFragment : ListFragment()
 {
     interface NavigationMenuListener
     {
@@ -57,7 +57,7 @@ class NavigationMenuFragment: ListFragment()
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
-        val view = inflater?.inflate(R.layout.fragment_navigation_menu, container, false) ?: return null
+        val view = inflater?.inflate(layout.fragment_navigation_menu, container, false) ?: return null
 
         listAdapter = NavigationAdapter(context)
 
@@ -91,7 +91,7 @@ class NavigationMenuFragment: ListFragment()
 }
 
 private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
-                                                                      R.layout.nav_item_template,
+                                                                      layout.nav_item_template,
                                                                       (1..4).toList())
 {
 
@@ -104,7 +104,7 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
             return convertView
         }
 
-        val view = inflater.inflate(R.layout.nav_item_template, parent, false)
+        val view = inflater.inflate(layout.nav_item_template, parent, false)
         view.setTextForPosition(position)
         view.setIconForPosition(position)
 
@@ -118,9 +118,9 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
         val text = when (position)
         {
-            0 -> context.getString(string.nav_throw_the_yo)
-            1 -> context.getString(string.nav_64_wrexagrams)
-            2 -> context.getString(string.nav_settings)
+            0    -> context.getString(string.nav_throw_the_yo)
+            1    -> context.getString(string.nav_64_wrexagrams)
+            2    -> context.getString(string.nav_settings)
             else -> context.getString(string.nav_buy_the_book)
         }
 
@@ -129,14 +129,14 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setIconForPosition(position: Int)
     {
-        val iconView = findViewById(R.id.icon) as? ImageView  ?: return
+        val iconView = findViewById(R.id.icon) as? ImageView ?: return
 
         val resourceId = when (position)
         {
-            0 -> R.drawable.nav_yo_bro
-            1 -> R.drawable.nav_wrexagrams
-            2 -> R.drawable.nav_settings
-            else -> R.drawable.nav_buy
+            0    -> drawable.nav_yo_bro
+            1    -> drawable.nav_wrexagrams
+            2    -> drawable.nav_settings
+            else -> drawable.nav_buy
         }
 
         val icon = resources.getDrawable(resourceId)

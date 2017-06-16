@@ -11,8 +11,10 @@ import android.view.*
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
-import tech.redroma.yoching.activities.NavigationMenuFragment.NavigationMenuListener
-import tech.redroma.yoching.activities.ThrowTheYoFragment.ThrowTheYoListener
+import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
+import tech.redroma.yoching.fragments.SettingsFragment
+import tech.redroma.yoching.fragments.ThrowTheYoFragment
+import tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener
 import tech.redroma.yoching.views.ViewContainer
 
 class YoActivity : AppCompatActivity(), NavigationMenuListener

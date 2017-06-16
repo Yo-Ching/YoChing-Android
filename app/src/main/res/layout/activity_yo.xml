@@ -77,7 +77,7 @@
             <fragment
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:name="tech.redroma.yoching.activities.NavigationMenuFragment"
+                    android:name="tech.redroma.yoching.fragments.NavigationMenuFragment"
                     android:id="@+id/navigationMenuFragment"
                     tools:layout="@layout/fragment_navigation_menu" />
 
