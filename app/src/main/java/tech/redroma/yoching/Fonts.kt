@@ -29,9 +29,7 @@ import android.text.style.MetricAffectingSpan
  * @author SirWellington
  */
 
-object Exo
-
-object Signika
+private object FontCache: MutableMap<String, Typeface> by mutableMapOf()
 
 fun Context.exoThin() = loadTypeface("fonts/Exo 100.ttf")!!
 fun Context.exoExtraLight() = loadTypeface("fonts/Exo 200.ttf")!!
@@ -48,8 +46,14 @@ fun Context.signikaRegular() = loadTypeface("fonts/Signika regular.ttf")!!
 fun Context.signikaSemiBold() = loadTypeface("fonts/Signika 600.ttf")!!
 fun Context.signikaBold() = loadTypeface("fonts/Signika 700.ttf")!!
 
-private fun Context.loadTypeface(asset: String): Typeface?
+
+private fun Context.loadTypeface(path: String): Typeface?
 {
+    if (FontCache.containsKey(path))
+    {
+        return FontCache[path]
+    }
+
     val assets = this.applicationContext?.assets
 
     if (assets == null)
@@ -58,13 +62,15 @@ private fun Context.loadTypeface(asset: String): Typeface?
         return null
     }
 
-    val font = Typeface.createFromAsset(assets, asset) ?: null
+    val font = Typeface.createFromAsset(assets, path) ?: null
 
     if (font == null)
     {
         LOG.info("Font is null")
         return null
     }
+
+    FontCache[path] = font
 
     return font
 }

@@ -86,3 +86,14 @@ fun Context.loadWrexagramSummary(wrexagramNumber: Int): WrexagramSummary?
 
     return Summaries.wrexagramSummaries.getOrNull(wrexagramNumber - 1)
 }
+
+val Context.wrexagrams: List<WrexagramSummary>
+    get()
+    {
+        if (Summaries.wrexagramSummaries.isEmpty())
+        {
+            Summaries.loadSummaries(this)
+        }
+
+        return Summaries.wrexagramSummaries
+    }
