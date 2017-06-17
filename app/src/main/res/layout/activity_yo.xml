@@ -29,7 +29,8 @@
                   android:textSize="30sp"
                   android:textStyle="bold"
                   android:gravity="center_horizontal"
-                  android:paddingTop="5dp" />
+                  android:paddingTop="5dp"
+                  android:textAllCaps="true" />
 
     </android.support.v7.widget.Toolbar>
 

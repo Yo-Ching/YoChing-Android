@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.*
+import android.widget.TextView
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
@@ -75,20 +76,25 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     override fun onSelectThrowTheYo()
     {
         switchToFragment(ThrowTheYoFragment.newInstance())
+        setActionBarTitle(resources.getString(R.string.yo_ching))
     }
 
     override fun onSelect64Wrexagrams()
     {
         switchToFragment(WrexagramListFragment.newInstance())
+        setActionBarTitle(resources.getString(R.string.nav_64_wrexagrams))
+
     }
 
     override fun onSelectSettings()
     {
         switchToFragment(SettingsFragment.newInstance())
+        setActionBarTitle(resources.getString(R.string.nav_settings))
     }
 
     override fun onSelectBuyTheBook()
     {
+
     }
 
     private fun switchToFragment(fragment: Fragment)
@@ -108,6 +114,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     private class Views : ViewContainer
     {
         lateinit var actionToolbar: Toolbar
+        lateinit var actionBarTitle: TextView
         lateinit var drawerToggle: ActionBarDrawerToggle
         lateinit var drawerLayout: DrawerLayout
 

@@ -42,6 +42,12 @@ internal fun AppCompatActivity.setActionBarFont(typeface: Typeface, size: Int)
     titleView.textSize = size.toFloat()
 }
 
+internal fun AppCompatActivity.setActionBarTitle(title: String)
+{
+    val titleView = actionBarTitleView ?: return
+    titleView.text = title
+}
+
 internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
 {
     block(this)
