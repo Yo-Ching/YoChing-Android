@@ -2,6 +2,7 @@ package tech.redroma.yoching.fragments
 
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
+import tech.redroma.yoching.activities.ReadActivity
 import tech.redroma.yoching.wrexagrams.*
 
 
@@ -86,6 +88,8 @@ private class WrexagramRecyclerAdapter(val context: Context) : RecyclerView.Adap
 
 private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), View.OnClickListener
 {
+    lateinit var _wrexagram: WrexagramSummary
+
     var wrexagramNumber: TextView
     var wrexagramTitle: TextView
     var wrexagramSummary: TextView
@@ -109,6 +113,7 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
 
     fun setWrexagram(wrexagram: WrexagramSummary)
     {
+        _wrexagram = wrexagram
         wrexagramNumber.text = wrexagram.number.toString()
         wrexagramTitle.text = wrexagram.title
         wrexagramSummary.text = wrexagram.subTitle
@@ -124,6 +129,10 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
 
     override fun onClick(v: View?)
     {
-        LOG.info("Clicked! $v")
+        LOG.info("Clicked! $_wrexagram")
+
+        val readIntent = Intent(context, ReadActivity::class.java)
+        readIntent.putExtra(ReadActivity.Parameters.WREXAGRAM_NUMBER, _wrexagram.number)
+        context.startActivity(readIntent)
     }
 }
