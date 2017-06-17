@@ -59,17 +59,18 @@ class WrexagramListFragment : Fragment()
 
 private class WrexagramRecyclerAdapter(val context: Context) : RecyclerView.Adapter<WrexagramHolder>()
 {
+    private val wrexagrams = context.wrexagrams
+
     override fun onBindViewHolder(holder: WrexagramHolder?, position: Int)
     {
-        val wrexagram = context.loadWrexagramSummary(position + 1) ?: return
+        val wrexagram = wrexagrams[position]
         holder?.setWrexagram(wrexagram)
-
         LOG.info("View binded at position $position")
     }
 
     override fun getItemCount(): Int
     {
-        return 64
+        return wrexagrams.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WrexagramHolder
