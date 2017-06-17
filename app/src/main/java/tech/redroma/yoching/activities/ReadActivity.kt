@@ -1,16 +1,20 @@
 package tech.redroma.yoching.activities
 
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.TextView
+import com.bluejamesbond.text.DocumentView
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
+import tyrantgit.explosionfield.ExplosionField
 
 class ReadActivity : AppCompatActivity()
 {
@@ -21,10 +25,11 @@ class ReadActivity : AppCompatActivity()
         const val WREXAGRAM_NUMBER = "wrexagram_number"
     }
 
-    private var wrexagramNumber = 2
+    private var wrexagramNumber = 8
     private lateinit var summary: WrexagramSummary
 
     private val views = Views()
+    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -41,7 +46,15 @@ class ReadActivity : AppCompatActivity()
 
         views.inflate(this)
         loadWrexagramInfo()
+        explodeText()
+    }
 
+    private fun explodeText()
+    {
+        views.duplicateTitle.post {
+            val explosion = ExplosionField.attach2Window(this)
+            explosion.explode(views.duplicateTitle)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
@@ -65,6 +78,7 @@ class ReadActivity : AppCompatActivity()
 
         val body = applicationContext.loadWrexagramBody(wrexagramNumber)
         views.body.text = body
+        views.body.layoutParams.height = WRAP_CONTENT
 
     }
 
@@ -74,7 +88,8 @@ class ReadActivity : AppCompatActivity()
         lateinit var actionBarTitle: TextView
         lateinit var image: ImageView
         lateinit var title: TextView
-        lateinit var body: TextView
+        lateinit var duplicateTitle: TextView
+        lateinit var body: DocumentView
 
         override fun inflate(activity: AppCompatActivity)
         {
@@ -84,11 +99,12 @@ class ReadActivity : AppCompatActivity()
                 toolbar = findViewById(id.action_toolbar) as Toolbar
                 image = findViewById(id.wrexagram_image) as ImageView
                 this@Views.title = findViewById(id.wrexagram_title) as TextView
-                body = findViewById(id.wrexagram_body) as TextView
+                duplicateTitle = findViewById(R.id.wrexagram_title_duplicate) as TextView
+                body = findViewById(id.wrexagram_body) as DocumentView
+//                body. = signikaRegular()
 
                 actionBarTitle.typeface = exoBlack()
                 this@Views.title.typeface = exoBlack()
-                body.typeface = signikaRegular()
 
                 setSupportActionBar(this@Views.toolbar)
                 title = ""
@@ -101,5 +117,6 @@ class ReadActivity : AppCompatActivity()
             }
 
         }
+
     }
 }
