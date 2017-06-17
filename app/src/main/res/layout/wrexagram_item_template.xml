@@ -13,6 +13,7 @@
             android:layout_marginLeft="0dp"
             android:layout_marginStart="0dp"
             android:layout_width="36dp"
+            android:maxLines="1"
             android:text="1"
             android:textColor="@color/colorPrimary"
             android:textSize="26sp"
@@ -21,7 +22,7 @@
             app:layout_constraintLeft_toLeftOf="@+id/left_margin"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5"
-            android:maxLines="1" />
+    />
 
     <me.grantland.widget.AutofitTextView
             android:id="@+id/wrexagram_title"
@@ -40,7 +41,8 @@
             app:layout_constraintLeft_toRightOf="@+id/wrexagram_number"
             app:layout_constraintRight_toLeftOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent"
-            autofit:minTextSize="14sp"/>
+            autofit:minTextSize="14sp"
+    />
 
     <TextView
             android:id="@+id/wrexagram_summary"
@@ -50,14 +52,15 @@
             android:layout_marginRight="0dp"
             android:layout_marginTop="4dp"
             android:layout_width="0dp"
+            android:lineSpacingExtra="0sp"
             android:text="BRING IT is the power that makes everything happen."
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/wrexagram_title"
             app:layout_constraintRight_toLeftOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/wrexagram_title"
             app:layout_constraintVertical_bias="0.5"
-            android:textSize="11sp"
-            android:lineSpacingExtra="0sp" />
+    />
 
     <ImageView
             android:id="@+id/wrexagram_icon"
@@ -80,11 +83,15 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_width="wrap_content"
-            app:layout_constraintGuide_percent="0.75" />
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/left_margin"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_begin="16dp" />
+            app:layout_constraintGuide_percent="0.75"
+    />
+
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_margin"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp"
+    />
 
 </android.support.constraint.ConstraintLayout>
