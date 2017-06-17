@@ -78,8 +78,8 @@ class ReadActivity : AppCompatActivity()
 
         val body = applicationContext.loadWrexagramBody(wrexagramNumber)
         views.body.text = body
-        views.body.layoutParams.height = WRAP_CONTENT
 
+        views.whatsUpBody.text = summary.whatsUp
     }
 
     private class Views : ViewContainer
@@ -90,6 +90,8 @@ class ReadActivity : AppCompatActivity()
         lateinit var title: TextView
         lateinit var duplicateTitle: TextView
         lateinit var body: DocumentView
+        lateinit var whatsUpTitle: TextView
+        lateinit var whatsUpBody: DocumentView
 
         override fun inflate(activity: AppCompatActivity)
         {
@@ -101,7 +103,12 @@ class ReadActivity : AppCompatActivity()
                 this@Views.title = findViewById(id.wrexagram_title) as TextView
                 duplicateTitle = findViewById(R.id.wrexagram_title_duplicate) as TextView
                 body = findViewById(id.wrexagram_body) as DocumentView
-//                body. = signikaRegular()
+                body.layoutParams.height = WRAP_CONTENT
+
+                whatsUpTitle = findViewById(R.id.whats_up_title) as TextView
+                whatsUpTitle.typeface = exoExtraBold()
+                whatsUpBody = findViewById(R.id.whats_up_body) as DocumentView
+                whatsUpBody.layoutParams.height = WRAP_CONTENT
 
                 actionBarTitle.typeface = exoBlack()
                 this@Views.title.typeface = exoBlack()
