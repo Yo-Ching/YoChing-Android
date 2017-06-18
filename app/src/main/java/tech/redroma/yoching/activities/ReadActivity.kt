@@ -48,11 +48,18 @@ class ReadActivity : AppCompatActivity()
         loadWrexagramInfo()
     }
 
-    private fun explodeText()
+    private fun explodeIntoView()
     {
-        views.duplicateTitle.post {
-            val explosion = ExplosionField.attach2Window(this)
-            explosion.explode(views.duplicateTitle)
+        views.wrexagramTitle.post {
+
+            YoYo.with(Techniques.BounceInDown)
+                    .duration(300)
+                    .playOn(views.wrexagramTitle)
+
+            views.duplicateTitle.post {
+                val explosion = ExplosionField.attach2Window(this)
+                explosion.explode(views.duplicateTitle)
+            }
         }
     }
 
@@ -72,22 +79,16 @@ class ReadActivity : AppCompatActivity()
         if (image != null)
             views.wrexagramImage.setImageBitmap(image)
 
-        this.summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
+        summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
         views.wrexagramTitle.text = summary.title
-        views.wrexagramTitle.post {
-
-            YoYo.with(Techniques.BounceInDown)
-                    .duration(300)
-                    .playOn(views.wrexagramTitle)
-
-            explodeText()
-        }
 
         val body = applicationContext.loadWrexagramBody(wrexagramNumber)
         views.body.text = body
 
         views.whatsUpBody.text = summary.whatsUp
+
+        explodeIntoView()
     }
 
     private class Views : ViewContainer
