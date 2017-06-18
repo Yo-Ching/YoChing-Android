@@ -90,7 +90,7 @@
                     android:id="@+id/wrexagram_title_duplicate"
                     android:layout_height="0dp"
                     android:layout_width="0dp"
-                    android:text="@string/placeholder_wrexagram_title"
+                    android:text="@string/yo_ching"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="30sp"

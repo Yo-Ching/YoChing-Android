@@ -9,6 +9,8 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.TextView
 import com.bluejamesbond.text.DocumentView
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
@@ -46,7 +48,6 @@ class ReadActivity : AppCompatActivity()
 
         views.inflate(this)
         loadWrexagramInfo()
-        explodeText()
     }
 
     private fun explodeText()
@@ -74,7 +75,16 @@ class ReadActivity : AppCompatActivity()
             views.image.setImageBitmap(image)
 
         this.summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
+
         views.title.text = summary.title
+
+        views.title.post {
+            YoYo.with(Techniques.DropOut)
+                    .duration(700)
+                    .playOn(views.title)
+
+            explodeText()
+        }
 
         val body = applicationContext.loadWrexagramBody(wrexagramNumber)
         views.body.text = body
