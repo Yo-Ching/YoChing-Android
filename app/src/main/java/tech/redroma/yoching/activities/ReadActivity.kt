@@ -1,7 +1,6 @@
 package tech.redroma.yoching.activities
 
 import android.os.Bundle
-import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
@@ -31,7 +30,6 @@ class ReadActivity : AppCompatActivity()
     private lateinit var summary: WrexagramSummary
 
     private val views = Views()
-    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -72,16 +70,16 @@ class ReadActivity : AppCompatActivity()
         val image = applicationContext.loadWrexagramImage(wrexagramNumber)
 
         if (image != null)
-            views.image.setImageBitmap(image)
+            views.wrexagramImage.setImageBitmap(image)
 
         this.summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
-        views.title.text = summary.title
+        views.wrexagramTitle.text = summary.title
 
-        views.title.post {
+        views.wrexagramTitle.post {
             YoYo.with(Techniques.DropOut)
                     .duration(700)
-                    .playOn(views.title)
+                    .playOn(views.wrexagramTitle)
 
             explodeText()
         }
@@ -94,10 +92,10 @@ class ReadActivity : AppCompatActivity()
 
     private class Views : ViewContainer
     {
-        lateinit var toolbar: Toolbar
+        lateinit var actionBarToolbar: Toolbar
         lateinit var actionBarTitle: TextView
-        lateinit var image: ImageView
-        lateinit var title: TextView
+        lateinit var wrexagramImage: ImageView
+        lateinit var wrexagramTitle: TextView
         lateinit var duplicateTitle: TextView
         lateinit var body: DocumentView
         lateinit var whatsUpTitle: TextView
@@ -107,30 +105,31 @@ class ReadActivity : AppCompatActivity()
         {
             activity.perform {
 
+                //Pull out the Views
+                actionBarToolbar = findViewById(id.action_toolbar) as Toolbar
                 actionBarTitle = findViewById(id.yo_action_bar_title) as TextView
-                toolbar = findViewById(id.action_toolbar) as Toolbar
-                image = findViewById(id.wrexagram_image) as ImageView
-                this@Views.title = findViewById(id.wrexagram_title) as TextView
+                wrexagramImage = findViewById(id.wrexagram_image) as ImageView
+                wrexagramTitle = findViewById(id.wrexagram_title) as TextView
                 duplicateTitle = findViewById(R.id.wrexagram_title_duplicate) as TextView
                 body = findViewById(id.wrexagram_body) as DocumentView
-                body.layoutParams.height = WRAP_CONTENT
-
                 whatsUpTitle = findViewById(R.id.whats_up_title) as TextView
-                whatsUpTitle.typeface = exoExtraBold()
                 whatsUpBody = findViewById(R.id.whats_up_body) as DocumentView
-                whatsUpBody.layoutParams.height = WRAP_CONTENT
 
-                actionBarTitle.typeface = exoBlack()
-                this@Views.title.typeface = exoBlack()
-
-                setSupportActionBar(this@Views.toolbar)
-                title = ""
+                //Action bar code
+                setSupportActionBar(actionBarToolbar)
                 supportActionBar?.setHomeButtonEnabled(true)
                 supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+                title = ""
                 val backButton = resources.getDrawable(R.drawable.arrow_back)
                 supportActionBar?.setHomeAsUpIndicator(backButton)
 
+                //Set the typefaces
+                whatsUpTitle.typeface = exoExtraBold()
+                actionBarTitle.typeface = exoBlack()
+                wrexagramTitle.typeface = exoBlack()
+
+                body.layoutParams.height = WRAP_CONTENT
+                whatsUpBody.layoutParams.height = WRAP_CONTENT
             }
 
         }
