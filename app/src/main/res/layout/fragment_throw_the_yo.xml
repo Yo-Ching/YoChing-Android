@@ -10,8 +10,8 @@
 
     <ImageView
             android:id="@+id/galaxy_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:contentDescription="@string/galaxy_background_description"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/galaxy_white_transparent"
             app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0" />
 
     <TextView
             android:id="@+id/yo_prompt"
@@ -42,65 +42,65 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"/>
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
     <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="177dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_height="0dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/galaxy_background"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_width="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toTopOf="@+id/guideline4">
+            tools:layout_editor_absoluteY="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/coin_begin_guideline">
 
         <ImageView
                 android:id="@+id/coin_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow"/>
+                app:srcCompat="@drawable/coin_heads_slick_shadow" />
 
         <ImageView
                 android:id="@+id/coin_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow"/>
+                app:srcCompat="@drawable/coin_heads_slick_shadow" />
 
         <ImageView
                 android:id="@+id/coin_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:elevation="0dp"
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow"/>
+                app:srcCompat="@drawable/coin_heads_slick_shadow" />
 
     </LinearLayout>
 
@@ -110,15 +110,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5"
-            app:layout_constraintGuide_begin="180dp"/>
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="192dp" />
 
     <android.support.constraint.Guideline
-            android:id="@+id/guideline4"
+            android:id="@+id/coin_begin_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.6"
             tools:layout_editor_absoluteY="340dp"
-            tools:layout_editor_absoluteX="0dp"/>
+            tools:layout_editor_absoluteX="0dp" />
+    <android.support.constraint.Guideline android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:id="@+id/left"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.05"
+                                          tools:layout_editor_absoluteY="0dp"
+                                          tools:layout_editor_absoluteX="39dp" />
+    <android.support.constraint.Guideline android:layout_width="wrap_content"
+                                          android:layout_height="wrap_content"
+                                          android:id="@+id/right"
+                                          android:orientation="vertical"
+                                          app:layout_constraintGuide_percent="0.95"
+                                          tools:layout_editor_absoluteY="0dp"
+                                          tools:layout_editor_absoluteX="346dp" />
 
 </android.support.constraint.ConstraintLayout>

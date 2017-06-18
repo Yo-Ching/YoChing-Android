@@ -93,13 +93,13 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             coin2 = view.findViewById(tech.redroma.yoching.R.id.coin_2) as android.widget.ImageView
             coin3 = view.findViewById(tech.redroma.yoching.R.id.coin_3) as android.widget.ImageView
 
-            listOf(coin1, coin2, coin3).forEach { it.setOnClickListener { actions.onCoinTapped(it) } }
+            listOf(coin1, coin2, coin3).forEach { it.setOnClickListener { actions.onCoinTapped() } }
         }
     }
 
     private inner class Actions
     {
-        fun onCoinTapped(view: android.view.View)
+        fun onCoinTapped()
         {
             listener?.onCoinTapped()
 
