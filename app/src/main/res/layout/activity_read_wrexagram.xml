@@ -90,7 +90,7 @@
                     android:id="@+id/wrexagram_title_duplicate"
                     android:layout_height="0dp"
                     android:layout_width="0dp"
-                    android:text="@string/yo_ching"
+                    android:text="•••••••••••••••••••••"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="30sp"
@@ -101,7 +101,7 @@
                     app:layout_constraintTop_toTopOf="@+id/wrexagram_title"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="0dp"
-            />
+                    android:visibility="invisible" />
             <View
                     android:background="@color/colorPrimary"
                     android:id="@+id/Line"

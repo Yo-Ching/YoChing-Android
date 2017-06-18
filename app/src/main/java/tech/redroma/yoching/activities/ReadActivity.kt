@@ -75,10 +75,10 @@ class ReadActivity : AppCompatActivity()
         this.summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
         views.wrexagramTitle.text = summary.title
-
         views.wrexagramTitle.post {
-            YoYo.with(Techniques.DropOut)
-                    .duration(700)
+
+            YoYo.with(Techniques.BounceInDown)
+                    .duration(300)
                     .playOn(views.wrexagramTitle)
 
             explodeText()
