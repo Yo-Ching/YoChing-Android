@@ -78,20 +78,12 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 
     private fun setToHeads()
     {
-        Picasso.with(context)
-                .load(R.drawable.coin_heads_slick)
-                .noFade()
-                .noPlaceholder()
-                .into(imageView)
+        imageView.setImageDrawable(context.headsIcon)
     }
 
     private fun setToTails()
     {
-        Picasso.with(context)
-                .load(R.drawable.coin_tails_slick)
-                .noFade()
-                .noPlaceholder()
-                .into(imageView)
+        imageView.setImageDrawable(context.tailsIcon)
     }
 
     private inner class AnimationEndListener : AnimatorListener
