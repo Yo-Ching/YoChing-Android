@@ -19,15 +19,20 @@ package tech.redroma.yoching.animations
 import android.animation.*
 import android.animation.Animator.AnimatorListener
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.R
+import tech.redroma.yoching.headsIcon
+import tech.redroma.yoching.tailsIcon
 
 
 /**
  *
  * @author SirWellington
  */
+
 class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 {
 
@@ -37,7 +42,7 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
         get()
         {
             val set = animation as? AnimatorSet ?: return null
-            return set.childAnimations[0] as? ObjectAnimator
+            return set.childAnimations.lastOrNull() as? ObjectAnimator
         }
 
     var isHeads = true
@@ -75,6 +80,8 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
     {
         Picasso.with(context)
                 .load(R.drawable.coin_heads_slick)
+                .noFade()
+                .noPlaceholder()
                 .into(imageView)
     }
 
@@ -82,6 +89,8 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
     {
         Picasso.with(context)
                 .load(R.drawable.coin_tails_slick)
+                .noFade()
+                .noPlaceholder()
                 .into(imageView)
     }
 
