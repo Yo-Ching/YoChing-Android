@@ -17,7 +17,9 @@
 package tech.redroma.yoching
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.widget.TextView
@@ -57,3 +59,38 @@ internal fun Fragment.perform(block: Fragment.() -> Unit)
 {
     block(this)
 }
+
+
+private object Icons
+{
+    lateinit var headsIcon: Drawable
+    lateinit var tailsIcon: Drawable
+    var isInitalized = false
+
+    fun initialize(context: Context)
+    {
+        if (isInitalized)
+        {
+            return
+        }
+
+        headsIcon = context.resources.getDrawable(R.drawable.coin_heads_slick)
+        tailsIcon = context.resources.getDrawable(R.drawable.coin_tails_slick)
+        isInitalized = true
+    }
+}
+
+val Context.headsIcon: Drawable
+    get()
+    {
+        Icons.initialize(this)
+
+        return Icons.headsIcon
+    }
+
+val Context.tailsIcon: Drawable
+    get()
+    {
+        Icons.initialize(this)
+        return Icons.tailsIcon
+    }
