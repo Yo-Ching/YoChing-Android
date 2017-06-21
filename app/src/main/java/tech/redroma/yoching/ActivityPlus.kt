@@ -76,6 +76,7 @@ private object Icons
 
         headsIcon = context.resources.getDrawable(R.drawable.coin_heads_slick)
         tailsIcon = context.resources.getDrawable(R.drawable.coin_tails_slick)
+        isInitalized = true
     }
 }
 
