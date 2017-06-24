@@ -107,7 +107,8 @@
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow" />
+                app:srcCompat="@drawable/coin_heads_slick"
+        />
 
         <ImageView
                 android:id="@+id/coin_2"
@@ -121,7 +122,8 @@
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow" />
+                app:srcCompat="@drawable/coin_heads_slick"
+        />
 
         <ImageView
                 android:id="@+id/coin_3"
@@ -135,7 +137,7 @@
                 android:foregroundGravity="center_vertical"
                 android:visibility="visible"
                 android:contentDescription="@string/yo_ching_coin_description"
-                app:srcCompat="@drawable/coin_heads_slick_shadow" />
+                app:srcCompat="@drawable/coin_heads_slick" />
 
     </LinearLayout>
 
