@@ -90,9 +90,7 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 
         val scaleY = height.toDouble() * HEIGHT_PERCENTAGE
         val value = animation.values.firstOrNull() ?: return
-        LOG.info("Value is $value")
         value.setFloatValues(0f, -(scaleY.toFloat()))
-        LOG.info("Value is now $value")
     }
 
     private fun setToHeads()
