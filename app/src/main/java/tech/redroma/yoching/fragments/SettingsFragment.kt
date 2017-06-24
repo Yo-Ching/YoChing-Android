@@ -1,5 +1,8 @@
 package tech.redroma.yoching.fragments
 
+import android.widget.*
+import tech.redroma.yoching.R
+import tech.redroma.yoching.findViewById
 import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 
 /**
@@ -57,6 +60,61 @@ class SettingsFragment : android.support.v4.app.Fragment()
     {
         super.onDetach()
         listener = null
+    }
+
+    private inner class Views
+    {
+        lateinit var throwingStyle: TextView
+        lateinit var truePlayer: CheckedTextView
+        lateinit var truePlayerDescription: TextView
+        lateinit var tapThat: CheckedTextView
+        lateinit var tapThatDescription: TextView
+
+        lateinit var changeStyle: TextView
+        lateinit var street: CheckedTextView
+        lateinit var streetDescription: TextView
+        lateinit var slick: CheckedTextView
+        lateinit var slickDescription: TextView
+
+        lateinit var whatsUp: TextView
+        lateinit var buyTheBook: TextView
+        lateinit var buyTheBookDescription: TextView
+        lateinit var buyTheBookArrow: ImageView
+        lateinit var yoAppPlayers: TextView
+        lateinit var yoAppPlayersDescription: TextView
+        lateinit var yoAppPlayersArrow: ImageView
+        lateinit var learnYoChing: TextView
+        lateinit var learnYoChingDescription: TextView
+        lateinit var learnYoChingArrow: ImageView
+
+        fun init()
+        {
+            throwingStyle = findViewById(R.id.throwing_style)
+            truePlayer = findViewById(R.id.true_player)
+            truePlayerDescription = findViewById(R.id.true_player_description)
+            tapThat = findViewById(R.id.tap_that)
+            tapThatDescription = findViewById(R.id.tap_that)
+
+            changeStyle = findViewById(R.id.change_style)
+            street = findViewById(R.id.street)
+            streetDescription = findViewById(R.id.street_description)
+            slick = findViewById(R.id.slick)
+            slickDescription = findViewById(R.id.slick_description)
+
+            whatsUp = findViewById(R.id.whats_up)
+            buyTheBook = findViewById(R.id.buy_the_book)
+            buyTheBookDescription = findViewById(R.id.buy_the_book_description)
+            buyTheBookArrow = findViewById(R.id.buy_the_book_arrow)
+            yoAppPlayers = findViewById(R.id.yo_app_players)
+            yoAppPlayersDescription = findViewById(R.id.yo_app_players_description)
+            yoAppPlayersArrow = findViewById(R.id.yo_app_players_arrow)
+            learnYoChing = findViewById(R.id.learn_yo_ching)
+            learnYoChingDescription = findViewById(R.id.learn_yo_ching_description)
+            learnYoChingArrow = findViewById(R.id.learn_yo_ching_arrow)
+
+        }
+
+
     }
 
 }
