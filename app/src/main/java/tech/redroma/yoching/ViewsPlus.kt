@@ -16,7 +16,6 @@
 
 package tech.redroma.yoching
 
-import android.support.v4.app.Fragment
 import android.view.InflateException
 import android.view.View
 
@@ -26,13 +25,11 @@ import android.view.View
  * @author SirWellington
  */
 
-internal inline fun <reified T: View> Fragment.findViewById(id: Int): T
+internal inline fun <reified T: View> View.findView(id: Int): T
 {
-    val view = view ?:
-    {
-        LOG.warn("Missing view!")
-        throw InflateException("Missing View!")
+    return findViewById(id) as? T ?: {
+        val message = "Could not find a View with ID [$id] of type ${T::class.java}"
+        LOG.warn(message)
+        throw InflateException(message)
     }()
-
-    return view.findView(id)
 }
