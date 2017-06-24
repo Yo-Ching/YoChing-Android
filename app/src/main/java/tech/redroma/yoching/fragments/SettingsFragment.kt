@@ -148,11 +148,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 truePlayer.tap().shake()
                 tapThat.tap()
                 Settings.truePlayerEnabled = truePlayer.isChecked
-
-                if (truePlayer.isChecked)
-                {
-                    listener?.onTruePlayerEnabled()
-                }
+                listener?.onTruePlayerEnabled()
             }
 
             tapThat.setOnClickListener listener@ {
@@ -162,11 +158,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 tapThat.tap().shake()
                 truePlayer.tap()
                 Settings.tapThatEnabled = tapThat.isChecked
-
-                if (tapThat.isChecked)
-                {
-                    listener?.onTapThatEnabled()
-                }
+                listener?.onTapThatEnabled()
             }
 
             street.setOnClickListener listener@ {
@@ -176,11 +168,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 street.tap().shake()
                 slick.tap()
                 Settings.streetCoinsEnabled = street.isChecked
-
-                if (street.isChecked)
-                {
-                    listener?.onStreetStyle()
-                }
+                listener?.onStreetStyle()
             }
 
             slick.setOnClickListener listener@ {
@@ -190,11 +178,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 slick.tap().shake()
                 street.tap()
                 Settings.slickCoinsEnabled = slick.isChecked
-
-                if (slick.isChecked)
-                {
-                    listener?.onSlickStyle()
-                }
+                listener?.onSlickStyle()
             }
         }
 
