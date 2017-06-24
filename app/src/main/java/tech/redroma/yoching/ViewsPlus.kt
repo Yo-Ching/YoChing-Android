@@ -19,6 +19,8 @@ package tech.redroma.yoching
 import android.view.InflateException
 import android.view.View
 import android.widget.CheckedTextView
+import com.daimajia.androidanimations.library.Techniques.BounceIn
+import com.daimajia.androidanimations.library.YoYo
 
 
 /**
@@ -26,7 +28,7 @@ import android.widget.CheckedTextView
  * @author SirWellington
  */
 
-internal inline fun <reified T: View> View.findView(id: Int): T
+internal inline fun <reified T : View> View.findView(id: Int): T
 {
     return findViewById(id) as? T ?: {
         val message = "Could not find a View with ID [$id] of type ${T::class.java}"
@@ -36,13 +38,24 @@ internal inline fun <reified T: View> View.findView(id: Int): T
 }
 
 
-fun CheckedTextView.tap()
+fun CheckedTextView.tap(): CheckedTextView
 {
     toggle()
     adjustCheckMark()
+    return this
 }
 
-fun CheckedTextView.adjustCheckMark()
+fun CheckedTextView.adjustCheckMark(): CheckedTextView
 {
     checkMarkDrawable = if (isChecked) resources.getDrawable(R.drawable.yo_check) else null
+    return this
+}
+
+fun CheckedTextView.shake(): CheckedTextView
+{
+    YoYo.with(BounceIn)
+            .duration(200)
+            .playOn(this)
+
+    return this
 }

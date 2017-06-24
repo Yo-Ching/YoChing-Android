@@ -2,6 +2,8 @@ package tech.redroma.yoching.fragments
 
 import android.view.View
 import android.widget.*
+import com.daimajia.androidanimations.library.Techniques.Pulse
+import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
 import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 
@@ -143,7 +145,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 if (truePlayer.isChecked) return@listener
 
-                truePlayer.tap()
+                truePlayer.tap().shake()
                 tapThat.tap()
                 Settings.truePlayerEnabled = truePlayer.isChecked
 
@@ -157,7 +159,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 if (tapThat.isChecked) return@listener
 
-                tapThat.tap()
+                tapThat.tap().shake()
                 truePlayer.tap()
                 Settings.tapThatEnabled = tapThat.isChecked
 
@@ -171,7 +173,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 if (street.isChecked) return@listener
 
-                street.tap()
+                street.tap().shake()
                 slick.tap()
                 Settings.streetCoinsEnabled = street.isChecked
 
@@ -185,7 +187,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 if (slick.isChecked) return@listener
 
-                slick.tap()
+                slick.tap().shake()
                 street.tap()
                 Settings.slickCoinsEnabled = slick.isChecked
 

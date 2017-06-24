@@ -40,7 +40,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:paddingBottom="32dp">
+                android:paddingBottom="32dp"
+                android:clipToPadding="false"
+                android:clipChildren="false">
 
             <TextView
                     android:text="Throwing Style"
@@ -58,7 +60,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp">
+                    android:layout_marginRight="16dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
 
                 <CheckedTextView
                         android:background="?attr/selectableItemBackgroundBorderless"
