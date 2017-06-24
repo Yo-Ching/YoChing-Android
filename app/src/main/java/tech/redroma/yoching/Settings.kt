@@ -24,7 +24,7 @@ import android.content.SharedPreferences
  *
  * @author SirWellington
  */
- object Settings
+object Settings
 {
     lateinit var preferences: SharedPreferences
     private var initialized = false
@@ -43,19 +43,37 @@ import android.content.SharedPreferences
 
     var truePlayerEnabled: Boolean
         get() = preferences.getBoolean(Keys.TRUE_PLAYER, true)
-        set(value) = preferences.edit().putBoolean(Keys.TRUE_PLAYER, value).apply()
+        set(value)
+        {
+            preferences.edit()
+                    .putBoolean(Keys.TRUE_PLAYER, value)
+                    .putBoolean(Keys.TAP_THAT, !value)
+                    .apply()
+        }
 
     var tapThatEnabled: Boolean
-        get() = preferences.getBoolean(Keys.TAP_THAT, false)
-        set(value) = preferences.edit().putBoolean(Keys.TAP_THAT, value).apply()
+        get() = !truePlayerEnabled
+        set(value)
+        {
+            truePlayerEnabled = !value
+        }
 
     var streetCoinsEnabled: Boolean
-        get() = preferences.getBoolean(Keys.STREET, false)
-        set(value) = preferences.edit().putBoolean(Keys.STREET, true).apply()
+        get() = !slickCoinsEnabled
+        set(value)
+        {
+            slickCoinsEnabled = !value
+        }
 
     var slickCoinsEnabled: Boolean
         get() = preferences.getBoolean(Keys.SLICK, true)
-        set(value) = preferences.edit().putBoolean(Keys.SLICK, value).apply()
+        set(value)
+        {
+            preferences.edit()
+                    .putBoolean(Keys.SLICK, value)
+                    .putBoolean(Keys.STREET, !value)
+                    .apply()
+        }
 }
 
 val Context.preferences: SharedPreferences
