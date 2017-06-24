@@ -100,7 +100,10 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             coin2 = view.findViewById(R.id.coin_2) as ImageView
             coin3 = view.findViewById(R.id.coin_3) as ImageView
 
-            listOf(coin1, coin2, coin3).forEach { it.setOnClickListener { actions.onCoinTapped(it) } }
+            listOf(coin1, coin2, coin3).forEach {
+                it.setImageDrawable(context.headsIcon)
+                it.setOnClickListener { actions.onCoinTapped(it) }
+            }
         }
     }
 
