@@ -109,7 +109,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         fun onCoinTapped(view: View)
         {
             listener?.onCoinTapped()
-//            Aroma.send { sendLowPriorityMessage("Coin Tapped") }
+            Aroma.send { sendLowPriorityMessage("Coin Tapped") }
 
             val imageView = view as? ImageView ?: return
             val animator = CoinAnimator(context, imageView)
