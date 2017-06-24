@@ -63,8 +63,11 @@ internal fun Fragment.perform(block: Fragment.() -> Unit)
 
 private object Icons
 {
-    lateinit var headsIcon: Drawable
-    lateinit var tailsIcon: Drawable
+    lateinit var headsIconSlick: Drawable
+    lateinit var tailsIconSlick: Drawable
+    lateinit var headsIconStreet: Drawable
+    lateinit var tailsIconStreet: Drawable
+
     var isInitialized = false
 
     fun initialize(context: Context)
@@ -74,8 +77,11 @@ private object Icons
             return
         }
 
-        headsIcon = context.resources.getDrawable(R.drawable.coin_heads_slick)
-        tailsIcon = context.resources.getDrawable(R.drawable.coin_tails_slick)
+        headsIconSlick = context.resources.getDrawable(R.drawable.coin_heads_slick)
+        tailsIconSlick = context.resources.getDrawable(R.drawable.coin_tails_slick)
+        headsIconStreet = context.resources.getDrawable(R.drawable.coin_heads_street)
+        tailsIconStreet = context.resources.getDrawable(R.drawable.coin_tails_street)
+
         isInitialized = true
     }
 }
@@ -84,13 +90,16 @@ val Context.headsIcon: Drawable
     get()
     {
         Icons.initialize(this)
+        Settings.init(this)
 
-        return Icons.headsIcon
+        return if (Settings.slickCoinsEnabled) Icons.headsIconSlick else Icons.headsIconStreet
     }
 
 val Context.tailsIcon: Drawable
     get()
     {
         Icons.initialize(this)
-        return Icons.tailsIcon
+        Settings.init(this)
+
+        return if (Settings.slickCoinsEnabled) Icons.tailsIconSlick else Icons.tailsIconStreet
     }
