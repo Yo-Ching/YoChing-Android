@@ -1,8 +1,8 @@
 package tech.redroma.yoching.fragments
 
+import android.view.View
 import android.widget.*
-import tech.redroma.yoching.R
-import tech.redroma.yoching.findViewById
+import tech.redroma.yoching.*
 import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 
 /**
@@ -33,6 +33,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
     }
 
     var listener: tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener? = null
+    private val views = Views()
 
     override fun onCreate(savedInstanceState: android.os.Bundle?)
     {
@@ -41,7 +42,9 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
     override fun onCreateView(inflater: android.view.LayoutInflater?, container: android.view.ViewGroup?, savedInstanceState: android.os.Bundle?): android.view.View?
     {
-        val view = inflater?.inflate(tech.redroma.yoching.R.layout.fragment_settings, container, false)
+        val view = inflater?.inflate(tech.redroma.yoching.R.layout.fragment_settings, container, false) ?: return null
+
+        views.inflate(view)
 
         return view
     }
@@ -50,7 +53,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
     {
         super.onAttach(context)
 
-        if (context is tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener)
+        if (context is SettingsFragment.YoSettingsListener)
         {
             listener = context
         }
@@ -87,31 +90,77 @@ class SettingsFragment : android.support.v4.app.Fragment()
         lateinit var learnYoChingDescription: TextView
         lateinit var learnYoChingArrow: ImageView
 
-        fun init()
+        fun inflate(view: View)
         {
-            throwingStyle = findViewById(R.id.throwing_style)
-            truePlayer = findViewById(R.id.true_player)
-            truePlayerDescription = findViewById(R.id.true_player_description)
-            tapThat = findViewById(R.id.tap_that)
-            tapThatDescription = findViewById(R.id.tap_that)
+            throwingStyle = view.findView(R.id.throwing_style)
+            truePlayer = view.findView(R.id.true_player)
+            truePlayerDescription = view.findView(R.id.true_player_description)
+            tapThat = view.findView(R.id.tap_that)
+            tapThatDescription = view.findView(R.id.tap_that)
 
-            changeStyle = findViewById(R.id.change_style)
-            street = findViewById(R.id.street)
-            streetDescription = findViewById(R.id.street_description)
-            slick = findViewById(R.id.slick)
-            slickDescription = findViewById(R.id.slick_description)
+            changeStyle = view.findView(R.id.change_style)
+            street = view.findView(R.id.street)
+            streetDescription = view.findView(R.id.street_description)
+            slick = view.findView(R.id.slick)
+            slickDescription = view.findView(R.id.slick_description)
 
-            whatsUp = findViewById(R.id.whats_up)
-            buyTheBook = findViewById(R.id.buy_the_book)
-            buyTheBookDescription = findViewById(R.id.buy_the_book_description)
-            buyTheBookArrow = findViewById(R.id.buy_the_book_arrow)
-            yoAppPlayers = findViewById(R.id.yo_app_players)
-            yoAppPlayersDescription = findViewById(R.id.yo_app_players_description)
-            yoAppPlayersArrow = findViewById(R.id.yo_app_players_arrow)
-            learnYoChing = findViewById(R.id.learn_yo_ching)
-            learnYoChingDescription = findViewById(R.id.learn_yo_ching_description)
-            learnYoChingArrow = findViewById(R.id.learn_yo_ching_arrow)
+            whatsUp = view.findView(R.id.whats_up)
+            buyTheBook = view.findView(R.id.buy_the_book)
+            buyTheBookDescription = view.findView(R.id.buy_the_book_description)
+            buyTheBookArrow = view.findView(R.id.buy_the_book_arrow)
+            yoAppPlayers = view.findView(R.id.yo_app_players)
+            yoAppPlayersDescription = view.findView(R.id.yo_app_players_description)
+            yoAppPlayersArrow = view.findView(R.id.yo_app_players_arrow)
+            learnYoChing = view.findView(R.id.learn_yo_ching)
+            learnYoChingDescription = view.findView(R.id.learn_yo_ching_description)
+            learnYoChingArrow = view.findView(R.id.learn_yo_ching_arrow)
 
+            setFonts()
+            adjustChecks()
+            setListeners()
+        }
+
+        private fun setListeners()
+        {
+            truePlayer.setOnClickListener { truePlayer.toggle() }
+        }
+
+        private fun adjustChecks()
+        {
+            Settings.init(context)
+
+            truePlayer.isChecked = Settings.truePlayerEnabled
+            tapThat.isChecked = !truePlayer.isChecked
+
+            slick.isChecked = Settings.slickCoinsEnabled
+            street.isChecked = !slick.isChecked
+
+        }
+
+        private fun setFonts()
+        {
+            val headerType = context.exoBold()
+            throwingStyle.typeface = headerType
+            changeStyle.typeface = headerType
+            whatsUp.typeface = headerType
+
+            val elementType = context.exoMedium()
+            truePlayer.typeface = elementType
+            tapThat.typeface = elementType
+            street.typeface = elementType
+            slick.typeface = elementType
+            buyTheBook.typeface = elementType
+            yoAppPlayers.typeface = elementType
+            learnYoChing.typeface = elementType
+
+            val descriptionType = context.exoLight()
+            truePlayerDescription.typeface = descriptionType
+            tapThatDescription.typeface = descriptionType
+            streetDescription.typeface = descriptionType
+            slickDescription.typeface = descriptionType
+            buyTheBookDescription.typeface = descriptionType
+            yoAppPlayersDescription.typeface = descriptionType
+            learnYoChingDescription.typeface = descriptionType
         }
 
 
