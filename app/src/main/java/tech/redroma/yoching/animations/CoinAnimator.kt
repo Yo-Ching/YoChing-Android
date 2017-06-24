@@ -20,12 +20,7 @@ import android.animation.*
 import android.animation.Animator.AnimatorListener
 import android.content.Context
 import android.content.res.Resources
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.util.Property
-import android.view.WindowManager
 import android.widget.ImageView
-import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 
 
@@ -40,11 +35,11 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
     val animation = AnimatorInflater.loadAnimator(context, R.animator.coin_toss_animator)!!
     private val HEIGHT_PERCENTAGE = 0.5
 
-    val coinFlipAnimation: ObjectAnimator?
+    val coinRotateAnimation: ObjectAnimator?
         get()
         {
             val set = animation as? AnimatorSet ?: return null
-            return set.childAnimations.lastOrNull() as? ObjectAnimator
+            return set.childAnimations.firstOrNull() as? ObjectAnimator
         }
 
     val movementAnimation: ObjectAnimator?
@@ -69,7 +64,7 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
     private fun addListeners()
     {
 
-        coinFlipAnimation?.addUpdateListener { animator ->
+        coinRotateAnimation?.addUpdateListener { animator ->
 
             val fraction = animator.animatedFraction
             if (fraction in 0.25..0.75)
@@ -85,7 +80,7 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 
         }
 
-        coinFlipAnimation?.addListener(AnimationEndListener())
+        coinRotateAnimation?.addListener(AnimationEndListener())
     }
 
     private fun adjustAnimationHeight()
