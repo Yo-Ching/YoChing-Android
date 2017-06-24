@@ -70,7 +70,8 @@
                         android:layout_marginTop="16dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:clickable="true"
-                        android:checkMark="@drawable/yo_check" />
+                        android:checkMark="@drawable/yo_check"
+                        android:focusable="true" />
                 <TextView
                         android:text="Build your wrexagram in 6 throws"
                         android:layout_width="match_parent"
