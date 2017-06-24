@@ -19,13 +19,9 @@ package tech.redroma.yoching.animations
 import android.animation.*
 import android.animation.Animator.AnimatorListener
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.content.res.Resources
 import android.widget.ImageView
-import com.squareup.picasso.Picasso
-import tech.redroma.yoching.R
-import tech.redroma.yoching.headsIcon
-import tech.redroma.yoching.tailsIcon
+import tech.redroma.yoching.*
 
 
 /**
@@ -37,11 +33,19 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 {
 
     val animation = AnimatorInflater.loadAnimator(context, R.animator.coin_toss_animator)!!
+    private val HEIGHT_PERCENTAGE = 0.5
 
-    val coinFlipAnimation: ObjectAnimator?
+    val coinRotateAnimation: ObjectAnimator?
         get()
         {
             val set = animation as? AnimatorSet ?: return null
+            return set.childAnimations.firstOrNull() as? ObjectAnimator
+        }
+
+    val movementAnimation: ObjectAnimator?
+        get()
+        {
+            val set = animation as? AnimatorSet?: return null
             return set.childAnimations.lastOrNull() as? ObjectAnimator
         }
 
@@ -50,30 +54,43 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 
     override fun run()
     {
+        adjustAnimationHeight()
         animation.setTarget(imageView)
         addListeners()
         animation.start()
     }
 
+
     private fun addListeners()
     {
 
-        coinFlipAnimation?.addUpdateListener { animator ->
+        coinRotateAnimation?.addUpdateListener { animator ->
 
-            if (animator.animatedFraction >= 0.25 && isHeads)
+            val fraction = animator.animatedFraction
+            if (fraction in 0.25..0.75)
             {
                 setToTails()
+                isHeads = false
             }
-
-            if (animator.animatedFraction >= 0.75 && isTails)
+            else
             {
                 setToHeads()
+                isHeads = true
             }
 
-            isHeads = !isHeads
         }
 
-        coinFlipAnimation?.addListener(AnimationEndListener())
+        coinRotateAnimation?.addListener(AnimationEndListener())
+    }
+
+    private fun adjustAnimationHeight()
+    {
+        val animation = movementAnimation ?: return
+        val height = Resources.getSystem().displayMetrics.heightPixels
+
+        val scaleY = height.toDouble() * HEIGHT_PERCENTAGE
+        val value = animation.values.firstOrNull() ?: return
+        value.setFloatValues(0f, -(scaleY.toFloat()))
     }
 
     private fun setToHeads()

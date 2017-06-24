@@ -65,18 +65,18 @@ private object Icons
 {
     lateinit var headsIcon: Drawable
     lateinit var tailsIcon: Drawable
-    var isInitalized = false
+    var isInitialized = false
 
     fun initialize(context: Context)
     {
-        if (isInitalized)
+        if (isInitialized)
         {
             return
         }
 
         headsIcon = context.resources.getDrawable(R.drawable.coin_heads_slick)
         tailsIcon = context.resources.getDrawable(R.drawable.coin_tails_slick)
-        isInitalized = true
+        isInitialized = true
     }
 }
 

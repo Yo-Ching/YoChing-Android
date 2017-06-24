@@ -16,11 +16,12 @@
 
 package tech.redroma.yoching.fragments
 
+import android.os.Handler
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import tech.redroma.yoching.*
-import tech.redroma.yoching.R.*
+import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
 
 
@@ -46,6 +47,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
     var listener: tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener? = null
     private val actions = Actions()
+    private val handler = Handler()
     private val views = Views()
 
     override fun onCreate(savedInstanceState: android.os.Bundle?)
@@ -111,7 +113,8 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
             val imageView = view as? ImageView ?: return
             val animator = CoinAnimator(context, imageView)
-            imageView.post(animator)
+
+            handler.postDelayed(animator, 100)
         }
     }
 }
