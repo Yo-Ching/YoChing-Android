@@ -58,7 +58,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
-                <TextView
+
+                <CheckedTextView
                         android:text="True Player"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -68,7 +69,8 @@
                         android:textSize="18sp"
                         android:layout_marginTop="16dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true" />
+                        android:clickable="true"
+                        android:checkMark="@drawable/yo_check" />
                 <TextView
                         android:text="Build your wrexagram in 6 throws"
                         android:layout_width="match_parent"
@@ -79,7 +81,8 @@
                         android:layout_marginTop="0dp"
                         android:alpha="0.75"
                         android:id="@+id/true_player_description" />
-                <TextView
+
+                <CheckedTextView
                         android:text="Tap That"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -89,7 +92,9 @@
                         android:textSize="18sp"
                         android:layout_marginTop="16dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true" />
+                        android:clickable="true"
+                        android:checkMark="@drawable/yo_check" />
+
                 <TextView
                         android:text="One Throw for players on the go"
                         android:layout_width="match_parent"
@@ -100,7 +105,9 @@
                         android:layout_marginTop="0dp"
                         android:alpha="0.75"
                         android:id="@+id/tap_that_description" />
+
             </LinearLayout>
+
             <TextView
                     android:text="Change Style"
                     android:layout_width="match_parent"
@@ -111,13 +118,15 @@
                     android:layout_marginTop="36dp"
                     android:textStyle="bold"
                     android:id="@+id/change_style" />
+
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp">
-                <TextView
+
+                <CheckedTextView
                         android:text="Street"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -125,7 +134,9 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp" />
+                        android:layout_marginTop="16dp"
+                        android:checkMark="@drawable/yo_check" />
+
                 <TextView
                         android:text="Straight from the Bodega"
                         android:layout_width="match_parent"
@@ -136,7 +147,8 @@
                         android:layout_marginTop="0dp"
                         android:alpha="0.75"
                         android:id="@+id/street_description" />
-                <TextView
+
+                <CheckedTextView
                         android:text="Slick"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -144,7 +156,9 @@
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp" />
+                        android:layout_marginTop="16dp"
+                        android:checkMark="@drawable/yo_check" />
+
                 <TextView
                         android:text="Throw down in style"
                         android:layout_width="match_parent"
@@ -155,6 +169,7 @@
                         android:layout_marginTop="0dp"
                         android:alpha="0.75"
                         android:id="@+id/slick_description" />
+
             </LinearLayout>
 
             <TextView
@@ -193,6 +208,7 @@
                             android:layout_gravity="clip_vertical"
                             android:gravity="center_vertical"
                             android:foregroundGravity="center_vertical" />
+
                     <ImageView
                             android:layout_height="25dp"
                             app:srcCompat="@drawable/arrow_right"
@@ -201,8 +217,10 @@
                             android:layout_gravity="right|center_vertical"
                             android:foregroundGravity="right|center_vertical"
                             android:layout_width="25dp"
-                    />
+                            android:contentDescription="Right Arrow"
+                            android:id="@+id/buy_the_book_arrow" />
                 </LinearLayout>
+
                 <TextView
                         android:text="300+ pages of YO CHING Wisdom"
                         android:layout_width="match_parent"
@@ -213,6 +231,106 @@
                         android:layout_marginTop="0dp"
                         android:alpha="0.75"
                         android:id="@+id/buy_the_book_description" />
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true">
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp">
+                    <TextView
+                            android:text="Yo App Players"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/yo_app_players"
+                            android:layout_weight="0.9"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:layout_gravity="clip_vertical"
+                            android:gravity="center_vertical"
+                            android:foregroundGravity="center_vertical" />
+
+                    <ImageView
+                            android:layout_height="25dp"
+                            app:srcCompat="@drawable/arrow_right"
+                            android:layout_weight="0.1"
+                            android:clickable="true"
+                            android:layout_gravity="right|center_vertical"
+                            android:foregroundGravity="right|center_vertical"
+                            android:layout_width="25dp"
+                            android:contentDescription="Right Arrow"
+                            android:id="@+id/yo_app_players_arrow" />
+                </LinearLayout>
+
+                <TextView
+                        android:text="The crew behind the YO CHING app"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/yo_app_players_description" />
+
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:clickable="true">
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="16dp">
+                    <TextView
+                            android:text="Learn Yo Ching"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/learn_yo_ching"
+                            android:layout_weight="0.9"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:layout_gravity="clip_vertical"
+                            android:gravity="center_vertical"
+                            android:foregroundGravity="center_vertical" />
+
+                    <ImageView
+                            android:layout_height="25dp"
+                            app:srcCompat="@drawable/arrow_right"
+                            android:layout_weight="0.1"
+                            android:clickable="true"
+                            android:layout_gravity="right|center_vertical"
+                            android:foregroundGravity="right|center_vertical"
+                            android:layout_width="25dp"
+                            android:contentDescription="Right Arrow"
+                            android:id="@+id/learn_yo_ching_arrow" />
+                </LinearLayout>
+
+                <TextView
+                        android:text="Learn more about YO CHING origins"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.75"
+                        android:id="@+id/learn_yo_ching_description" />
 
             </LinearLayout>
 
