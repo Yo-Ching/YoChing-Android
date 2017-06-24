@@ -23,9 +23,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
-import tech.redroma.yoching.R
-import tech.redroma.yoching.headsIcon
-import tech.redroma.yoching.tailsIcon
+import tech.redroma.yoching.*
 
 
 /**
@@ -60,17 +58,18 @@ class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 
         coinFlipAnimation?.addUpdateListener { animator ->
 
-            if (animator.animatedFraction >= 0.25 && isHeads)
+            val fraction = animator.animatedFraction
+            if (fraction in 0.25..0.75)
             {
                 setToTails()
+                isHeads = false
             }
-
-            if (animator.animatedFraction >= 0.75 && isTails)
+            else
             {
                 setToHeads()
+                isHeads = true
             }
 
-            isHeads = !isHeads
         }
 
         coinFlipAnimation?.addListener(AnimationEndListener())
