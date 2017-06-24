@@ -10,7 +10,8 @@
             android:valueType="floatType"
             android:repeatMode="restart"
             android:repeatCount="5"
-            android:interpolator="@android:interpolator/linear" />
+            android:interpolator="@android:interpolator/linear"
+    />
 
     <objectAnimator
             android:propertyName="translationY"

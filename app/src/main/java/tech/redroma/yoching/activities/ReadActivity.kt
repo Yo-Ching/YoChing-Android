@@ -53,7 +53,7 @@ class ReadActivity : AppCompatActivity()
         views.wrexagramTitle.post {
 
             YoYo.with(Techniques.BounceInDown)
-                    .duration(300)
+                    .duration(400)
                     .playOn(views.wrexagramTitle)
 
             views.duplicateTitle.post {
