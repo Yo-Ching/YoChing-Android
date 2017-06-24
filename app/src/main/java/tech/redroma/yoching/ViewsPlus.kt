@@ -18,6 +18,7 @@ package tech.redroma.yoching
 
 import android.view.InflateException
 import android.view.View
+import android.widget.CheckedTextView
 
 
 /**
@@ -32,4 +33,16 @@ internal inline fun <reified T: View> View.findView(id: Int): T
         LOG.warn(message)
         throw InflateException(message)
     }()
+}
+
+
+fun CheckedTextView.tap()
+{
+    toggle()
+    adjustCheckMark()
+}
+
+fun CheckedTextView.adjustCheckMark()
+{
+    checkMarkDrawable = if (isChecked) resources.getDrawable(R.drawable.yo_check) else null
 }
