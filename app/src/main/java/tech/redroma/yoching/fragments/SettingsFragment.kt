@@ -96,7 +96,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
             truePlayer = view.findView(R.id.true_player)
             truePlayerDescription = view.findView(R.id.true_player_description)
             tapThat = view.findView(R.id.tap_that)
-            tapThatDescription = view.findView(R.id.tap_that)
+            tapThatDescription = view.findView(R.id.tap_that_description)
 
             changeStyle = view.findView(R.id.change_style)
             street = view.findView(R.id.street)
@@ -120,21 +120,80 @@ class SettingsFragment : android.support.v4.app.Fragment()
             setListeners()
         }
 
-        private fun setListeners()
-        {
-            truePlayer.setOnClickListener { truePlayer.toggle() }
-        }
 
         private fun adjustChecks()
         {
             Settings.init(context)
 
             truePlayer.isChecked = Settings.truePlayerEnabled
-            tapThat.isChecked = !truePlayer.isChecked
-
+            tapThat.isChecked = Settings.tapThatEnabled
             slick.isChecked = Settings.slickCoinsEnabled
-            street.isChecked = !slick.isChecked
+            street.isChecked = Settings.streetCoinsEnabled
 
+            truePlayer.adjustCheckMark()
+            tapThat.adjustCheckMark()
+            slick.adjustCheckMark()
+            street.adjustCheckMark()
+
+        }
+
+        private fun setListeners()
+        {
+            truePlayer.setOnClickListener listener@ {
+
+                if (truePlayer.isChecked) return@listener
+
+                truePlayer.tap()
+                tapThat.tap()
+                Settings.truePlayerEnabled = truePlayer.isChecked
+
+                if (truePlayer.isChecked)
+                {
+                    listener?.onTruePlayerEnabled()
+                }
+            }
+
+            tapThat.setOnClickListener listener@ {
+
+                if (tapThat.isChecked) return@listener
+
+                tapThat.tap()
+                truePlayer.tap()
+                Settings.tapThatEnabled = tapThat.isChecked
+
+                if (tapThat.isChecked)
+                {
+                    listener?.onTapThatEnabled()
+                }
+            }
+
+            street.setOnClickListener listener@ {
+
+                if (street.isChecked) return@listener
+
+                street.tap()
+                slick.tap()
+                Settings.streetCoinsEnabled = street.isChecked
+
+                if (street.isChecked)
+                {
+                    listener?.onStreetStyle()
+                }
+            }
+
+            slick.setOnClickListener listener@ {
+
+                if (slick.isChecked) return@listener
+
+                slick.tap()
+                street.tap()
+                Settings.slickCoinsEnabled = slick.isChecked
+
+                if (slick.isChecked)
+                {
+                    listener?.onSlickStyle()
+                }
+            }
         }
 
         private fun setFonts()

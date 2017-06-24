@@ -52,6 +52,7 @@
                     android:layout_marginTop="24dp"
                     android:textStyle="bold"
                     android:id="@+id/throwing_style" />
+
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -60,18 +61,20 @@
                     android:layout_marginRight="16dp">
 
                 <CheckedTextView
-                        android:text="True Player"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:checkMark="@drawable/yo_check"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:id="@+id/true_player"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:text="True Player"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:checkMark="@drawable/yo_check"
-                        android:focusable="true" />
+                />
+
                 <TextView
                         android:text="Build your wrexagram in 6 throws"
                         android:layout_width="match_parent"
@@ -84,28 +87,30 @@
                         android:id="@+id/true_player_description" />
 
                 <CheckedTextView
-                        android:text="Tap That"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:checkMark="@drawable/yo_check"
+                        android:clickable="true"
                         android:id="@+id/tap_that"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:text="Tap That"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:clickable="true"
-                        android:checkMark="@drawable/yo_check" />
+                />
 
                 <TextView
-                        android:text="One Throw for players on the go"
-                        android:layout_width="match_parent"
+                        android:alpha="0.75"
+                        android:id="@+id/tap_that_description"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="match_parent"
+                        android:text="One Throw for players on the go"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="12sp"
-                        android:layout_marginTop="0dp"
-                        android:alpha="0.75"
-                        android:id="@+id/tap_that_description" />
+                />
 
             </LinearLayout>
 
@@ -128,15 +133,17 @@
                     android:layout_marginRight="16dp">
 
                 <CheckedTextView
-                        android:text="Street"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:checkMark="@drawable/yo_check"
                         android:id="@+id/street"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:text="Street"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp"
-                        android:checkMark="@drawable/yo_check" />
+                />
 
                 <TextView
                         android:text="Straight from the Bodega"
@@ -150,15 +157,17 @@
                         android:id="@+id/street_description" />
 
                 <CheckedTextView
-                        android:text="Slick"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:checkMark="@drawable/yo_check"
                         android:id="@+id/slick"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_width="match_parent"
+                        android:text="Slick"
                         android:textAllCaps="false"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
-                        android:layout_marginTop="16dp"
-                        android:checkMark="@drawable/yo_check" />
+                />
 
                 <TextView
                         android:text="Throw down in style"
@@ -234,6 +243,7 @@
                         android:id="@+id/buy_the_book_description" />
 
             </LinearLayout>
+
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -270,6 +280,7 @@
                             android:layout_width="25dp"
                             android:contentDescription="Right Arrow"
                             android:id="@+id/yo_app_players_arrow" />
+
                 </LinearLayout>
 
                 <TextView
@@ -284,6 +295,7 @@
                         android:id="@+id/yo_app_players_description" />
 
             </LinearLayout>
+
             <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
