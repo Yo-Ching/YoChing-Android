@@ -99,10 +99,10 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
 
     init
     {
-        wrexagramNumber = view.findViewById(R.id.wrexagram_number) as TextView
-        wrexagramTitle = view.findViewById(R.id.wrexagram_title) as TextView
-        wrexagramSummary = view.findViewById(R.id.wrexagram_summary) as TextView
-        wrexagramIcon = view.findViewById(R.id.wrexagram_icon) as ImageView
+        wrexagramNumber = view.findView(R.id.wrexagram_number)
+        wrexagramTitle = view.findView(R.id.wrexagram_title)
+        wrexagramSummary = view.findView(R.id.wrexagram_summary)
+        wrexagramIcon = view.findView(R.id.wrexagram_icon)
 
         wrexagramNumber.typeface = context.exoExtraBold()
         wrexagramTitle.typeface = context.exoExtraBold()

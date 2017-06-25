@@ -26,6 +26,12 @@ import android.view.View
  * @author SirWellington
  */
 
+
+internal fun Fragment.perform(block: Fragment.() -> Unit)
+{
+    block(this)
+}
+
 internal inline fun <reified T: View> Fragment.findViewById(id: Int): T
 {
     val view = view ?:

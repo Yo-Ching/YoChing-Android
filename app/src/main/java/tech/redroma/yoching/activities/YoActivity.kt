@@ -147,11 +147,11 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             activity.perform {
 
-                actionToolbar = findViewById(id.action_toolbar) as Toolbar
+                actionToolbar = findView(id.action_toolbar)
                 setSupportActionBar(actionToolbar)
                 title = ""
 
-                drawerLayout = findViewById(id.drawerLayout) as DrawerLayout
+                drawerLayout = findView(id.drawerLayout)
                 drawerToggle = DrawerToggle(this, drawerLayout)
                 drawerToggle.isDrawerIndicatorEnabled = true
                 drawerToggle.drawerArrowDrawable.color = resources.getColor(R.color.white)

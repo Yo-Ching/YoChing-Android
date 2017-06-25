@@ -22,15 +22,16 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.TextView
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
 object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 
-internal val Activity.actionBarTitleView: TextView? get()
+internal val AppCompatActivity.actionBarTitleView: TextView? get()
 {
-    return findViewById(R.id.yo_action_bar_title) as? TextView
+    return this.findView(R.id.yo_action_bar_title)
 }
 
 /**
@@ -55,11 +56,10 @@ internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
     block(this)
 }
 
-internal fun Fragment.perform(block: Fragment.() -> Unit)
+internal inline fun <reified V: View> AppCompatActivity.findView(id: Int): V
 {
-    block(this)
+    return findViewById(id) as V
 }
-
 
 private object Icons
 {

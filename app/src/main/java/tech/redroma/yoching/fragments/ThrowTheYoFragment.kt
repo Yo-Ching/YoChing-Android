@@ -96,9 +96,9 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             prompt = view.findViewById(R.id.yo_prompt) as TextView
             prompt.typeface = context.exoBlack()
 
-            coin1 = view.findViewById(R.id.coin_1) as ImageView
-            coin2 = view.findViewById(R.id.coin_2) as ImageView
-            coin3 = view.findViewById(R.id.coin_3) as ImageView
+            coin1 = view.findView(R.id.coin_1)
+            coin2 = view.findView(R.id.coin_2)
+            coin3 = view.findView(R.id.coin_3)
 
             listOf(coin1, coin2, coin3).forEach {
                 it.setImageDrawable(context.headsIcon)

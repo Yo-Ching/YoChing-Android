@@ -113,7 +113,7 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setTextForPosition(position: Int)
     {
-        val textView = findViewById(R.id.text) as? TextView ?: return
+        val textView: TextView = findView(R.id.text)
         textView.typeface = context.exoDemiBold()
 
         val text = when (position)
@@ -129,7 +129,7 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setIconForPosition(position: Int)
     {
-        val iconView = findViewById(R.id.icon) as? ImageView ?: return
+        val iconView: ImageView = findView(R.id.icon)
 
         val resourceId = when (position)
         {

@@ -107,14 +107,14 @@ class ReadActivity : AppCompatActivity()
             activity.perform {
 
                 //Pull out the Views
-                actionBarToolbar = findViewById(id.action_toolbar) as Toolbar
-                actionBarTitle = findViewById(id.yo_action_bar_title) as TextView
-                wrexagramImage = findViewById(id.wrexagram_image) as ImageView
-                wrexagramTitle = findViewById(id.wrexagram_title) as TextView
-                duplicateTitle = findViewById(R.id.wrexagram_title_duplicate) as TextView
-                body = findViewById(id.wrexagram_body) as DocumentView
-                whatsUpTitle = findViewById(R.id.whats_up_title) as TextView
-                whatsUpBody = findViewById(R.id.whats_up_body) as DocumentView
+                actionBarToolbar = findView(id.action_toolbar)
+                actionBarTitle = findView(id.yo_action_bar_title)
+                wrexagramImage = findView(id.wrexagram_image)
+                wrexagramTitle = findView(id.wrexagram_title)
+                duplicateTitle = findView(R.id.wrexagram_title_duplicate)
+                body = findView(id.wrexagram_body)
+                whatsUpTitle = findView(R.id.whats_up_title)
+                whatsUpBody = findView(R.id.whats_up_body)
 
                 //Action bar code
                 setSupportActionBar(actionBarToolbar)
