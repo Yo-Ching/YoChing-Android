@@ -188,7 +188,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
+            app:layout_constraintBottom_toTopOf="@+id/throw_yo_container"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@id/left"
             app:layout_constraintRight_toLeftOf="@id/one_third"
@@ -213,7 +213,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
+            app:layout_constraintBottom_toTopOf="@+id/throw_yo_container"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toLeftOf="@id/one_third"
             app:layout_constraintRight_toLeftOf="@id/two_third"
@@ -236,7 +236,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
+            app:layout_constraintBottom_toTopOf="@+id/throw_yo_container"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="@id/two_third"
             app:layout_constraintRight_toLeftOf="@id/right"
@@ -249,33 +249,41 @@
             android:background="@drawable/yo_button_background"
             android:layout_height="0dp"
             android:layout_width="0dp"
-            app:layout_constraintLeft_toLeftOf="@id/throw_the_yo_button"
-            app:layout_constraintRight_toRightOf="@id/throw_the_yo_button"
-            app:layout_constraintBottom_toBottomOf="@id/throw_the_yo_button"
-            app:layout_constraintTop_toTopOf="@id/throw_the_yo_button"
+            app:layout_constraintLeft_toLeftOf="@+id/throw_yo_container"
+            app:layout_constraintRight_toRightOf="@+id/throw_yo_container"
+            app:layout_constraintBottom_toBottomOf="@+id/throw_yo_container"
+            app:layout_constraintTop_toTopOf="@+id/throw_yo_container"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="0dp"
             android:layout_marginBottom="0dp"
     />
 
-    <Button
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:elevation="10dp"
-            android:id="@+id/throw_the_yo_button"
+    <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/throw_yo_container"
             android:layout_height="60dp"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_width="0dp"
-            android:text="THROW THE YO"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="@id/galaxy_background"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-    />
+    >
+
+        <Button
+                android:background="@color/transparent"
+                android:id="@+id/throw_the_yo_button"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="THROW THE YO"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+
+        />
+
+    </com.balysv.materialripple.MaterialRippleLayout>
 
 
 </android.support.constraint.ConstraintLayout>
