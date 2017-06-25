@@ -17,6 +17,7 @@
 package tech.redroma.yoching.extensions
 
 import tech.sirwellington.alchemy.arguments.assertions.greaterThan
+import tech.sirwellington.alchemy.arguments.assertions.lessThan
 import tech.sirwellington.alchemy.arguments.checkThat
 import java.util.*
 
@@ -43,7 +44,7 @@ fun checkValidWrexNumber(wrexagramNumber: Int?)
 fun Int.Companion.randomFrom(min: Int, max: Int): Int
 {
     checkThat(min)
-            .isA(greaterThan(max))
+            .isA(lessThan(max))
 
     val diff = max - min
     val random = Random().nextInt(diff)
