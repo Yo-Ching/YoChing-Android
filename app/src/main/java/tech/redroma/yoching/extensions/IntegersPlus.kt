@@ -16,7 +16,6 @@
 
 package tech.redroma.yoching.extensions
 
-import tech.sirwellington.alchemy.arguments.assertions.greaterThan
 import tech.sirwellington.alchemy.arguments.assertions.lessThan
 import tech.sirwellington.alchemy.arguments.checkThat
 import java.util.*
