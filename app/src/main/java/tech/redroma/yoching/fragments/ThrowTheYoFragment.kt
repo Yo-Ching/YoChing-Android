@@ -16,14 +16,13 @@
 
 package tech.redroma.yoching.fragments
 
+import android.animation.AnimatorInflater
 import android.os.Handler
 import android.view.*
-import android.widget.ImageView
-import android.widget.TextView
-import tech.redroma.yoching.R
+import android.widget.*
+import tech.redroma.yoching.*
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
-import tech.redroma.yoching.exoBlack
 import tech.redroma.yoching.extensions.*
 
 
@@ -92,6 +91,9 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         private lateinit var coin1: ImageView
         private lateinit var coin2: ImageView
         private lateinit var coin3: ImageView
+        private lateinit var throwTheYoButton: Button
+
+        val coins get() = listOf(coin1, coin2, coin3)
 
         fun inflate(view: View)
         {
@@ -102,10 +104,13 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             coin2 = view.findView(R.id.coin_2)
             coin3 = view.findView(R.id.coin_3)
 
-            listOf(coin1, coin2, coin3).forEach {
+            coins.forEach {
                 it.setImageDrawable(context.headsIcon)
                 it.setOnClickListener { actions.onCoinTapped(it) }
             }
+
+            throwTheYoButton = view.findView(R.id.throw_the_yo_button)
+            throwTheYoButton.typeface = context.exoDemiBold()
         }
     }
 
@@ -117,9 +122,14 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             Aroma.send { sendLowPriorityMessage("Coin Tapped") }
 
             val imageView = view as? ImageView ?: return
-            val animator = CoinAnimator(context, imageView)
+            val animation = AnimatorInflater.loadAnimator(context, R.animator.flip_coin) ?: return
 
-            handler.postDelayed(animator, 100)
+            animation.setTarget(imageView)
+            animation.start()
+
+            val isHeads = Int.randomFrom(0, 10).isEven
+            val coin = if (isHeads) context.headsIcon else context.tailsIcon
+            imageView.setImageDrawable(coin)
         }
     }
 }

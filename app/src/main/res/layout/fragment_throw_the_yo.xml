@@ -49,15 +49,6 @@
     />
 
     <android.support.constraint.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.5"
-            tools:layout_editor_absoluteY="0dp"
-            tools:layout_editor_absoluteX="180dp" />
-
-    <android.support.constraint.Guideline
             android:id="@+id/coin_begin_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -67,38 +58,44 @@
             tools:layout_editor_absoluteX="0dp"
     />
 
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/left"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_percent="0.05"
-                                          tools:layout_editor_absoluteY="0dp"
-                                          tools:layout_editor_absoluteX="18dp"
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/left"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="18dp"
     />
 
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/one_third"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_percent="0.35"
-                                          tools:layout_editor_absoluteY="0dp"
-                                          tools:layout_editor_absoluteX="126dp"
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/one_third"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="126dp"
     />
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/two_third"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_percent="0.65"
-                                          tools:layout_editor_absoluteY="0dp"
-                                          tools:layout_editor_absoluteX="234dp"
+
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/two_third"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="234dp"
     />
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/right"
-                                          android:orientation="vertical"
-                                          app:layout_constraintGuide_percent="0.95"
-                                          tools:layout_editor_absoluteY="0dp"
-                                          tools:layout_editor_absoluteX="342dp"
+
+    <android.support.constraint.Guideline
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/right"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="342dp"
     />
 
     <android.support.constraint.Guideline
@@ -176,6 +173,7 @@
             tools:layout_editor_absoluteY="29dp"
     />
 
+
     <ImageView
             android:contentDescription="@string/yo_ching_coin_description"
             android:elevation="0dp"
@@ -183,18 +181,18 @@
             android:id="@+id/coin_1"
             android:layout_gravity="center_vertical"
             android:layout_height="0dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/left"
-            app:layout_constraintRight_toLeftOf="@+id/one_third"
-            app:layout_constraintTop_toTopOf="@+id/coin_begin_guideline"
+            app:layout_constraintLeft_toLeftOf="@id/left"
+            app:layout_constraintRight_toLeftOf="@id/one_third"
+            app:layout_constraintTop_toTopOf="@id/coin_begin_guideline"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/coin_heads_slick"
     />
@@ -206,7 +204,7 @@
             android:id="@+id/coin_2"
             android:layout_gravity="center_vertical"
             android:layout_height="0dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
@@ -215,11 +213,11 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/galaxy_background"
+            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toLeftOf="@+id/one_third"
-            app:layout_constraintRight_toLeftOf="@+id/two_third"
-            app:layout_constraintTop_toTopOf="@+id/coin_begin_guideline"
+            app:layout_constraintLeft_toLeftOf="@id/one_third"
+            app:layout_constraintRight_toLeftOf="@id/two_third"
+            app:layout_constraintTop_toTopOf="@id/coin_begin_guideline"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/coin_heads_slick"
     />
@@ -231,20 +229,53 @@
             android:id="@+id/coin_3"
             android:layout_gravity="center_vertical"
             android:layout_height="0dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/throw_the_yo_button"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/two_third"
-            app:layout_constraintRight_toLeftOf="@+id/right"
-            app:layout_constraintTop_toTopOf="@+id/coin_begin_guideline"
+            app:layout_constraintLeft_toLeftOf="@id/two_third"
+            app:layout_constraintRight_toLeftOf="@id/right"
+            app:layout_constraintTop_toTopOf="@id/coin_begin_guideline"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/coin_heads_slick"
     />
+
+    <View
+            android:background="@drawable/yo_button_background"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="@id/throw_the_yo_button"
+            app:layout_constraintRight_toRightOf="@id/throw_the_yo_button"
+            app:layout_constraintBottom_toBottomOf="@id/throw_the_yo_button"
+            app:layout_constraintTop_toTopOf="@id/throw_the_yo_button"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+    />
+
+    <Button
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:elevation="10dp"
+            android:id="@+id/throw_the_yo_button"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_width="0dp"
+            android:text="THROW THE YO"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@id/galaxy_background"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+    />
+
 
 </android.support.constraint.ConstraintLayout>
