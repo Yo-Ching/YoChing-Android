@@ -52,3 +52,5 @@ fun Int.Companion.randomFrom(min: Int, max: Int): Int
     return if (result >= max) max else result
 }
 
+val Int.isEven: Boolean get() = this % 2 == 0
+val Int.isOdd: Boolean get() = !isEven
