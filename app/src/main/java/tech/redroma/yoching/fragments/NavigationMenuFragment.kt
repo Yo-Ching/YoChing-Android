@@ -21,8 +21,11 @@ import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.*
 import android.widget.*
-import tech.redroma.yoching.*
+import tech.redroma.yoching.R
 import tech.redroma.yoching.R.*
+import tech.redroma.yoching.exoDemiBold
+import tech.redroma.yoching.extensions.LOG
+import tech.redroma.yoching.extensions.findView
 
 
 /**
@@ -113,7 +116,7 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setTextForPosition(position: Int)
     {
-        val textView = findViewById(R.id.text) as? TextView ?: return
+        val textView: TextView = findView(R.id.text)
         textView.typeface = context.exoDemiBold()
 
         val text = when (position)
@@ -129,7 +132,7 @@ private class NavigationAdapter(context: Context) : ArrayAdapter<Int>(context,
 
     private fun View.setIconForPosition(position: Int)
     {
-        val iconView = findViewById(R.id.icon) as? ImageView ?: return
+        val iconView: ImageView = findView(R.id.icon)
 
         val resourceId = when (position)
         {

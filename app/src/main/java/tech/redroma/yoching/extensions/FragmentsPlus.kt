@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
+package tech.redroma.yoching.extensions
 
 import android.support.v4.app.Fragment
 import android.view.InflateException
@@ -25,6 +25,12 @@ import android.view.View
  *
  * @author SirWellington
  */
+
+
+internal fun Fragment.perform(block: Fragment.() -> Unit)
+{
+    block(this)
+}
 
 internal inline fun <reified T: View> Fragment.findViewById(id: Int): T
 {

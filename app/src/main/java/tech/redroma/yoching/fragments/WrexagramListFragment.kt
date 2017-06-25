@@ -7,14 +7,14 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.activities.ReadActivity
+import tech.redroma.yoching.extensions.LOG
+import tech.redroma.yoching.extensions.findView
 import tech.redroma.yoching.wrexagrams.*
 
 
@@ -99,10 +99,10 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
 
     init
     {
-        wrexagramNumber = view.findViewById(R.id.wrexagram_number) as TextView
-        wrexagramTitle = view.findViewById(R.id.wrexagram_title) as TextView
-        wrexagramSummary = view.findViewById(R.id.wrexagram_summary) as TextView
-        wrexagramIcon = view.findViewById(R.id.wrexagram_icon) as ImageView
+        wrexagramNumber = view.findView(R.id.wrexagram_number)
+        wrexagramTitle = view.findView(R.id.wrexagram_title)
+        wrexagramSummary = view.findView(R.id.wrexagram_summary)
+        wrexagramIcon = view.findView(R.id.wrexagram_icon)
 
         wrexagramNumber.typeface = context.exoExtraBold()
         wrexagramTitle.typeface = context.exoExtraBold()

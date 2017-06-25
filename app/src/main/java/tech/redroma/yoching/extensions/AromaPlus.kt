@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
+package tech.redroma.yoching.extensions
 
 import android.os.AsyncTask
 import tech.aroma.client.Aroma as AromaClient
@@ -35,7 +35,7 @@ internal object Aroma
     {
         AsyncTask.execute block@ {
 
-            val aroma = this.aroma ?: AromaClient.create(AROMA_TOKEN) ?: return@block
+            val aroma = aroma ?: AromaClient.create(AROMA_TOKEN) ?: return@block
             callback(aroma)
         }
     }

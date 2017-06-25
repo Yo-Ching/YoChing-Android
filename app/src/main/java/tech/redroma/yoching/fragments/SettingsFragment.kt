@@ -2,9 +2,8 @@ package tech.redroma.yoching.fragments
 
 import android.view.View
 import android.widget.*
-import com.daimajia.androidanimations.library.Techniques.Pulse
-import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
+import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 
 /**

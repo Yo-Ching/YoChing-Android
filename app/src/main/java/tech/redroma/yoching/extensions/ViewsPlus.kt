@@ -14,13 +14,14 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
+package tech.redroma.yoching.extensions
 
 import android.view.InflateException
 import android.view.View
 import android.widget.CheckedTextView
 import com.daimajia.androidanimations.library.Techniques.BounceIn
 import com.daimajia.androidanimations.library.YoYo
+import tech.redroma.yoching.R.drawable
 
 
 /**
@@ -47,7 +48,7 @@ fun CheckedTextView.tap(): CheckedTextView
 
 fun CheckedTextView.adjustCheckMark(): CheckedTextView
 {
-    checkMarkDrawable = if (isChecked) resources.getDrawable(R.drawable.yo_check) else null
+    checkMarkDrawable = if (isChecked) resources.getDrawable(drawable.yo_check) else null
     return this
 }
 

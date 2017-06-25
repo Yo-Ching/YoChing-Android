@@ -14,23 +14,25 @@
  * limitations under the License.
  */
 
-package tech.redroma.yoching
+package tech.redroma.yoching.extensions
 
-import android.app.Activity
 import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.TextView
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import tech.redroma.yoching.R.drawable
+import tech.redroma.yoching.R.id
+import tech.redroma.yoching.Settings
 
 object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 
-internal val Activity.actionBarTitleView: TextView? get()
+internal val AppCompatActivity.actionBarTitleView: TextView? get()
 {
-    return findViewById(R.id.yo_action_bar_title) as? TextView
+    return this.findView(id.yo_action_bar_title)
 }
 
 /**
@@ -55,11 +57,10 @@ internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
     block(this)
 }
 
-internal fun Fragment.perform(block: Fragment.() -> Unit)
+internal inline fun <reified V: View> AppCompatActivity.findView(id: Int): V
 {
-    block(this)
+    return findViewById(id) as V
 }
-
 
 private object Icons
 {
@@ -77,10 +78,10 @@ private object Icons
             return
         }
 
-        headsIconSlick = context.resources.getDrawable(R.drawable.coin_heads_slick)
-        tailsIconSlick = context.resources.getDrawable(R.drawable.coin_tails_slick)
-        headsIconStreet = context.resources.getDrawable(R.drawable.coin_heads_street)
-        tailsIconStreet = context.resources.getDrawable(R.drawable.coin_tails_street)
+        headsIconSlick = context.resources.getDrawable(drawable.coin_heads_slick)
+        tailsIconSlick = context.resources.getDrawable(drawable.coin_tails_slick)
+        headsIconStreet = context.resources.getDrawable(drawable.coin_heads_street)
+        tailsIconStreet = context.resources.getDrawable(drawable.coin_tails_street)
 
         isInitialized = true
     }

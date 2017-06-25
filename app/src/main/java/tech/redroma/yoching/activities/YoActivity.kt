@@ -11,9 +11,11 @@ import android.support.v7.widget.Toolbar
 import android.util.AttributeSet
 import android.view.*
 import android.widget.TextView
-import tech.redroma.yoching.*
+import tech.redroma.yoching.R
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.exoBlack
+import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
 import tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener
@@ -147,11 +149,11 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             activity.perform {
 
-                actionToolbar = findViewById(id.action_toolbar) as Toolbar
+                actionToolbar = findView(id.action_toolbar)
                 setSupportActionBar(actionToolbar)
                 title = ""
 
-                drawerLayout = findViewById(id.drawerLayout) as DrawerLayout
+                drawerLayout = findView(id.drawerLayout)
                 drawerToggle = DrawerToggle(this, drawerLayout)
                 drawerToggle.isDrawerIndicatorEnabled = true
                 drawerToggle.drawerArrowDrawable.color = resources.getColor(R.color.white)
