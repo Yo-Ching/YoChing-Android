@@ -11,9 +11,10 @@ import android.support.v7.widget.Toolbar
 import android.util.AttributeSet
 import android.view.*
 import android.widget.TextView
-import tech.redroma.yoching.*
+import tech.redroma.yoching.R
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.exoBlack
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener

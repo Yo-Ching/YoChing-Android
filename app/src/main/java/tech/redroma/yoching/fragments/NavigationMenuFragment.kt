@@ -21,8 +21,9 @@ import android.os.Bundle
 import android.support.v4.app.ListFragment
 import android.view.*
 import android.widget.*
-import tech.redroma.yoching.*
+import tech.redroma.yoching.R
 import tech.redroma.yoching.R.*
+import tech.redroma.yoching.exoDemiBold
 import tech.redroma.yoching.extensions.LOG
 import tech.redroma.yoching.extensions.findView
 

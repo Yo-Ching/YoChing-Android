@@ -20,9 +20,10 @@ import android.os.Handler
 import android.view.*
 import android.widget.ImageView
 import android.widget.TextView
-import tech.redroma.yoching.*
+import tech.redroma.yoching.R
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
+import tech.redroma.yoching.exoBlack
 import tech.redroma.yoching.extensions.*
 
 
