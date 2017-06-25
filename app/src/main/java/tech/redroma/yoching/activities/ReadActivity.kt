@@ -13,6 +13,7 @@ import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
 import tyrantgit.explosionfield.ExplosionField

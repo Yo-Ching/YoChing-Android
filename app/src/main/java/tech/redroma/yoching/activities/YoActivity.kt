@@ -14,6 +14,7 @@ import android.widget.TextView
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
 import tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener

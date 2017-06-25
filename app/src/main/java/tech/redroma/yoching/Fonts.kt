@@ -22,6 +22,7 @@ import android.graphics.Typeface
 import android.support.v4.util.LruCache
 import android.text.TextPaint
 import android.text.style.MetricAffectingSpan
+import tech.redroma.yoching.extensions.LOG
 
 
 /**

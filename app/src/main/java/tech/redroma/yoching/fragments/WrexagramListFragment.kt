@@ -15,6 +15,8 @@ import android.widget.TextView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.activities.ReadActivity
+import tech.redroma.yoching.extensions.LOG
+import tech.redroma.yoching.extensions.findView
 import tech.redroma.yoching.wrexagrams.*
 
 

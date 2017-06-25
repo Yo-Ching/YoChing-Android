@@ -22,6 +22,8 @@ import android.content.Context
 import android.content.res.Resources
 import android.widget.ImageView
 import tech.redroma.yoching.*
+import tech.redroma.yoching.extensions.headsIcon
+import tech.redroma.yoching.extensions.tailsIcon
 
 
 /**

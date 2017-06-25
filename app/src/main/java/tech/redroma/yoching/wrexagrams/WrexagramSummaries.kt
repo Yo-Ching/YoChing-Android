@@ -19,7 +19,7 @@ package tech.redroma.yoching.wrexagrams
 import android.content.Context
 import org.json.JSONArray
 import org.json.JSONObject
-import tech.redroma.yoching.checkValidWrexNumber
+import tech.redroma.yoching.extensions.checkValidWrexNumber
 import java.io.*
 
 

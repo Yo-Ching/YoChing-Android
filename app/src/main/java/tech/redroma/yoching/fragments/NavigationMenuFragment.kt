@@ -23,6 +23,8 @@ import android.view.*
 import android.widget.*
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.*
+import tech.redroma.yoching.extensions.LOG
+import tech.redroma.yoching.extensions.findView
 
 
 /**

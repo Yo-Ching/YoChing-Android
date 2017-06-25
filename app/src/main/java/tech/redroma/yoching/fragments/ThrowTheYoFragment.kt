@@ -23,6 +23,7 @@ import android.widget.TextView
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
+import tech.redroma.yoching.extensions.*
 
 
 /**

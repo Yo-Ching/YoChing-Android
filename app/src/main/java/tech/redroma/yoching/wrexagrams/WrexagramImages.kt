@@ -19,7 +19,7 @@ package tech.redroma.yoching.wrexagrams
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import tech.redroma.yoching.checkValidWrexNumber
+import tech.redroma.yoching.extensions.checkValidWrexNumber
 
 
 /**

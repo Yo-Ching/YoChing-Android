@@ -16,7 +16,7 @@
 
 package tech.redroma.yoching.wrexagrams
 
-import tech.redroma.yoching.checkValidWrexNumber
+import tech.redroma.yoching.extensions.checkValidWrexNumber
 
 
 /**
