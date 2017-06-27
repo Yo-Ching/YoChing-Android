@@ -82,7 +82,8 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginEnd="8dp"
                     android:paddingBottom="12dp"
-                    android:paddingTop="12dp">
+                    android:paddingTop="12dp"
+                    android:id="@+id/true_player_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -103,7 +104,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/true_player" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -115,7 +116,7 @@
                             android:text="Executive Producer"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/true_player_description" />
 
                 </LinearLayout>
 
@@ -145,7 +146,8 @@
                     android:paddingStart="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="8dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:id="@+id/hugh_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -166,7 +168,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/hugh" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -178,7 +180,7 @@
                             android:text="Writer, Producer, Creative Director"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/hugh__description" />
 
                 </LinearLayout>
 
@@ -206,7 +208,8 @@
                     android:paddingStart="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="8dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:id="@+id/wellington_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -227,7 +230,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/wellington" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -239,7 +242,7 @@
                             android:text="Programming Monk, App Designer"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/wellington_description" />
 
                 </LinearLayout>
 
@@ -267,7 +270,8 @@
                     android:paddingStart="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="8dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:id="@+id/marc_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -288,7 +292,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/marc" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -300,7 +304,7 @@
                             android:text="Producer"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/marc_description" />
 
                 </LinearLayout>
 
@@ -328,7 +332,8 @@
                     android:paddingStart="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="8dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:id="@+id/brendan_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -349,7 +354,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/brendan" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -361,7 +366,7 @@
                             android:text="Wrexagram Artwork, Yo Bro Profile"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/brendan_description" />
 
                 </LinearLayout>
 
@@ -389,7 +394,8 @@
                     android:paddingStart="16dp"
                     android:paddingLeft="16dp"
                     android:paddingRight="8dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:id="@+id/maya_container">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -410,7 +416,7 @@
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                    />
+                            android:id="@+id/maya" />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -422,7 +428,7 @@
                             android:text="Yo Street Coins"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="16sp"
-                    />
+                            android:id="@+id/maya_description" />
 
                 </LinearLayout>
 
