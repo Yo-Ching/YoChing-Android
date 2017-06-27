@@ -1,15 +1,12 @@
 package tech.redroma.yoching.activities
 
-import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
-import android.view.ViewGroup
 import android.widget.TextView
 import tech.redroma.yoching.R
 import tech.redroma.yoching.extensions.*
-import tech.redroma.yoching.views.ViewContainer
 
 class CreditsActivity : AppCompatActivity()
 {
@@ -20,8 +17,15 @@ class CreditsActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_credits)
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
 
         views.inflate()
+    }
+
+    override fun finish()
+    {
+        super.finish()
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
     }
 
     private inner class Views
@@ -51,6 +55,7 @@ class CreditsActivity : AppCompatActivity()
             val button = yoActionBar.firstChildWhere<AppCompatImageButton> { it is AppCompatImageButton } ?: return
             button.setOnClickListener {
                 LOG.info("Back Button clicked!")
+                finish()
             }
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
