@@ -25,7 +25,8 @@
                 android:label="@string/title_activity_read_wrexagram"
                 android:theme="@style/YoChingTheme">
         </activity>
-        <activity android:name=".activities.CreditsActivity">
+        <activity android:name=".activities.CreditsActivity"
+                  android:exported="true">
         </activity>
     </application>
 
