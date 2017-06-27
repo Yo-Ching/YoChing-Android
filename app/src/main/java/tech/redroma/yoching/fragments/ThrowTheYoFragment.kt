@@ -24,7 +24,9 @@ import com.balysv.materialripple.MaterialRippleLayout
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
+import tech.redroma.yoching.animations.CoinAnimator.CoinResult
 import tech.redroma.yoching.extensions.*
+import java.util.concurrent.atomic.AtomicInteger
 
 
 /**
@@ -89,6 +91,16 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
     private inner class Views
     {
         private lateinit var prompt: TextView
+
+        private lateinit var line1: ImageView
+        private lateinit var line2: ImageView
+        private lateinit var line3: ImageView
+        private lateinit var line4: ImageView
+        private lateinit var line5: ImageView
+        private lateinit var line6: ImageView
+
+        val lines get() = listOf(line1, line2, line3, line4, line5, line6)
+
         private lateinit var coin1: ImageView
         private lateinit var coin2: ImageView
         private lateinit var coin3: ImageView
@@ -102,6 +114,13 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             prompt = view.findViewById(R.id.yo_prompt) as TextView
             prompt.typeface = context.exoBlack()
 
+            line1 = view.findView(R.id.line_1)
+            line2 = view.findView(R.id.line_2)
+            line3 = view.findView(R.id.line_3)
+            line4 = view.findView(R.id.line_4)
+            line5 = view.findView(R.id.line_5)
+            line6 = view.findView(R.id.line_6)
+
             coin1 = view.findView(R.id.coin_1)
             coin2 = view.findView(R.id.coin_2)
             coin3 = view.findView(R.id.coin_3)
@@ -110,6 +129,8 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
             styleElements()
             setListeners()
+            showPrompt()
+            hideWrexagramLines()
         }
 
         private fun styleElements()
@@ -132,6 +153,22 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             }
 
         }
+
+        fun showPrompt()
+        {
+            prompt.visibility = View.VISIBLE
+        }
+
+        fun hidePrompt()
+        {
+            prompt.visibility = View.INVISIBLE
+        }
+
+        fun hideWrexagramLines()
+        {
+            lines.forEach { it.visibility = View.INVISIBLE }
+        }
+
     }
 
     private inner class Actions
@@ -156,16 +193,35 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
     private inner class Player
     {
+
         fun throwTheYo()
         {
-            views.coins.forEach(this::flip)
+            val countdown = AtomicInteger(3)
+            val results = mutableListOf<CoinResult>()
 
+            views.coins.forEach {
+
+                flip(it) { result ->
+
+                    results.add(result)
+
+                    //We are done flipping the coins
+                    if (countdown.decrementAndGet() <= 0)
+                    {
+                        LOG.info("All coins landed!")
+                        LOG.info("Results: $results")
+                    }
+                }
+            }
         }
 
-        fun flip(coin: ImageView)
+        fun flip(coin: ImageView, onDone: (CoinResult) -> Unit)
         {
             val animator = CoinAnimator(context, coin)
-            coin.post(animator)
+            animator.onDone = onDone
+
+            val delay = Int.randomFrom(1, 200).toLong()
+            coin.postDelayed(animator, delay)
         }
     }
 }
