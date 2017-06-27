@@ -125,37 +125,37 @@
     >
 
         <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/line_6"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1" />
         <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/line_5"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1" />
         <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/line_4"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1" />
         <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/line_3"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1" />
         <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/line_2"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1" />
         <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/line_1"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
