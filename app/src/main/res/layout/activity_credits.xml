@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        tools:context="tech.redroma.yoching.activities.CreditsActivity"
+        android:background="@color/colorPrimary">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/galaxy_white_transparent"
+            android:id="@+id/galaxy_background" />
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="24dp">
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+                <TextView
+                        android:text="True Player"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView2"
+                        android:layout_weight="0.9"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:layout_gravity="clip_vertical"
+                        android:gravity="center_vertical"
+                        android:foregroundGravity="center_vertical"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="4dp" />
+                <TextView
+                        android:text="Executive Producer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView3"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/white_alpha_75"
+                        android:textSize="16sp"
+                        android:layout_gravity="clip_vertical"
+                        android:gravity="center_vertical"
+                        android:foregroundGravity="center_vertical" />
+            </LinearLayout>
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:srcCompat="@drawable/arrow_right"
+                    android:id="@+id/imageView2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
