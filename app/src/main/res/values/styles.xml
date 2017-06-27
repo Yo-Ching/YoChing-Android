@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:textColorPrimary">@android:color/darker_gray</item>
         <item name="android:colorForeground">@color/colorPrimary</item>
-        <item name="colorControlHighlight">@color/ripple_material_dark</item>
+        <item name="colorControlHighlight">@color/white_alpha_50</item>
 
     </style>
 
