@@ -16,8 +16,7 @@
 
 package tech.redroma.yoching.extensions
 
-import android.view.InflateException
-import android.view.View
+import android.view.*
 import android.widget.CheckedTextView
 import com.daimajia.androidanimations.library.Techniques.BounceIn
 import com.daimajia.androidanimations.library.YoYo
@@ -59,4 +58,26 @@ fun CheckedTextView.shake(): CheckedTextView
             .playOn(this)
 
     return this
+}
+
+val ViewGroup.children: List<View>
+    get()
+    {
+        val children = mutableListOf<View>()
+        forEachChild { children.add(it) }
+
+        return children
+    }
+
+
+fun ViewGroup.forEachChild(function: (View) -> Unit)
+{
+    (0 until childCount)
+            .map { getChildAt(it) }
+            .forEach(function)
+}
+
+inline fun <reified V: View> ViewGroup.firstChildWhere(predicate: (View) -> Boolean): V?
+{
+    return children.first { predicate(it) } as? V
 }
