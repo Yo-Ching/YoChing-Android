@@ -20,6 +20,7 @@ import android.animation.AnimatorInflater
 import android.os.Handler
 import android.view.*
 import android.widget.*
+import com.balysv.materialripple.MaterialRippleLayout
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.animations.CoinAnimator
@@ -48,7 +49,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
     var listener: tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener? = null
     private val actions = Actions()
-    private val handler = Handler()
+    private val player = Player()
     private val views = Views()
 
     override fun onCreate(savedInstanceState: android.os.Bundle?)
@@ -91,7 +92,8 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         private lateinit var coin1: ImageView
         private lateinit var coin2: ImageView
         private lateinit var coin3: ImageView
-        private lateinit var throwTheYoButton: Button
+        private lateinit var throwButton: Button
+        private lateinit var throwButtonContainer: MaterialRippleLayout
 
         val coins get() = listOf(coin1, coin2, coin3)
 
@@ -103,14 +105,32 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             coin1 = view.findView(R.id.coin_1)
             coin2 = view.findView(R.id.coin_2)
             coin3 = view.findView(R.id.coin_3)
+            throwButton = view.findView(R.id.throw_the_yo_button)
+            throwButtonContainer = view.findView(R.id.throw_yo_container)
 
+            styleElements()
+            setListeners()
+        }
+
+        private fun styleElements()
+        {
             coins.forEach {
                 it.setImageDrawable(context.headsIcon)
+            }
+            throwButton.typeface = context.exoDemiBold()
+        }
+
+        private fun setListeners()
+        {
+            coins.forEach {
                 it.setOnClickListener { actions.onCoinTapped(it) }
             }
 
-            throwTheYoButton = view.findView(R.id.throw_the_yo_button)
-            throwTheYoButton.typeface = context.exoDemiBold()
+            throwButton.isClickable = true
+            throwButton.setOnClickListener {
+                player.throwTheYo()
+            }
+
         }
     }
 
@@ -130,6 +150,22 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             val isHeads = Int.randomFrom(0, 10).isEven
             val coin = if (isHeads) context.headsIcon else context.tailsIcon
             imageView.setImageDrawable(coin)
+        }
+
+    }
+
+    private inner class Player
+    {
+        fun throwTheYo()
+        {
+            views.coins.forEach(this::flip)
+
+        }
+
+        fun flip(coin: ImageView)
+        {
+            val animator = CoinAnimator(context, coin)
+            coin.post(animator)
         }
     }
 }
