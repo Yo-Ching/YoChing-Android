@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.constraint.ConstraintLayout
         android:background="@color/colorPrimary"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -11,16 +11,54 @@
 
     <ImageView
             android:id="@+id/galaxy_background"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
             app:srcCompat="@drawable/galaxy_white_transparent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
     />
 
+    <android.support.v7.widget.Toolbar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:id="@+id/yo_action_bar"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_constraintRight_creator="1"
+            tools:layout_constraintLeft_creator="1">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:id="@+id/yo_action_bar_title"
+                android:text="Credits"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:textAllCaps="true" />
+
+    </android.support.v7.widget.Toolbar>
+
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:paddingBottom="8dp"
-            android:paddingTop="40dp">
+            android:paddingTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/yo_action_bar"
+    >
 
         <LinearLayout
                 android:layout_height="wrap_content"
@@ -403,4 +441,4 @@
 
         </LinearLayout>
     </ScrollView>
-</FrameLayout>
+</android.support.constraint.ConstraintLayout>
