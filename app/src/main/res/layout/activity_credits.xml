@@ -18,12 +18,12 @@
 
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-    >
+            android:layout_height="match_parent"
+            android:paddingBottom="8dp"
+            android:paddingTop="40dp">
 
         <LinearLayout
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:orientation="vertical"
         >
@@ -396,6 +396,9 @@
                 />
 
             </LinearLayout>
+            <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="16dp" />
 
 
         </LinearLayout>
