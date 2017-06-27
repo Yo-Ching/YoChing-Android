@@ -126,7 +126,10 @@ class CreditsActivity : AppCompatActivity()
 
             listOf(truePlayerDescription, hughDescription, wellingtonDescription, marcDescription, brendanDescription, mayaDescription)
                     .forEach { it.typeface = subtitleFont }
+
+            yoActionBarTitle.typeface = exoBlack()
         }
 
     }
+
 }
