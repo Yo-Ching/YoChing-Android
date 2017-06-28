@@ -270,10 +270,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:clickable="false"
+            app:mrl_rippleDelayClick="false"
+            app:mrl_ripplePersistent="false"
     >
 
         <Button
                 android:background="@color/transparent"
+                android:clickable="true"
                 android:id="@+id/throw_the_yo_button"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
