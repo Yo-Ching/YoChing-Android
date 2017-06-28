@@ -21,9 +21,10 @@ import android.animation.Animator.AnimatorListener
 import android.content.Context
 import android.content.res.Resources
 import android.widget.ImageView
+import tech.redroma.yoching.CoinResult
+import tech.redroma.yoching.CoinResult.HEADS
+import tech.redroma.yoching.CoinResult.TAILS
 import tech.redroma.yoching.R
-import tech.redroma.yoching.animations.CoinAnimator.CoinResult.HEADS
-import tech.redroma.yoching.animations.CoinAnimator.CoinResult.TAILS
 import tech.redroma.yoching.extensions.headsIcon
 import tech.redroma.yoching.extensions.tailsIcon
 
@@ -36,12 +37,6 @@ import tech.redroma.yoching.extensions.tailsIcon
 class CoinAnimator(val context: Context, val imageView: ImageView) : Runnable
 {
     val animation = AnimatorInflater.loadAnimator(context, R.animator.coin_toss_animator)!!
-
-    enum class CoinResult
-    {
-        HEADS,
-        TAILS
-    }
 
     var onDone: ((CoinResult) -> Unit)? = null
 
