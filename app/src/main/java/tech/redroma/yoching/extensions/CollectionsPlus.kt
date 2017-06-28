@@ -21,8 +21,11 @@ import tech.sirwellington.alchemy.arguments.checkThat
 
 
 /**
+ * Returns a random element from this [List].
+ * Note that the list must not be empty/
  *
  * @author SirWellington
+ * @throws IllegalArgumentException If `this` is null.
  */
 inline fun <reified E> List<E>.anyElement(): E
 {
