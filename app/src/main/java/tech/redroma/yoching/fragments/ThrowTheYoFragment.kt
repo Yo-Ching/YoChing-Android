@@ -22,13 +22,13 @@ import android.view.*
 import android.widget.*
 import com.balysv.materialripple.MaterialRippleLayout
 import com.daimajia.androidanimations.library.Techniques
-import com.daimajia.androidanimations.library.Techniques.*
+import com.daimajia.androidanimations.library.Techniques.FadeIn
+import com.daimajia.androidanimations.library.Techniques.FlipInX
 import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
 import tech.redroma.yoching.CoinResult.HEADS
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.WrexagramLine.SPLIT
-import tech.redroma.yoching.WrexagramLine.STRONG
 import tech.redroma.yoching.activities.ReadActivity
 import tech.redroma.yoching.animations.CoinAnimator
 import tech.redroma.yoching.extensions.*
@@ -76,6 +76,12 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         }
 
         return view
+    }
+
+    override fun onResume()
+    {
+        super.onResume()
+        player.reset()
     }
 
     override fun onAttach(context: android.content.Context?)
@@ -234,6 +240,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             val intent = Intent(context, ReadActivity::class.java)
             intent.putExtra(ReadActivity.Parameters.WREXAGRAM_NUMBER, number)
             startActivity(intent)
+            activity.overridePendingTransition(R.anim.enter_from_right, R.anim.abc_fade_out)
         }
 
     }
@@ -243,7 +250,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         private var inFlight = false
         private var throwCount = 0
         private var wrexagram = mutableListOf<WrexagramLine>()
-        private val acceptableAnimations = mutableListOf(FadeIn, FlipInX, BounceInLeft)
+        private val acceptableAnimations = mutableListOf(FadeIn, FlipInX)
         private var currentAnimation = acceptableAnimations.anyElement()
 
         fun throwTheYo()
@@ -301,12 +308,11 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             {
                 val wrexagramNumber = computeWrexagram(wrexagram)
 
-                val openWrexagramAndReset = Runnable {
+                val openWrexagram = Runnable {
                     actions.openWrexagram(wrexagramNumber)
-                    reset()
                 }
 
-                view?.postDelayed(openWrexagramAndReset, 1000)
+                view?.postDelayed(openWrexagram, 700)
             }
             else
             {
