@@ -17,14 +17,18 @@
 package tech.redroma.yoching.fragments
 
 import android.animation.AnimatorInflater
-import android.os.Handler
 import android.view.*
 import android.widget.*
 import com.balysv.materialripple.MaterialRippleLayout
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.Techniques.*
+import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
+import tech.redroma.yoching.CoinResult.HEADS
 import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.WrexagramLine.SPLIT
+import tech.redroma.yoching.WrexagramLine.STRONG
 import tech.redroma.yoching.animations.CoinAnimator
-import tech.redroma.yoching.animations.CoinAnimator.CoinResult
 import tech.redroma.yoching.extensions.*
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -169,6 +173,35 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             lines.forEach { it.hide() }
         }
 
+        fun showAllWrexagramLines()
+        {
+            lines.forEach { it.show() }
+        }
+
+        fun showWrexagramLine(lineNumber: Int, lineType: WrexagramLine, animation: Techniques = FadeIn)
+        {
+            LOG.info("Showing Line $lineNumber with line type $lineType")
+            val view = when (lineNumber)
+            {
+                1    -> line1
+                2    -> line2
+                3    -> line3
+                4    -> line4
+                5    -> line5
+                6    -> line6
+                else -> return
+            }
+
+            val lineDrawable = context.wrexagramLineFor(lineType)
+            view.setImageDrawable(lineDrawable)
+            view.show()
+
+            YoYo.with(animation)
+                    .duration(400)
+                    .onStart { view.setImageDrawable(lineDrawable) }
+                    .playOn(view)
+        }
+
     }
 
     private inner class Actions
@@ -189,19 +222,38 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             imageView.setImageDrawable(coin)
         }
 
+        fun openWrexagram(number: Int)
+        {
+            if (!number.isValidWrexagramNumber)
+                return
+
+
+        }
+
     }
 
     private inner class Player
     {
         private var inFlight = false
+        private var throwCount = 0
+        private var wrexagram = mutableListOf<WrexagramLine>()
+        private val acceptableAnimations = mutableListOf(FadeIn, SlideInLeft, BounceInLeft)
+        private var currentAnimation = acceptableAnimations.anyElement()
 
         fun throwTheYo()
         {
-            if (inFlight) return
+            if (inFlight)
+                return
 
             inFlight = true
 
-            val countdown = AtomicInteger(3)
+            if (throwCount >= 6)
+                throwCount = 0
+
+            if (throwCount == 0)
+                views.hidePrompt()
+
+            val landedCoins = AtomicInteger(0)
             val results = mutableListOf<CoinResult>()
 
             views.coins.forEach {
@@ -210,12 +262,10 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
                     results.add(result)
 
-                    //We are done flipping the coins
-                    if (countdown.decrementAndGet() <= 0)
+                    //All of the coins have landed
+                    if (landedCoins.incrementAndGet() >= 3)
                     {
-                        LOG.info("All coins landed!")
-                        LOG.info("Results: $results")
-                        inFlight = false
+                        processResults(results)
                     }
                 }
             }
@@ -228,6 +278,35 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
             val delay = Int.randomFrom(1, 200).toLong()
             coin.postDelayed(animator, delay)
+        }
+
+        fun processResults(coinTossResults: List<CoinResult>)
+        {
+            LOG.info("Processing results: $coinTossResults")
+            throwCount += 1
+
+            val strongLine = coinTossResults.count { it == HEADS } >= 2
+            val wrexagramLineToDraw = if (strongLine) WrexagramLine.STRONG else SPLIT
+
+            views.showWrexagramLine(throwCount, wrexagramLineToDraw, animation = currentAnimation)
+
+            if (throwCount == 6)
+            {
+                views.showAllWrexagramLines()
+                view?.postDelayed({ reset() }, 3000)
+            }
+
+            inFlight = false
+        }
+
+        fun reset()
+        {
+            views.hideWrexagramLines()
+            views.showPrompt()
+            wrexagram.clear()
+            throwCount = 0
+            inFlight = false
+            currentAnimation = acceptableAnimations.anyElement()
         }
     }
 }
