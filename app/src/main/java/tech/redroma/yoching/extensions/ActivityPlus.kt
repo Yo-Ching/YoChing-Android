@@ -30,6 +30,9 @@ import org.slf4j.LoggerFactory
 import tech.redroma.yoching.R.drawable
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.Settings
+import tech.redroma.yoching.WrexagramLine
+import tech.redroma.yoching.WrexagramLine.SPLIT
+import tech.redroma.yoching.WrexagramLine.STRONG
 
 object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 
@@ -127,6 +130,15 @@ val Context.splitLine: Drawable
         Icons.initialize(this)
         return Icons.splitLine
     }
+
+fun Context.wrexagramLineFor(lineType: WrexagramLine): Drawable
+{
+    return when(lineType)
+    {
+        STRONG -> strongLine
+        SPLIT -> splitLine
+    }
+}
 
 fun Context.openURL(url: String)
 {
