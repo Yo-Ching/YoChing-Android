@@ -4,11 +4,16 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
+import android.view.View
 import android.view.ViewGroup
 import android.view.textservice.TextInfo
 import android.widget.TextView
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
+import com.plattysoft.leonids.ParticleSystem
 import org.w3c.dom.Text
 import tech.redroma.yoching.*
+import tech.redroma.yoching.R.drawable
 import tech.redroma.yoching.extensions.*
 
 class CreditsActivity : AppCompatActivity()
@@ -92,6 +97,10 @@ class CreditsActivity : AppCompatActivity()
             setupUpButton()
             setFonts()
             setListeners()
+
+            truePlayer.post {
+                animateIn()
+            }
         }
 
         fun setupUpButton()
@@ -139,6 +148,49 @@ class CreditsActivity : AppCompatActivity()
             marcContainer.setOnClickListener { openURL(Links.marcLink) }
             brendanContainer.setOnClickListener { openURL(Links.brendanLink) }
             mayaContainer.setOnClickListener { openURL(Links.mayaLink) }
+        }
+
+
+        fun animateIn()
+        {
+            val step = 250L
+            var delay = 50L
+
+            listOf(maya, brendan, marc, wellington, hugh, truePlayer)
+                    .onEach { it.hide() }
+                    .onEach { it.animateIn(delay); delay += step }
+        }
+
+        private fun View.animateIn(delay: Long)
+        {
+            val technique = Techniques.SlideInLeft
+            val duration = 800L
+
+            val show = {
+                val action = Runnable { this.show() }
+                postDelayed(action, delay + 100)
+            }
+
+            YoYo.with(technique)
+                    .delay(delay)
+                    .duration(duration)
+                    .onStart { show(); boom(this, delay + duration + 100) }
+                    .playOn(this)
+
+        }
+
+        private fun boom(view: View, delay: Long)
+        {
+            val action = Runnable {
+
+                ParticleSystem(this@CreditsActivity, 200, R.drawable.particle, 2000)
+                        .setSpeedModuleAndAngleRange(0.01f, 0.3f, 180, 360)
+                        .setScaleRange(0.2f, 0.4f)
+                        .setFadeOut(1000)
+                        .oneShot(view, 75)
+            }
+
+            view.postDelayed(action, delay)
         }
 
     }
