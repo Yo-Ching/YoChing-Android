@@ -1,8 +1,11 @@
 package tech.redroma.yoching.fragments
 
+import android.content.Intent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import tech.redroma.yoching.*
+import tech.redroma.yoching.activities.CreditsActivity
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 
@@ -15,26 +18,9 @@ import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 class SettingsFragment : android.support.v4.app.Fragment()
 {
 
-    interface YoSettingsListener
-    {
-        fun onTruePlayerEnabled()
-        fun onTapThatEnabled()
-
-        fun onStreetStyle()
-        fun onSlickStyle()
-    }
-
-    companion object Params
-    {
-        @JvmStatic
-        fun newInstance(): tech.redroma.yoching.fragments.SettingsFragment
-        {
-            return tech.redroma.yoching.fragments.SettingsFragment()
-        }
-    }
-
     var listener: tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener? = null
     private val views = Views()
+    private val actions = Actions()
 
     override fun onCreate(savedInstanceState: android.os.Bundle?)
     {
@@ -66,6 +52,24 @@ class SettingsFragment : android.support.v4.app.Fragment()
         listener = null
     }
 
+    interface YoSettingsListener
+    {
+        fun onTruePlayerEnabled()
+        fun onTapThatEnabled()
+
+        fun onStreetStyle()
+        fun onSlickStyle()
+    }
+
+    companion object Params
+    {
+        @JvmStatic
+        fun newInstance(): SettingsFragment
+        {
+            return SettingsFragment()
+        }
+    }
+
     private inner class Views
     {
         lateinit var throwingStyle: TextView
@@ -87,6 +91,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
         lateinit var yoAppPlayers: TextView
         lateinit var yoAppPlayersDescription: TextView
         lateinit var yoAppPlayersArrow: ImageView
+        lateinit var yoAppPlayersContainer: ViewGroup
         lateinit var learnYoChing: TextView
         lateinit var learnYoChingDescription: TextView
         lateinit var learnYoChingArrow: ImageView
@@ -112,6 +117,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
             yoAppPlayers = view.findView(R.id.yo_app_players)
             yoAppPlayersDescription = view.findView(R.id.yo_app_players_description)
             yoAppPlayersArrow = view.findView(R.id.yo_app_players_arrow)
+            yoAppPlayersContainer = view.findView(R.id.yo_app_players_container)
             learnYoChing = view.findView(R.id.learn_yo_ching)
             learnYoChingDescription = view.findView(R.id.learn_yo_ching_description)
             learnYoChingArrow = view.findView(R.id.learn_yo_ching_arrow)
@@ -179,6 +185,10 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 Settings.slickCoinsEnabled = slick.isChecked
                 listener?.onSlickStyle()
             }
+
+            yoAppPlayersContainer.setOnClickListener {
+                actions.goToCredits()
+            }
         }
 
         private fun setFonts()
@@ -210,4 +220,14 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
     }
 
+
+    private inner class Actions
+    {
+        fun goToCredits()
+        {
+            val intent = Intent(context, CreditsActivity::class.java)
+            startActivity(intent)
+
+        }
+    }
 }

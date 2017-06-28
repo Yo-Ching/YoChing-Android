@@ -16,9 +16,12 @@
 
 package tech.redroma.yoching.extensions
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
@@ -57,7 +60,7 @@ internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
     block(this)
 }
 
-internal inline fun <reified V: View> AppCompatActivity.findView(id: Int): V
+internal inline fun <reified V : View> AppCompatActivity.findView(id: Int): V
 {
     return findViewById(id) as V
 }
@@ -104,3 +107,20 @@ val Context.tailsIcon: Drawable
 
         return if (Settings.slickCoinsEnabled) Icons.tailsIconSlick else Icons.tailsIconStreet
     }
+
+fun Context.openURL(url: String)
+{
+    if (url.isEmpty()) return
+
+    val uri = Uri.parse(url)
+
+    Aroma.send { sendHighPriorityMessage("Opening Link", url) }
+
+    val intent = Intent(Intent.ACTION_VIEW, uri)
+    startActivity(intent)
+}
+
+fun hasSDKAtLeast(expectedSDKVersion: Int): Boolean
+{
+    return android.os.Build.VERSION.SDK_INT >= expectedSDKVersion
+}
