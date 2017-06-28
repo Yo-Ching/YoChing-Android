@@ -90,22 +90,22 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
     private inner class Views
     {
-        private lateinit var prompt: TextView
+        lateinit var prompt: TextView
+        lateinit var line1: ImageView
 
-        private lateinit var line1: ImageView
-        private lateinit var line2: ImageView
-        private lateinit var line3: ImageView
-        private lateinit var line4: ImageView
-        private lateinit var line5: ImageView
-        private lateinit var line6: ImageView
+        lateinit var line2: ImageView
+        lateinit var line3: ImageView
+        lateinit var line4: ImageView
+        lateinit var line5: ImageView
+        lateinit var line6: ImageView
 
         val lines get() = listOf(line1, line2, line3, line4, line5, line6)
 
-        private lateinit var coin1: ImageView
-        private lateinit var coin2: ImageView
-        private lateinit var coin3: ImageView
-        private lateinit var throwButton: Button
-        private lateinit var throwButtonContainer: MaterialRippleLayout
+        lateinit var coin1: ImageView
+        lateinit var coin2: ImageView
+        lateinit var coin3: ImageView
+        lateinit var throwButton: Button
+        lateinit var throwButtonContainer: MaterialRippleLayout
 
         val coins get() = listOf(coin1, coin2, coin3)
 
@@ -161,12 +161,12 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
         fun hidePrompt()
         {
-            prompt.visibility = View.INVISIBLE
+            prompt.hide()
         }
 
         fun hideWrexagramLines()
         {
-            lines.forEach { it.visibility = View.INVISIBLE }
+            lines.forEach { it.hide() }
         }
 
     }
@@ -193,9 +193,14 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
     private inner class Player
     {
+        private var inFlight = false
 
         fun throwTheYo()
         {
+            if (inFlight) return
+
+            inFlight = true
+
             val countdown = AtomicInteger(3)
             val results = mutableListOf<CoinResult>()
 
@@ -210,6 +215,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
                     {
                         LOG.info("All coins landed!")
                         LOG.info("Results: $results")
+                        inFlight = false
                     }
                 }
             }
