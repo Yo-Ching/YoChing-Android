@@ -6,14 +6,11 @@ import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.view.ViewGroup
-import android.view.textservice.TextInfo
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.plattysoft.leonids.ParticleSystem
-import org.w3c.dom.Text
 import tech.redroma.yoching.*
-import tech.redroma.yoching.R.drawable
 import tech.redroma.yoching.extensions.*
 
 class CreditsActivity : AppCompatActivity()
@@ -97,10 +94,7 @@ class CreditsActivity : AppCompatActivity()
             setupUpButton()
             setFonts()
             setListeners()
-
-            truePlayer.post {
-                animateIn()
-            }
+            animateCreditsIn()
         }
 
         fun setupUpButton()
@@ -151,30 +145,35 @@ class CreditsActivity : AppCompatActivity()
         }
 
 
-        fun animateIn()
+        fun animateCreditsIn()
         {
             val step = 250L
             var delay = 50L
 
-            listOf(maya, brendan, marc, wellington, hugh, truePlayer)
-                    .onEach { it.hide() }
-                    .onEach { it.animateIn(delay); delay += step }
+            truePlayer.post {
+
+                listOf(maya, brendan, marc, wellington, hugh, truePlayer)
+                        .onEach { it.hide() }
+                        .onEach { it.animateCreditsIn(delay); delay += step }
+
+            }
+
         }
 
-        private fun View.animateIn(delay: Long)
+        private fun View.animateCreditsIn(delay: Long)
         {
             val technique = Techniques.SlideInLeft
             val duration = 800L
 
-            val show = {
-                val action = Runnable { this.show() }
-                postDelayed(action, delay + 100)
+            val showInTime = {
+
+                postDelayed({ this.show() }, delay + 100)
             }
 
             YoYo.with(technique)
                     .delay(delay)
                     .duration(duration)
-                    .onStart { show(); boom(this, delay + duration + 100) }
+                    .onStart { showInTime(); boom(this, delay + duration + 100) }
                     .playOn(this)
 
         }
