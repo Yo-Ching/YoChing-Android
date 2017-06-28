@@ -29,6 +29,6 @@ inline fun <reified E> List<E>.anyElement(): E
     checkThat(this)
             .isA(nonEmptyList())
 
-    val index = Int.randomFrom(0, size - 1)
+    val index = Int.randomFrom(0, size)
     return this[index]
 }
