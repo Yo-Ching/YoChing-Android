@@ -60,7 +60,7 @@ internal fun AppCompatActivity.perform(block: AppCompatActivity.() -> Unit)
     block(this)
 }
 
-internal inline fun <reified V: View> AppCompatActivity.findView(id: Int): V
+internal inline fun <reified V : View> AppCompatActivity.findView(id: Int): V
 {
     return findViewById(id) as V
 }
@@ -110,6 +110,8 @@ val Context.tailsIcon: Drawable
 
 fun Context.openURL(url: String)
 {
+    if (url.isEmpty()) return
+
     val uri = Uri.parse(url)
 
     Aroma.send { sendHighPriorityMessage("Opening Link", url) }
