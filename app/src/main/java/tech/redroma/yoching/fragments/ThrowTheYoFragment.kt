@@ -300,12 +300,18 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             if (throwCount == 6)
             {
                 val wrexagramNumber = computeWrexagram(wrexagram)
-                actions.openWrexagram(wrexagramNumber)
 
-                view?.postDelayed({ reset() }, 3000)
+                val openWrexagramAndReset = Runnable {
+                    actions.openWrexagram(wrexagramNumber)
+                    reset()
+                }
+
+                view?.postDelayed(openWrexagramAndReset, 1000)
             }
-
-            inFlight = false
+            else
+            {
+                inFlight = false
+            }
         }
 
         fun reset()
