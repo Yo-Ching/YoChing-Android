@@ -8,14 +8,14 @@
                     android:left="5dp">
 
                 <shape>
-                    <gradient android:startColor="#BB000000" android:endColor="#7F000000" android:angle="270" />
+                    <gradient android:startColor="#BB000000"
+                              android:endColor="#7F000000"
+                              android:angle="270" />
                 </shape>
 
             </item>
 
-            <item
-                    android:bottom="3dp"
-            >
+            <item android:bottom="3dp">
 
                 <shape>
 
