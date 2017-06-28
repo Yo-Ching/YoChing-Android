@@ -64,9 +64,9 @@ class SettingsFragment : android.support.v4.app.Fragment()
     companion object Params
     {
         @JvmStatic
-        fun newInstance(): tech.redroma.yoching.fragments.SettingsFragment
+        fun newInstance(): SettingsFragment
         {
-            return tech.redroma.yoching.fragments.SettingsFragment()
+            return SettingsFragment()
         }
     }
 
@@ -227,7 +227,6 @@ class SettingsFragment : android.support.v4.app.Fragment()
         {
             val intent = Intent(context, CreditsActivity::class.java)
             startActivity(intent)
-//            activity.overridePendingTransition(R.anim.exit_to_left, R.anim.enter_from_right)
 
         }
     }
