@@ -17,6 +17,7 @@
 package tech.redroma.yoching.fragments
 
 import android.animation.AnimatorInflater
+import android.content.Intent
 import android.view.*
 import android.widget.*
 import com.balysv.materialripple.MaterialRippleLayout
@@ -28,6 +29,7 @@ import tech.redroma.yoching.CoinResult.HEADS
 import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.WrexagramLine.SPLIT
 import tech.redroma.yoching.WrexagramLine.STRONG
+import tech.redroma.yoching.activities.ReadActivity
 import tech.redroma.yoching.animations.CoinAnimator
 import tech.redroma.yoching.extensions.*
 import java.util.concurrent.atomic.AtomicInteger
@@ -197,7 +199,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             view.show()
 
             YoYo.with(animation)
-                    .duration(400)
+                    .duration(300)
                     .onStart { view.setImageDrawable(lineDrawable) }
                     .playOn(view)
         }
@@ -227,7 +229,11 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             if (!number.isValidWrexagramNumber)
                 return
 
+            LOG.info("Opening Wrexagram #$number")
 
+            val intent = Intent(context, ReadActivity::class.java)
+            intent.putExtra(ReadActivity.Parameters.WREXAGRAM_NUMBER, number)
+            startActivity(intent)
         }
 
     }
@@ -237,7 +243,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         private var inFlight = false
         private var throwCount = 0
         private var wrexagram = mutableListOf<WrexagramLine>()
-        private val acceptableAnimations = mutableListOf(FadeIn, SlideInLeft, BounceInLeft)
+        private val acceptableAnimations = mutableListOf(FadeIn, FlipInX, BounceInLeft)
         private var currentAnimation = acceptableAnimations.anyElement()
 
         fun throwTheYo()
@@ -286,13 +292,16 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             throwCount += 1
 
             val strongLine = coinTossResults.count { it == HEADS } >= 2
-            val wrexagramLineToDraw = if (strongLine) WrexagramLine.STRONG else SPLIT
+            val wrexagramLine = if (strongLine) WrexagramLine.STRONG else SPLIT
+            wrexagram.add(wrexagramLine)
 
-            views.showWrexagramLine(throwCount, wrexagramLineToDraw, animation = currentAnimation)
+            views.showWrexagramLine(throwCount, wrexagramLine, animation = currentAnimation)
 
             if (throwCount == 6)
             {
-                views.showAllWrexagramLines()
+                val wrexagramNumber = computeWrexagram(wrexagram)
+                actions.openWrexagram(wrexagramNumber)
+
                 view?.postDelayed({ reset() }, 3000)
             }
 
