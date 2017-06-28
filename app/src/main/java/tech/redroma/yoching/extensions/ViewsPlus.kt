@@ -16,8 +16,9 @@
 
 package tech.redroma.yoching.extensions
 
-import android.view.InflateException
-import android.view.View
+import android.support.v7.widget.AppCompatImageButton
+import android.support.v7.widget.Toolbar
+import android.view.*
 import android.widget.CheckedTextView
 import com.daimajia.androidanimations.library.Techniques.BounceIn
 import com.daimajia.androidanimations.library.YoYo
@@ -60,3 +61,42 @@ fun CheckedTextView.shake(): CheckedTextView
 
     return this
 }
+
+fun View.hide()
+{
+    visibility = View.INVISIBLE
+}
+
+fun View.show()
+{
+    visibility = View.VISIBLE
+}
+
+fun View.gone()
+{
+    visibility = View.GONE
+}
+
+val ViewGroup.children: List<View>
+    get()
+    {
+        val children = mutableListOf<View>()
+        forEachChild { children.add(it) }
+
+        return children
+    }
+
+
+fun ViewGroup.forEachChild(function: (View) -> Unit)
+{
+    (0 until childCount)
+            .map { getChildAt(it) }
+            .forEach(function)
+}
+
+inline fun <reified V: View> ViewGroup.firstChildWhere(predicate: (View) -> Boolean): V?
+{
+    return children.first { predicate(it) } as? V
+}
+
+val Toolbar.backButton: AppCompatImageButton? get() = firstChildWhere { it is AppCompatImageButton }

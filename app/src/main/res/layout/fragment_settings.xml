@@ -255,7 +255,8 @@
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:clickable="true">
+                    android:clickable="true"
+                    android:id="@+id/yo_app_players_container">
 
                 <LinearLayout
                         android:orientation="horizontal"
