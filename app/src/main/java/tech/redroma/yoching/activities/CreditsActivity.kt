@@ -115,7 +115,7 @@ class CreditsActivity : AppCompatActivity()
                 finish()
             }
 
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
+            if (hasSDKAtLeast(android.os.Build.VERSION_CODES.LOLLIPOP))
             {
                 backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
@@ -169,7 +169,7 @@ class CreditsActivity : AppCompatActivity()
 
             val showInTime = {
 
-                postDelayed({ this.show() }, delay + 100)
+                postDelayed({ this.show() }, delay + 150)
             }
 
             YoYo.with(technique)

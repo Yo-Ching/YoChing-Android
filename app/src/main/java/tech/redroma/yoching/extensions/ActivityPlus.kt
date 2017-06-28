@@ -16,6 +16,7 @@
 
 package tech.redroma.yoching.extensions
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
@@ -115,4 +116,9 @@ fun Context.openURL(url: String)
 
     val intent = Intent(Intent.ACTION_VIEW, uri)
     startActivity(intent)
+}
+
+fun hasSDKAtLeast(expectedSDKVersion: Int): Boolean
+{
+    return android.os.Build.VERSION.SDK_INT >= expectedSDKVersion
 }
