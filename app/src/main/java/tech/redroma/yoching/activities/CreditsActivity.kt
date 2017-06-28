@@ -104,18 +104,20 @@ class CreditsActivity : AppCompatActivity()
             supportActionBar?.setHomeButtonEnabled(true)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
             title = ""
-            val backButton = resources.getDrawable(R.drawable.arrow_back)
-            supportActionBar?.setHomeAsUpIndicator(backButton)
 
-            val button = yoActionBar.firstChildWhere<AppCompatImageButton> { it is AppCompatImageButton } ?: return
-            button.setOnClickListener {
+            val backButtonIcon = resources.getDrawable(R.drawable.arrow_back)
+            supportActionBar?.setHomeAsUpIndicator(backButtonIcon)
+
+            val backButton = yoActionBar.backButton ?: return
+
+            backButton.setOnClickListener {
                 LOG.info("Back Button clicked!")
                 finish()
             }
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP)
             {
-                button.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
+                backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
 
         }

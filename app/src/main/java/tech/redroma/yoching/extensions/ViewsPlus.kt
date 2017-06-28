@@ -16,6 +16,8 @@
 
 package tech.redroma.yoching.extensions
 
+import android.support.v7.widget.AppCompatImageButton
+import android.support.v7.widget.Toolbar
 import android.view.*
 import android.widget.CheckedTextView
 import com.daimajia.androidanimations.library.Techniques.BounceIn
@@ -96,3 +98,5 @@ inline fun <reified V: View> ViewGroup.firstChildWhere(predicate: (View) -> Bool
 {
     return children.first { predicate(it) } as? V
 }
+
+val Toolbar.backButton: AppCompatImageButton? get() = firstChildWhere { it is AppCompatImageButton }
