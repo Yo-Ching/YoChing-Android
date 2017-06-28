@@ -17,8 +17,10 @@
 package tech.redroma.yoching.extensions
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
@@ -104,3 +106,13 @@ val Context.tailsIcon: Drawable
 
         return if (Settings.slickCoinsEnabled) Icons.tailsIconSlick else Icons.tailsIconStreet
     }
+
+fun Context.openURL(url: String)
+{
+    val uri = Uri.parse(url)
+
+    Aroma.send { sendHighPriorityMessage("Opening Link", url) }
+
+    val intent = Intent(Intent.ACTION_VIEW, uri)
+    startActivity(intent)
+}

@@ -87,10 +87,11 @@ class CreditsActivity : AppCompatActivity()
 
             maya = findView(R.id.maya)
             mayaDescription = findView(R.id.maya_description)
-            mayaContainer = findView(R.id.marc_container)
+            mayaContainer = findView(R.id.maya_container)
 
             setupUpButton()
             setFonts()
+            setListeners()
         }
 
         fun setupUpButton()
@@ -128,6 +129,16 @@ class CreditsActivity : AppCompatActivity()
                     .forEach { it.typeface = subtitleFont }
 
             yoActionBarTitle.typeface = exoBlack()
+        }
+
+        fun setListeners()
+        {
+            truePlayerContainer.setOnClickListener { openURL(Links.truePlayerLink) }
+            hughContainer.setOnClickListener { openURL(Links.hughLink) }
+            wellingtonContainer.setOnClickListener { openURL(Links.wellingtonLink) }
+            marcContainer.setOnClickListener { openURL(Links.marcLink) }
+            brendanContainer.setOnClickListener { openURL(Links.brendanLink) }
+            mayaContainer.setOnClickListener { openURL(Links.mayaLink) }
         }
 
     }
