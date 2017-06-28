@@ -72,6 +72,9 @@ private object Icons
     lateinit var headsIconStreet: Drawable
     lateinit var tailsIconStreet: Drawable
 
+    lateinit var strongLine: Drawable
+    lateinit var splitLine: Drawable
+
     var isInitialized = false
 
     fun initialize(context: Context)
@@ -85,6 +88,9 @@ private object Icons
         tailsIconSlick = context.resources.getDrawable(drawable.coin_tails_slick)
         headsIconStreet = context.resources.getDrawable(drawable.coin_heads_street)
         tailsIconStreet = context.resources.getDrawable(drawable.coin_tails_street)
+
+        strongLine = context.resources.getDrawable(drawable.wrex_strong_line)
+        splitLine = context.resources.getDrawable(drawable.wrex_split_line)
 
         isInitialized = true
     }
@@ -106,6 +112,20 @@ val Context.tailsIcon: Drawable
         Settings.init(this)
 
         return if (Settings.slickCoinsEnabled) Icons.tailsIconSlick else Icons.tailsIconStreet
+    }
+
+val Context.strongLine: Drawable
+    get()
+    {
+        Icons.initialize(this)
+        return Icons.strongLine
+    }
+
+val Context.splitLine: Drawable
+    get()
+    {
+        Icons.initialize(this)
+        return Icons.splitLine
     }
 
 fun Context.openURL(url: String)
