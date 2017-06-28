@@ -16,7 +16,7 @@
 
 package tech.redroma.yoching.extensions
 
-import tech.sirwellington.alchemy.arguments.assertions.lessThan
+import tech.sirwellington.alchemy.arguments.assertions.*
 import tech.sirwellington.alchemy.arguments.checkThat
 import java.util.*
 
@@ -25,20 +25,30 @@ import java.util.*
  *
  * @author SirWellington
  */
-fun checkValidWrexNumber(wrexagramNumber: Int?)
+fun checkValidWrexNumber(wrexagramNumber: Int)
 {
-    val num = wrexagramNumber ?: throw IllegalArgumentException("Wrexagram number cannot be null")
-
-    if (num < 1)
-    {
-        throw IllegalArgumentException("Wrexagram number must be >= 1")
-    }
-
-    if (num > 64)
-    {
-        throw IllegalArgumentException("Wrexagram number must be < 64")
-    }
+    checkThat(wrexagramNumber)
+            .usingMessage("Wrexagram number cannot be null")
+            .isA(nonNullReference())
+            .usingMessage("Wrexagram number must be >= 1, but was $wrexagramNumber")
+            .isA(greaterThanOrEqualTo(1))
+            .usingMessage("Wrexagram number must be <= 64, but was $wrexagramNumber")
+            .isA(lessThanOrEqualTo(64))
 }
+
+val Int.isValidWrexagramNumber: Boolean
+    get()
+    {
+        return try
+        {
+            checkValidWrexNumber(this)
+            true
+        }
+        catch (ex: IllegalArgumentException)
+        {
+            false
+        }
+    }
 
 fun Int.Companion.randomFrom(min: Int, max: Int): Int
 {
