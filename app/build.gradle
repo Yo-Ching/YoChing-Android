@@ -67,6 +67,7 @@ dependencies {
     //==============================================
     //THIRD PARTY LIBRARIES
     //==============================================
+    compile 'com.balysv:material-ripple:1.0.2'
     compile 'com.daimajia.androidanimations:library:2.2@aar'
     compile 'com.daimajia.easing:library:2.0@aar'
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'

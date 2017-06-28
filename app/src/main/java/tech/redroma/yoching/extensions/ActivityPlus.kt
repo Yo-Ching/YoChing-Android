@@ -30,6 +30,9 @@ import org.slf4j.LoggerFactory
 import tech.redroma.yoching.R.drawable
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.Settings
+import tech.redroma.yoching.WrexagramLine
+import tech.redroma.yoching.WrexagramLine.SPLIT
+import tech.redroma.yoching.WrexagramLine.STRONG
 
 object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 
@@ -72,6 +75,9 @@ private object Icons
     lateinit var headsIconStreet: Drawable
     lateinit var tailsIconStreet: Drawable
 
+    lateinit var strongLine: Drawable
+    lateinit var splitLine: Drawable
+
     var isInitialized = false
 
     fun initialize(context: Context)
@@ -85,6 +91,9 @@ private object Icons
         tailsIconSlick = context.resources.getDrawable(drawable.coin_tails_slick)
         headsIconStreet = context.resources.getDrawable(drawable.coin_heads_street)
         tailsIconStreet = context.resources.getDrawable(drawable.coin_tails_street)
+
+        strongLine = context.resources.getDrawable(drawable.wrex_strong_line)
+        splitLine = context.resources.getDrawable(drawable.wrex_split_line)
 
         isInitialized = true
     }
@@ -107,6 +116,29 @@ val Context.tailsIcon: Drawable
 
         return if (Settings.slickCoinsEnabled) Icons.tailsIconSlick else Icons.tailsIconStreet
     }
+
+val Context.strongLine: Drawable
+    get()
+    {
+        Icons.initialize(this)
+        return Icons.strongLine
+    }
+
+val Context.splitLine: Drawable
+    get()
+    {
+        Icons.initialize(this)
+        return Icons.splitLine
+    }
+
+fun Context.wrexagramLineFor(lineType: WrexagramLine): Drawable
+{
+    return when(lineType)
+    {
+        STRONG -> strongLine
+        SPLIT -> splitLine
+    }
+}
 
 fun Context.openURL(url: String)
 {

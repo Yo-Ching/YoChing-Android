@@ -17,6 +17,7 @@ package tech.redroma.yoching.extensions
  */
 
 import android.test.AndroidTestCase
+import junit.framework.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -66,5 +67,22 @@ class IntegersPlusTest : AndroidTestCase()
                 .isA(greaterThanOrEqualTo(min))
                 .isA(lessThanOrEqualTo(max))
     }
+
+    @Test
+    fun testIsEven()
+    {
+        Assert.assertTrue(2.isEven)
+        Assert.assertFalse(3.isEven)
+    }
+
+    @Test
+    fun testIsOdd()
+    {
+        Assert.assertTrue(5.isOdd)
+        Assert.assertFalse(4.isOdd)
+    }
+
+
+
 
 }
