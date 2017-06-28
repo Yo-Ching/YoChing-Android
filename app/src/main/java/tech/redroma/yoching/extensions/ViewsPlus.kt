@@ -60,6 +60,21 @@ fun CheckedTextView.shake(): CheckedTextView
     return this
 }
 
+fun View.hide()
+{
+    visibility = View.INVISIBLE
+}
+
+fun View.show()
+{
+    visibility = View.VISIBLE
+}
+
+fun View.gone()
+{
+    visibility = View.GONE
+}
+
 val ViewGroup.children: List<View>
     get()
     {
