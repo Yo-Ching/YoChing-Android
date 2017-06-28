@@ -103,7 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05"
+            app:layout_constraintGuide_percent="0.03"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="29dp"
     />
@@ -111,10 +111,10 @@
     <LinearLayout
             android:id="@+id/wrexagram_lines_container"
             android:layout_height="0dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:layout_width="0dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/wrexagram_lines_bottom_guideline"
@@ -129,37 +129,43 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
         <ImageView
                 android:id="@+id/line_5"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
         <ImageView
                 android:id="@+id/line_4"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
         <ImageView
                 android:id="@+id/line_3"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
         <ImageView
                 android:id="@+id/line_2"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
         <ImageView
                 android:id="@+id/line_1"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 app:srcCompat="@drawable/wrex_strong_line"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:paddingBottom="-2dp" />
 
     </LinearLayout>
 
@@ -168,7 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.35"
+            app:layout_constraintGuide_percent="0.33"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="29dp"
     />
@@ -273,7 +279,10 @@
             android:clickable="false"
             app:mrl_rippleDelayClick="false"
             app:mrl_ripplePersistent="false"
-    >
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:mrl_rippleRoundedCorners="0dp"
+            app:mrl_rippleOverlay="true">
 
         <Button
                 android:background="@color/transparent"
