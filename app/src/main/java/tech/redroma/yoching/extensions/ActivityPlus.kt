@@ -156,3 +156,6 @@ fun hasSDKAtLeast(expectedSDKVersion: Int): Boolean
 {
     return android.os.Build.VERSION.SDK_INT >= expectedSDKVersion
 }
+
+fun isAtLeastKitKat(): Boolean = hasSDKAtLeast(android.os.Build.VERSION_CODES.KITKAT)
+fun isAtLeastLollipo(): Boolean = hasSDKAtLeast(android.os.Build.VERSION_CODES.LOLLIPOP)

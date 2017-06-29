@@ -68,11 +68,11 @@
                     android:layout_marginTop="8dp"
                     android:layout_width="0dp"
                     android:rotation="0"
+                    android:src="@drawable/galaxy_white_transparent"
                     app:layout_constraintBottom_toTopOf="@+id/half_way"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    ext:srcCompat="@drawable/galaxy_white_transparent"
             />
 
             <android.support.constraint.Guideline android:layout_width="wrap_content"
@@ -81,15 +81,16 @@
                                                   android:orientation="horizontal"
                                                   app:layout_constraintGuide_percent="0.6" />
             <ImageView
+                    android:contentDescription="@string/wrexagram_image_content_description"
                     android:layout_width="wrap_content"
                     android:layout_height="125dp"
                     android:id="@+id/wrexagram_image"
                     android:layout_marginTop="8dp"
-                    android:contentDescription="@string/wrexagram_image_content_description"
-                    app:srcCompat="@drawable/wrex_62"
+                    android:src="@drawable/wrex_1"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+            />
 
             <TextView
                     android:gravity="center"

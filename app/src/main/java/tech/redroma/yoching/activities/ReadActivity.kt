@@ -11,6 +11,8 @@ import com.bluejamesbond.text.DocumentView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.plattysoft.leonids.ParticleSystem
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.*
 import tech.redroma.yoching.extensions.*
@@ -47,12 +49,14 @@ class ReadActivity : AppCompatActivity()
 
         views.inflate()
         explodeIntoView()
-//        loadWrexagramInfo()
+        loadWrexagramInfo()
     }
 
     private fun explodeIntoView()
     {
-        val explosion = if (hasSDKAtLeast(android.os.Build.VERSION_CODES.KITKAT))
+        views.wrexagramTitle.hide()
+
+        val explosion = if (isAtLeastKitKat())
         {
             Runnable {
                 val explosion = ExplosionField.attach2Window(this)
@@ -71,14 +75,20 @@ class ReadActivity : AppCompatActivity()
             }
         }
 
+        val delayForExplosion: Long = if (isAtLeastKitKat()) 30 else 100
+
         val animation = Runnable {
+
+            views.wrexagramTitle.show()
 
             YoYo.with(Techniques.BounceInDown)
                     .duration(400)
                     .playOn(views.wrexagramTitle)
+
+            views.wrexagramTitle.postDelayed(explosion, delayForExplosion)
         }
 
-        views.wrexagramTitle.postDelayed(animation, 3000)
+        views.wrexagramTitle.postDelayed(animation, 300)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
@@ -92,11 +102,6 @@ class ReadActivity : AppCompatActivity()
     {
         views.actionBarTitle.text = "WREXAGRAM #$wrexagramNumber"
 
-        val image = applicationContext.loadWrexagramImage(wrexagramNumber)
-
-        if (image != null)
-            views.wrexagramImage.setImageBitmap(image)
-
         summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
         views.wrexagramTitle.text = summary.title
@@ -105,6 +110,18 @@ class ReadActivity : AppCompatActivity()
         views.body.text = body
 
         views.whatsUpBody.text = summary.whatsUp
+
+        val wrexagramImageId = applicationContext.idForWrexagramImage(wrexagramNumber) ?: return
+
+        views.wrexagramImage.post {
+
+            Picasso.with(this)
+                    .load(wrexagramImageId)
+                    .resize(views.wrexagramImage.width, views.wrexagramImage.height)
+                    .into(views.wrexagramImage)
+        }
+
+
     }
 
     private inner class Views
@@ -135,6 +152,7 @@ class ReadActivity : AppCompatActivity()
 
             body.layoutParams.height = WRAP_CONTENT
             whatsUpBody.layoutParams.height = WRAP_CONTENT
+            wrexagramImage.setImageDrawable(null)
         }
 
         private fun setFonts()
