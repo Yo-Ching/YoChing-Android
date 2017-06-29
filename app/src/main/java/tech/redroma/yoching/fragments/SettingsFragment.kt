@@ -183,6 +183,8 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 Settings.truePlayerEnabled = true
                 adjustChecks()
+                truePlayerCheckMark.pop()
+                truePlayerContainer.bounce()
                 listener?.onTruePlayerEnabled()
             }
 
@@ -193,6 +195,8 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 Settings.tapThatEnabled = true
                 adjustChecks()
+                tapThatCheckMark.pop()
+                tapThatContainer.bounce()
                 listener?.onTapThatEnabled()
             }
 
@@ -203,6 +207,8 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 Settings.streetCoinsEnabled = true
                 adjustChecks()
+                streetCheckMark.pop()
+                streetContainer.bounce()
                 listener?.onStreetStyle()
             }
 
@@ -213,6 +219,8 @@ class SettingsFragment : android.support.v4.app.Fragment()
 
                 Settings.slickCoinsEnabled = true
                 adjustChecks()
+                slickCheckMark.pop()
+                slickContainer.bounce()
                 listener?.onSlickStyle()
             }
 
