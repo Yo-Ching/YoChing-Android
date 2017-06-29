@@ -25,52 +25,46 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            android:layout_marginRight="16dp"
             app:layout_constraintVertical_bias="0.0"
-            android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp">
 
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
                 android:paddingBottom="32dp"
-                android:clipToPadding="false"
-                android:clipChildren="false">
+        >
 
             <TextView
                     android:text="Throwing Style"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
                     android:layout_marginTop="24dp"
                     android:textStyle="bold"
-                    android:id="@+id/throwing_style" />
+                    android:id="@+id/throwing_style"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp" />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
                     android:id="@+id/true_player_container"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -115,22 +109,27 @@
                         android:id="@+id/true_player_checkmark" />
 
             </LinearLayout>
+
+
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
-                    android:clipChildren="false"
-                    android:clipToPadding="false"
                     android:id="@+id/tap_that_container"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:clipChildren="true"
+                    android:clipToPadding="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -175,16 +174,20 @@
                         android:id="@+id/tap_that_checkmark" />
 
             </LinearLayout>
+
+
             <TextView
                     android:text="Change Style"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="32dp"
                     android:textStyle="bold"
-                    android:id="@+id/change_style" />
+                    android:id="@+id/change_style"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp" />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
@@ -197,11 +200,14 @@
                     android:orientation="horizontal"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -246,6 +252,8 @@
                         android:id="@+id/street_checkmark" />
 
             </LinearLayout>
+
+
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
@@ -257,11 +265,14 @@
                     android:orientation="horizontal"
                     android:layout_marginLeft="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -309,14 +320,16 @@
 
             <TextView
                     android:text="What's up"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAllCaps="true"
                     android:textColor="@android:color/background_light"
                     android:textSize="26sp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="32dp"
                     android:textStyle="bold"
-                    android:id="@+id/whats_up" />
+                    android:id="@+id/whats_up"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp" />
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
@@ -326,13 +339,16 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -377,6 +393,8 @@
                         android:id="@+id/buy_the_book_arrow" />
 
             </LinearLayout>
+
+
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
@@ -386,13 +404,16 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -437,8 +458,9 @@
                         android:id="@+id/yo_app_players_arrow" />
 
             </LinearLayout>
+
+
             <LinearLayout
-                    android:background="@drawable/selectable_item_background"
                     android:clickable="true"
                     android:clipChildren="false"
                     android:clipToPadding="false"
@@ -446,13 +468,17 @@
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
                     android:paddingRight="24dp"
                     android:paddingEnd="24dp"
-                    android:paddingLeft="8dp"
-                    android:paddingStart="8dp">
+                    android:paddingLeft="24dp"
+                    android:paddingStart="24dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="@drawable/selectable_item_background">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -498,8 +524,7 @@
 
             </LinearLayout>
 
+
         </LinearLayout>
-
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>
