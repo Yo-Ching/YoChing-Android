@@ -1,8 +1,10 @@
 package tech.redroma.yoching.activities
 
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.view.animation.FastOutLinearInInterpolator
+import android.view.ViewTreeObserver
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.BounceInterpolator
 import android.widget.TextView
@@ -13,6 +15,8 @@ import tech.redroma.yoching.R
 import tech.redroma.yoching.R.drawable
 import tech.redroma.yoching.exoBlack
 import tech.redroma.yoching.extensions.findView
+import tech.redroma.yoching.extensions.hide
+import tech.redroma.yoching.extensions.show
 import tyrantgit.explosionfield.ExplosionField
 
 class TestActivity : AppCompatActivity()
@@ -31,8 +35,11 @@ class TestActivity : AppCompatActivity()
 
         listOf(first, second).onEach { it.typeface = exoBlack() }
 
-        first.postDelayed({ explode() }, 300)
+        first.hide()
+        first.postDelayed({ first.show(); explode() }, 400)
+
 //        first.post { explode() }
+
     }
 
     fun explode()
@@ -47,11 +54,11 @@ class TestActivity : AppCompatActivity()
                     .oneShot(second, 75)
         }
 
-        YoYo.with(Techniques.ZoomInDown)
-                .duration(310)
+        YoYo.with(Techniques.BounceInDown)
+                .duration(300)
 //                .interpolate(AccelerateInterpolator())
                 .playOn(first)
 
-        first.postDelayed(explodeAnimation, 300)
+        first.postDelayed(explodeAnimation, 50)
     }
 }
