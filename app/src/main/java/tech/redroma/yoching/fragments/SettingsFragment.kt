@@ -73,16 +73,24 @@ class SettingsFragment : android.support.v4.app.Fragment()
     private inner class Views
     {
         lateinit var throwingStyle: TextView
-        lateinit var truePlayer: CheckedTextView
+        lateinit var truePlayer: TextView
         lateinit var truePlayerDescription: TextView
-        lateinit var tapThat: CheckedTextView
+        lateinit var truePlayerCheckMark: ImageView
+        lateinit var truePlayerContainer: ViewGroup
+        lateinit var tapThat: TextView
         lateinit var tapThatDescription: TextView
+        lateinit var tapThatCheckMark: ImageView
+        lateinit var tapThatContainer: ViewGroup
 
         lateinit var changeStyle: TextView
-        lateinit var street: CheckedTextView
+        lateinit var street: TextView
         lateinit var streetDescription: TextView
-        lateinit var slick: CheckedTextView
+        lateinit var streetCheckMark: ImageView
+        lateinit var streetContainer: ViewGroup
+        lateinit var slick: TextView
         lateinit var slickDescription: TextView
+        lateinit var slickCheckMark: ImageView
+        lateinit var slickContainer: ViewGroup
 
         lateinit var whatsUp: TextView
         lateinit var buyTheBook: TextView
@@ -101,14 +109,24 @@ class SettingsFragment : android.support.v4.app.Fragment()
             throwingStyle = view.findView(R.id.throwing_style)
             truePlayer = view.findView(R.id.true_player)
             truePlayerDescription = view.findView(R.id.true_player_description)
+            truePlayerCheckMark = view.findView(R.id.true_player_checkmark)
+            truePlayerContainer = view.findView(R.id.true_player_container)
+
             tapThat = view.findView(R.id.tap_that)
             tapThatDescription = view.findView(R.id.tap_that_description)
+            tapThatCheckMark = view.findView(R.id.tap_that_checkmark)
+            tapThatContainer = view.findView(R.id.tap_that_container)
 
             changeStyle = view.findView(R.id.change_style)
             street = view.findView(R.id.street)
             streetDescription = view.findView(R.id.street_description)
+            streetCheckMark = view.findView(R.id.street_checkmark)
+            streetContainer = view.findView(R.id.street_container)
+
             slick = view.findView(R.id.slick)
             slickDescription = view.findView(R.id.slick_description)
+            slickCheckMark = view.findView(R.id.slick_checkmark)
+            slickContainer = view.findView(R.id.slick_container)
 
             whatsUp = view.findView(R.id.whats_up)
             buyTheBook = view.findView(R.id.buy_the_book)
@@ -132,57 +150,77 @@ class SettingsFragment : android.support.v4.app.Fragment()
         {
             Settings.init(context)
 
-            truePlayer.isChecked = Settings.truePlayerEnabled
-            tapThat.isChecked = Settings.tapThatEnabled
-            slick.isChecked = Settings.slickCoinsEnabled
-            street.isChecked = Settings.streetCoinsEnabled
+            if (Settings.truePlayerEnabled)
+            {
+                truePlayerCheckMark.show()
+                tapThatCheckMark.hide()
+            }
+            else
+            {
+                truePlayerCheckMark.hide()
+                tapThatCheckMark.show()
+            }
 
-            truePlayer.adjustCheckMark()
-            tapThat.adjustCheckMark()
-            slick.adjustCheckMark()
-            street.adjustCheckMark()
+            if (Settings.slickCoinsEnabled)
+            {
+                slickCheckMark.show()
+                streetCheckMark.hide()
+            }
+            else
+            {
+                slickCheckMark.hide()
+                streetCheckMark.show()
+            }
 
         }
 
         private fun setListeners()
         {
-            truePlayer.setOnClickListener listener@ {
+            truePlayerContainer.setOnClickListener listener@ {
 
-                if (truePlayer.isChecked) return@listener
+                if (Settings.truePlayerEnabled)
+                    return@listener
 
-                truePlayer.tap().shake()
-                tapThat.tap()
-                Settings.truePlayerEnabled = truePlayer.isChecked
+                Settings.truePlayerEnabled = true
+                adjustChecks()
+                truePlayerCheckMark.pop()
+                truePlayerContainer.bounce()
                 listener?.onTruePlayerEnabled()
             }
 
-            tapThat.setOnClickListener listener@ {
+            tapThatContainer.setOnClickListener listener@ {
 
-                if (tapThat.isChecked) return@listener
+                if (Settings.tapThatEnabled)
+                    return@listener
 
-                tapThat.tap().shake()
-                truePlayer.tap()
-                Settings.tapThatEnabled = tapThat.isChecked
+                Settings.tapThatEnabled = true
+                adjustChecks()
+                tapThatCheckMark.pop()
+                tapThatContainer.bounce()
                 listener?.onTapThatEnabled()
             }
 
-            street.setOnClickListener listener@ {
+            streetContainer.setOnClickListener listener@ {
 
-                if (street.isChecked) return@listener
+                if (Settings.streetCoinsEnabled)
+                    return@listener
 
-                street.tap().shake()
-                slick.tap()
-                Settings.streetCoinsEnabled = street.isChecked
+                Settings.streetCoinsEnabled = true
+                adjustChecks()
+                streetCheckMark.pop()
+                streetContainer.bounce()
                 listener?.onStreetStyle()
             }
 
-            slick.setOnClickListener listener@ {
+            slickContainer.setOnClickListener listener@ {
 
-                if (slick.isChecked) return@listener
+                if (Settings.slickCoinsEnabled)
+                    return@listener
 
-                slick.tap().shake()
-                street.tap()
-                Settings.slickCoinsEnabled = slick.isChecked
+                Settings.slickCoinsEnabled = true
+                adjustChecks()
+                slickCheckMark.pop()
+                slickContainer.bounce()
                 listener?.onSlickStyle()
             }
 
