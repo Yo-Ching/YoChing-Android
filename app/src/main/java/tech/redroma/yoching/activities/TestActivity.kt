@@ -2,6 +2,9 @@ package tech.redroma.yoching.activities
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.view.animation.FastOutLinearInInterpolator
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.BounceInterpolator
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
@@ -28,13 +31,13 @@ class TestActivity : AppCompatActivity()
 
         listOf(first, second).onEach { it.typeface = exoBlack() }
 
-        first.postDelayed({ explode() }, 100)
-
+        first.postDelayed({ explode() }, 300)
+//        first.post { explode() }
     }
 
     fun explode()
     {
-        val explode = Runnable {
+        val explodeAnimation = Runnable {
             //            val explosion = ExplosionField.attach2Window(this)
 //            explosion.explode(second)
             ParticleSystem(this, 200, drawable.particle_black, 900)
@@ -44,10 +47,11 @@ class TestActivity : AppCompatActivity()
                     .oneShot(second, 75)
         }
 
-        YoYo.with(Techniques.BounceInDown)
-                .duration(400)
+        YoYo.with(Techniques.ZoomInDown)
+                .duration(310)
+//                .interpolate(AccelerateInterpolator())
                 .playOn(first)
 
-        first.postDelayed(explode, 100)
+        first.postDelayed(explodeAnimation, 300)
     }
 }
