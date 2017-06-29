@@ -55,29 +55,6 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         super.onAttachFragment(fragment)
     }
 
-    override fun onCreateView(name: String?, context: Context?, attrs: AttributeSet?): View?
-    {
-        val view = super.onCreateView(name, context, attrs)
-
-        if (view is ViewGroup)
-        {
-            view.clipChildren = false
-            view.clipToPadding = false
-        }
-
-        return view
-    }
-
-    override fun onCreateView(parent: View?, name: String?, context: Context?, attrs: AttributeSet?): View?
-    {
-        if (parent is ViewGroup)
-        {
-            parent.clipChildren = false
-            parent.clipToPadding = false
-        }
-        return super.onCreateView(parent, name, context, attrs)
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean
     {
         if (views.drawerToggle.onOptionsItemSelected(item))
