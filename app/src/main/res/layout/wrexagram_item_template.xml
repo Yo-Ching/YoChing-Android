@@ -4,7 +4,7 @@
                                              xmlns:autofit="http://schemas.android.com/apk/res-auto"
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
-                                             android:layout_height="80dp"
+                                             android:layout_height="85dp"
                                              android:background="?android:attr/selectableItemBackground"
 >
 
@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.05"
-            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteX="21dp"
             tools:layout_editor_absoluteY="0dp"
     />
 
@@ -24,7 +24,8 @@
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.5"
-    />
+            tools:layout_editor_absoluteY="40dp"
+            tools:layout_editor_absoluteX="0dp" />
 
     <android.support.constraint.Guideline
             android:id="@+id/wrexagram_side_guideline"
@@ -32,7 +33,7 @@
             android:layout_width="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.75"
-            tools:layout_editor_absoluteX="270dp"
+            tools:layout_editor_absoluteX="309dp"
             tools:layout_editor_absoluteY="0dp"
     />
 
@@ -48,6 +49,18 @@
             app:srcCompat="@drawable/galaxy_white_transparent"
     />
 
+    <ImageView
+            android:id="@+id/wrexagram_icon"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="@+id/wrexagram_side_guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/wrex_1"
+    />
     <TextView
             android:id="@+id/wrexagram_number"
             android:layout_height="wrap_content"
@@ -67,7 +80,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
             android:layout_width="0dp"
             android:maxLines="1"
             android:text="Played"
@@ -78,36 +90,23 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/wrexagram_number"
             app:layout_constraintRight_toLeftOf="@+id/wrexagram_side_guideline"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/vertical_center"
             autofit:minTextSize="14sp"
     />
 
-    <TextView
+    <me.grantland.widget.AutofitTextView
             android:id="@+id/wrexagram_summary"
-            android:layout_height="0dp"
-            android:layout_marginBottom="8dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_width="0dp"
             android:lineSpacingExtra="0sp"
+            android:maxLines="2"
             android:text="Being PLAYED is the opposite of being paid. Nothing positive is happening for a brother."
             android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="@+id/wrexagram_title"
             app:layout_constraintRight_toLeftOf="@+id/wrexagram_side_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/wrexagram_title"
-    />
-
-    <ImageView
-            android:id="@+id/wrexagram_icon"
-            android:layout_height="0dp"
-            android:layout_width="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintLeft_toLeftOf="@+id/wrexagram_side_guideline"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/wrex_1"
+            app:layout_constraintTop_toBottomOf="@+id/vertical_center"
+            app:minTextSize="10dp"
     />
 
 </android.support.constraint.ConstraintLayout>
