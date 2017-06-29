@@ -7,7 +7,6 @@
 
 
     <android.support.v7.widget.RecyclerView
-            android:background="@drawable/galaxy_white_transparent"
             android:id="@+id/recycler_view"
             android:layout_height="0dp"
             android:layout_marginBottom="0dp"
