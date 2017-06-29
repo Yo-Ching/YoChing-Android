@@ -103,6 +103,7 @@ class SettingsFragment : android.support.v4.app.Fragment()
         lateinit var learnYoChing: TextView
         lateinit var learnYoChingDescription: TextView
         lateinit var learnYoChingArrow: ImageView
+        lateinit var learnYoChingContainer: ViewGroup
 
         fun inflate(view: View)
         {
@@ -139,6 +140,8 @@ class SettingsFragment : android.support.v4.app.Fragment()
             learnYoChing = view.findView(R.id.learn_yo_ching)
             learnYoChingDescription = view.findView(R.id.learn_yo_ching_description)
             learnYoChingArrow = view.findView(R.id.learn_yo_ching_arrow)
+            learnYoChingContainer = view.findView(R.id.learn_yo_ching_container)
+
 
             setFonts()
             adjustChecks()
@@ -227,6 +230,11 @@ class SettingsFragment : android.support.v4.app.Fragment()
             yoAppPlayersContainer.setOnClickListener {
                 actions.goToCredits()
             }
+
+            learnYoChingContainer.setOnClickListener {
+                context.openURL(Links.youtubePlaylistLink)
+            }
+
         }
 
         private fun setFonts()

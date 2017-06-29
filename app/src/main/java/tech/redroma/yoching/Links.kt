@@ -9,4 +9,5 @@ internal object Links
     const val marcLink = "http://github.com/mrisney"
     const val brendanLink = "https://www.linkedin.com/in/brendankmiller/"
     const val mayaLink = "https://www.behance.net/mayasghr/"
+    const val youtubePlaylistLink = "https://www.youtube.com/embed/6yzG8dJvHv8?list=PLJfSQOoheuTsiV13Ozk0lgOSL4qUaE3x2"
 }
