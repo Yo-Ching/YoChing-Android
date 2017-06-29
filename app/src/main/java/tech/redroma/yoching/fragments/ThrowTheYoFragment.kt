@@ -278,7 +278,15 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
                     //All of the coins have landed
                     if (landedCoins.incrementAndGet() >= 3)
                     {
-                        processResults(results)
+                        if (Settings.tapThatEnabled)
+                        {
+                            val randomWrexagram = Int.randomFrom(1, 64)
+                            actions.openWrexagram(randomWrexagram)
+                        }
+                        else
+                        {
+                            processResults(results)
+                        }
                     }
                 }
             }
