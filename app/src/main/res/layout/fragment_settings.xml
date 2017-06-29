@@ -46,7 +46,8 @@
                     android:textStyle="bold"
                     android:id="@+id/throwing_style"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp" />
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="4dp" />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
@@ -187,7 +188,8 @@
                     android:textStyle="bold"
                     android:id="@+id/change_style"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp" />
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="4dp" />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
@@ -329,7 +331,8 @@
                     android:textStyle="bold"
                     android:id="@+id/whats_up"
                     android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp" />
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="4dp" />
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
