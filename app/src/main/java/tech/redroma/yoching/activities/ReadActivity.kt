@@ -45,7 +45,7 @@ class ReadActivity : AppCompatActivity()
             sendMediumPriorityMessage("Wrexagram Viewed", body = "Wrexagram #$wrexagramNumber")
         }
 
-        views.inflate(this)
+        views.inflate()
         loadWrexagramInfo()
     }
 
@@ -92,7 +92,7 @@ class ReadActivity : AppCompatActivity()
         explodeIntoView()
     }
 
-    private class Views : ViewContainer
+    private inner class Views
     {
         lateinit var actionBarToolbar: Toolbar
         lateinit var actionBarTitle: TextView
@@ -103,35 +103,54 @@ class ReadActivity : AppCompatActivity()
         lateinit var whatsUpTitle: TextView
         lateinit var whatsUpBody: DocumentView
 
-        override fun inflate(activity: AppCompatActivity)
+        fun inflate()
         {
-            activity.perform {
+            //Pull out the Views
+            actionBarToolbar = findView(id.action_toolbar)
+            actionBarTitle = findView(id.yo_action_bar_title)
+            wrexagramImage = findView(id.wrexagram_image)
+            wrexagramTitle = findView(id.wrexagram_title)
+            duplicateTitle = findView(R.id.wrexagram_title_duplicate)
+            body = findView(id.wrexagram_body)
+            whatsUpTitle = findView(R.id.whats_up_title)
+            whatsUpBody = findView(R.id.whats_up_body)
 
-                //Pull out the Views
-                actionBarToolbar = findView(id.action_toolbar)
-                actionBarTitle = findView(id.yo_action_bar_title)
-                wrexagramImage = findView(id.wrexagram_image)
-                wrexagramTitle = findView(id.wrexagram_title)
-                duplicateTitle = findView(R.id.wrexagram_title_duplicate)
-                body = findView(id.wrexagram_body)
-                whatsUpTitle = findView(R.id.whats_up_title)
-                whatsUpBody = findView(R.id.whats_up_body)
+            setFonts()
+            setupBackButton()
 
-                //Action bar code
-                setSupportActionBar(actionBarToolbar)
-                supportActionBar?.setHomeButtonEnabled(true)
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                title = ""
-                val backButton = resources.getDrawable(R.drawable.arrow_back)
-                supportActionBar?.setHomeAsUpIndicator(backButton)
+            body.layoutParams.height = WRAP_CONTENT
+            whatsUpBody.layoutParams.height = WRAP_CONTENT
+        }
 
-                //Set the typefaces
-                whatsUpTitle.typeface = exoExtraBold()
-                actionBarTitle.typeface = exoBlack()
-                wrexagramTitle.typeface = exoBlack()
+        private fun setFonts()
+        {
+            //Set the typefaces
+            whatsUpTitle.typeface = exoExtraBold()
+            actionBarTitle.typeface = exoBlack()
+            wrexagramTitle.typeface = exoBlack()
+        }
 
-                body.layoutParams.height = WRAP_CONTENT
-                whatsUpBody.layoutParams.height = WRAP_CONTENT
+        fun setupBackButton()
+        {
+            //Action bar code
+            setSupportActionBar(actionBarToolbar)
+            supportActionBar?.setHomeButtonEnabled(true)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            title = ""
+
+            val backButtonIcon = resources.getDrawable(R.drawable.arrow_back)
+            supportActionBar?.setHomeAsUpIndicator(backButtonIcon)
+
+            val backButton = actionBarToolbar.backButton ?: return
+
+            backButton.setOnClickListener {
+                LOG.info("Back Button clicked!")
+                finish()
+            }
+
+            if (hasSDKAtLeast(android.os.Build.VERSION_CODES.LOLLIPOP))
+            {
+                backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
 
         }
