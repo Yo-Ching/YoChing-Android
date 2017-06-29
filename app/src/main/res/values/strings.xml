@@ -13,7 +13,8 @@
     <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
     <string name="placeholder_wrexagram_title">YO CHING</string>
     <string name="title_activity_read_wrexagram">ReadActivity</string>
-    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.</string>
+    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.
+    </string>
     <string name="wrexagram_image_content_description">Wrexagram Image</string>
     <string name="yo_ching">YO CHING</string>
     <string name="yo_ching_coin_description">Yo Ching Coin</string>
