@@ -39,7 +39,7 @@
 
     <ScrollView
             android:layout_width="0dp"
-            android:background="@android:color/background_light"
+            android:background="@color/transparent"
             android:layout_height="0dp"
             android:clipToPadding="false"
             android:fillViewport="true"
@@ -51,7 +51,7 @@
             app:layout_constraintVertical_bias="1.0"
             tools:layout_constraintRight_creator="1"
             tools:layout_constraintLeft_creator="1"
-    >
+            android:id="@+id/scrollView2">
 
         <android.support.constraint.ConstraintLayout
                 android:orientation="vertical"
@@ -59,6 +59,27 @@
                 android:layout_height="wrap_content"
         >
 
+            <ImageView
+                    android:id="@+id/dirt_background"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="0dp"
+                    android:rotation="0"
+                    app:layout_constraintBottom_toTopOf="@+id/half_way"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    ext:srcCompat="@drawable/galaxy_white_transparent"
+            />
+
+            <android.support.constraint.Guideline android:layout_width="wrap_content"
+                                                  android:layout_height="wrap_content"
+                                                  android:id="@+id/half_way"
+                                                  android:orientation="horizontal"
+                                                  app:layout_constraintGuide_percent="0.6" />
             <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="125dp"
