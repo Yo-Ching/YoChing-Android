@@ -3,7 +3,7 @@
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="horizontal"
               android:layout_width="match_parent"
-              android:layout_height="100dp"
+              android:layout_height="80dp"
               android:background="@drawable/selectable_item_background">
 
     <ImageView
@@ -13,7 +13,8 @@
             android:id="@+id/icon"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:visibility="gone" />
 
     <TextView
             android:text="@string/nav_throw_the_yo"
@@ -24,7 +25,7 @@
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp" />
