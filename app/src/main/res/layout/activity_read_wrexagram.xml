@@ -63,8 +63,10 @@
                     android:id="@+id/dirt_background"
                     android:layout_height="0dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_width="0dp"
                     android:rotation="0"
@@ -75,15 +77,20 @@
                     app:layout_constraintTop_toTopOf="parent"
             />
 
-            <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                                  android:layout_height="wrap_content"
-                                                  android:id="@+id/half_way"
-                                                  android:orientation="horizontal"
-                                                  app:layout_constraintGuide_percent="0.6" />
+            <android.support.constraint.Guideline
+                    android:id="@+id/half_way"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.6"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="389dp"
+                    android:layout_width="wrap_content"
+            />
+
             <ImageView
                     android:contentDescription="@string/wrexagram_image_content_description"
                     android:layout_width="wrap_content"
-                    android:layout_height="125dp"
+                    android:layout_height="150dp"
                     android:id="@+id/wrexagram_image"
                     android:layout_marginTop="8dp"
                     android:src="@drawable/wrex_1"
@@ -123,7 +130,9 @@
                     app:layout_constraintTop_toTopOf="@+id/wrexagram_title"
                     app:layout_constraintVertical_bias="0.0"
                     tools:layout_editor_absoluteX="0dp"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+            />
+
             <View
                     android:background="@color/colorPrimary"
                     android:id="@+id/Line"
@@ -145,8 +154,8 @@
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.05"
-                    tools:layout_editor_absoluteX="19dp"
-                    tools:layout_editor_absoluteY="86dp"
+                    tools:layout_editor_absoluteX="18dp"
+                    tools:layout_editor_absoluteY="85dp"
             />
 
             <android.support.constraint.Guideline
@@ -155,8 +164,8 @@
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.95"
-                    tools:layout_editor_absoluteX="365dp"
-                    tools:layout_editor_absoluteY="86dp"
+                    tools:layout_editor_absoluteX="342dp"
+                    tools:layout_editor_absoluteY="85dp"
             />
 
             <com.bluejamesbond.text.DocumentView
@@ -186,7 +195,8 @@
                     ext:documentView_textSize="16sp"
                     ext:documentView_textSubPixel="true"
                     ext:documentView_textTypefacePath="fonts/Signika regular.ttf"
-                    android:scrollbarStyle="insideInset"
+                    android:isScrollContainer="true"
+                    android:nestedScrollingEnabled="false"
             />
 
             <TextView
@@ -241,9 +251,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/whats_up_body"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginLeft="0dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginRight="0dp"
                     app:layout_constraintRight_toRightOf="parent" />
 
         </android.support.constraint.ConstraintLayout>
