@@ -1,32 +1,34 @@
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:app="http://schemas.android.com/apk/res-auto"
-                                             xmlns:tools="http://schemas.android.com/tools"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent"
-                                             tools:context="tech.redroma.yoching.fragments.SettingsFragment"
-                                             android:background="@color/colorPrimary">
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        tools:context="tech.redroma.yoching.fragments.SettingsFragment">
 
 
     <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:srcCompat="@drawable/galaxy_white_transparent"
             android:id="@+id/galactic_background"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/galaxy_white_transparent"
+    />
 
     <ScrollView
-            android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_width="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.0"
-            android:layout_marginTop="16dp">
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
                 android:orientation="vertical"
@@ -35,36 +37,37 @@
                 android:paddingBottom="32dp">
 
             <TextView
-                    android:text="Throwing Style"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/throwing_style"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:text="Throwing Style"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
-                    android:layout_marginTop="24dp"
                     android:textStyle="bold"
-                    android:id="@+id/throwing_style"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="4dp" />
+            />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
                     android:id="@+id/true_player_container"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:paddingRight="24dp"
+                    android:paddingBottom="8dp"
                     android:paddingEnd="24dp"
                     android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
                     android:paddingStart="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -75,6 +78,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/true_player"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -83,7 +87,7 @@
                             android:text="True Player"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/true_player" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -101,12 +105,13 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/true_player_checkmark"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                        android:id="@+id/true_player_checkmark" />
+                />
 
             </LinearLayout>
 
@@ -114,21 +119,21 @@
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
-                    android:id="@+id/tap_that_container"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:paddingRight="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingLeft="24dp"
-                    android:paddingStart="24dp"
                     android:clipChildren="true"
                     android:clipToPadding="true"
+                    android:id="@+id/tap_that_container"
+                    android:layout_height="match_parent"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
                     android:paddingBottom="8dp"
+                    android:paddingEnd="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingStart="24dp"
                     android:paddingTop="8dp">
 
                 <LinearLayout
@@ -140,6 +145,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/tap_that"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -148,7 +154,7 @@
                             android:text="Tap That"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/tap_that" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -166,29 +172,31 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/tap_that_checkmark"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                        android:id="@+id/tap_that_checkmark" />
+                />
 
             </LinearLayout>
 
 
             <TextView
-                    android:text="Change Style"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/change_style"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_width="wrap_content"
+                    android:text="Change Style"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
-                    android:layout_marginTop="32dp"
                     android:textStyle="bold"
-                    android:id="@+id/change_style"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="4dp" />
+            />
 
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
@@ -197,17 +205,17 @@
                     android:clipToPadding="false"
                     android:id="@+id/street_container"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:paddingRight="24dp"
+                    android:paddingBottom="8dp"
                     android:paddingEnd="24dp"
                     android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
                     android:paddingStart="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:paddingBottom="8dp"
                     android:paddingTop="8dp">
 
                 <LinearLayout
@@ -219,6 +227,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/street"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -227,7 +236,7 @@
                             android:text="Street"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/street" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -245,12 +254,13 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/street_checkmark"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                        android:id="@+id/street_checkmark" />
+                />
 
             </LinearLayout>
 
@@ -262,17 +272,17 @@
                     android:clipToPadding="false"
                     android:id="@+id/slick_container"
                     android:layout_height="match_parent"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginStart="8dp"
-                    android:paddingRight="24dp"
+                    android:paddingBottom="8dp"
                     android:paddingEnd="24dp"
                     android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
                     android:paddingStart="24dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:paddingBottom="8dp"
                     android:paddingTop="8dp">
 
                 <LinearLayout
@@ -284,6 +294,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/slick"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -292,7 +303,7 @@
                             android:text="Slick"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/slick" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -310,28 +321,30 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/slick_checkmark"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                        android:id="@+id/slick_checkmark" />
+                />
 
             </LinearLayout>
 
             <TextView
-                    android:text="What's up"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/whats_up"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_width="wrap_content"
+                    android:text="What's up"
                     android:textAllCaps="true"
                     android:textColor="@android:color/background_light"
                     android:textSize="26sp"
-                    android:layout_marginTop="32dp"
                     android:textStyle="bold"
-                    android:id="@+id/whats_up"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginBottom="4dp" />
+            />
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
@@ -339,18 +352,18 @@
                     android:clipToPadding="false"
                     android:id="@+id/buy_the_book_container"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:paddingRight="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingLeft="24dp"
-                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -361,6 +374,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/buy_the_book"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -369,7 +383,7 @@
                             android:text="Buy The Book"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/buy_the_book" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -387,12 +401,13 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/buy_the_book_arrow"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                        android:id="@+id/buy_the_book_arrow" />
+                />
 
             </LinearLayout>
 
@@ -404,18 +419,18 @@
                     android:clipToPadding="false"
                     android:id="@+id/yo_app_players_container"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:paddingRight="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingLeft="24dp"
-                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingBottom="8dp"
+                    android:paddingEnd="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -426,6 +441,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/yo_app_players"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -434,7 +450,7 @@
                             android:text="Yo App Players"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/yo_app_players" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -452,35 +468,36 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/yo_app_players_arrow"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                        android:id="@+id/yo_app_players_arrow" />
+                />
 
             </LinearLayout>
 
 
             <LinearLayout
+                    android:background="@drawable/selectable_item_background"
                     android:clickable="true"
                     android:clipChildren="false"
                     android:clipToPadding="false"
                     android:id="@+id/learn_yo_ching_container"
                     android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:paddingRight="24dp"
-                    android:paddingEnd="24dp"
-                    android:paddingLeft="24dp"
-                    android:paddingStart="24dp"
+                    android:layout_marginEnd="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:paddingTop="8dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
                     android:paddingBottom="8dp"
-                    android:background="@drawable/selectable_item_background">
+                    android:paddingEnd="24dp"
+                    android:paddingLeft="24dp"
+                    android:paddingRight="24dp"
+                    android:paddingStart="24dp"
+                    android:paddingTop="8dp">
 
                 <LinearLayout
                         android:layout_height="wrap_content"
@@ -491,6 +508,7 @@
                     <TextView
                             android:foregroundGravity="center_vertical"
                             android:gravity="center_vertical"
+                            android:id="@+id/learn_yo_ching"
                             android:layout_gravity="clip_vertical"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="4dp"
@@ -499,7 +517,7 @@
                             android:text="Learn Yo Ching"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
-                            android:id="@+id/learn_yo_ching" />
+                    />
 
                     <TextView
                             android:foregroundGravity="center_vertical"
@@ -517,12 +535,13 @@
                 </LinearLayout>
 
                 <ImageView
+                        android:id="@+id/learn_yo_ching_arrow"
                         android:layout_gravity="center_vertical"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                        android:id="@+id/learn_yo_ching_arrow" />
+                />
 
             </LinearLayout>
 
