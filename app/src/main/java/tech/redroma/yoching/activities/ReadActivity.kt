@@ -10,9 +10,9 @@ import android.widget.TextView
 import com.bluejamesbond.text.DocumentView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.plattysoft.leonids.ParticleSystem
 import tech.redroma.yoching.*
-import tech.redroma.yoching.R.id
-import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.R.*
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
@@ -46,22 +46,39 @@ class ReadActivity : AppCompatActivity()
         }
 
         views.inflate()
-        loadWrexagramInfo()
+        explodeIntoView()
+//        loadWrexagramInfo()
     }
 
     private fun explodeIntoView()
     {
-        views.wrexagramTitle.post {
-
-            YoYo.with(Techniques.BounceInDown)
-                    .duration(400)
-                    .playOn(views.wrexagramTitle)
-
-            views.duplicateTitle.post {
+        val explosion = if (hasSDKAtLeast(android.os.Build.VERSION_CODES.KITKAT))
+        {
+            Runnable {
                 val explosion = ExplosionField.attach2Window(this)
                 explosion.explode(views.duplicateTitle)
             }
         }
+        else
+        {
+            Runnable {
+
+                ParticleSystem(this, 200, drawable.particle_black, 900)
+                        .setSpeedModuleAndAngleRange(0.01f, 0.3f, 180, 360)
+                        .setScaleRange(0.2f, 0.4f)
+                        .setFadeOut(700)
+                        .oneShot(views.wrexagramTitle, 75)
+            }
+        }
+
+        val animation = Runnable {
+
+            YoYo.with(Techniques.BounceInDown)
+                    .duration(400)
+                    .playOn(views.wrexagramTitle)
+        }
+
+        views.wrexagramTitle.postDelayed(animation, 3000)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
@@ -88,8 +105,6 @@ class ReadActivity : AppCompatActivity()
         views.body.text = body
 
         views.whatsUpBody.text = summary.whatsUp
-
-        explodeIntoView()
     }
 
     private inner class Views
