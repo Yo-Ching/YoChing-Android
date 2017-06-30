@@ -101,7 +101,6 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
     private val acceptableScaleTypes = listOf(FIT_XY,
                                               FIT_START,
                                               FIT_CENTER,
-                                              CENTER_CROP,
                                               CENTER_INSIDE)
 
     init
