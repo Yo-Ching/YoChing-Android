@@ -37,7 +37,8 @@ internal object Aroma
 
             val aroma = aroma ?: AromaClient.create(AROMA_TOKEN) ?: return@block
 
-            aroma.deviceName = this.deviceName
+            aroma.deviceName = aroma.hostname
+            aroma.hostname = this.deviceName
 
             callback(aroma)
         }
