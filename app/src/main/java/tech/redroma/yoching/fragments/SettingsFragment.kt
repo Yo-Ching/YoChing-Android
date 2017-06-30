@@ -93,13 +93,17 @@ class SettingsFragment : android.support.v4.app.Fragment()
         lateinit var slickContainer: ViewGroup
 
         lateinit var whatsUp: TextView
+
         lateinit var buyTheBook: TextView
         lateinit var buyTheBookDescription: TextView
         lateinit var buyTheBookArrow: ImageView
+        lateinit var buyTheBookContainer: ViewGroup
+
         lateinit var yoAppPlayers: TextView
         lateinit var yoAppPlayersDescription: TextView
         lateinit var yoAppPlayersArrow: ImageView
         lateinit var yoAppPlayersContainer: ViewGroup
+
         lateinit var learnYoChing: TextView
         lateinit var learnYoChingDescription: TextView
         lateinit var learnYoChingArrow: ImageView
@@ -130,18 +134,21 @@ class SettingsFragment : android.support.v4.app.Fragment()
             slickContainer = view.findView(R.id.slick_container)
 
             whatsUp = view.findView(R.id.whats_up)
+
             buyTheBook = view.findView(R.id.buy_the_book)
             buyTheBookDescription = view.findView(R.id.buy_the_book_description)
             buyTheBookArrow = view.findView(R.id.buy_the_book_arrow)
+            buyTheBookContainer = view.findView(R.id.buy_the_book_container)
+
             yoAppPlayers = view.findView(R.id.yo_app_players)
             yoAppPlayersDescription = view.findView(R.id.yo_app_players_description)
             yoAppPlayersArrow = view.findView(R.id.yo_app_players_arrow)
             yoAppPlayersContainer = view.findView(R.id.yo_app_players_container)
+
             learnYoChing = view.findView(R.id.learn_yo_ching)
             learnYoChingDescription = view.findView(R.id.learn_yo_ching_description)
             learnYoChingArrow = view.findView(R.id.learn_yo_ching_arrow)
             learnYoChingContainer = view.findView(R.id.learn_yo_ching_container)
-
 
             setFonts()
             adjustChecks()
@@ -225,6 +232,10 @@ class SettingsFragment : android.support.v4.app.Fragment()
                 slickCheckMark.pop()
                 slickContainer.bounce()
                 listener?.onSlickStyle()
+            }
+
+            buyTheBookContainer.setOnClickListener {
+                context.openURL(Links.bookLink)
             }
 
             yoAppPlayersContainer.setOnClickListener {
