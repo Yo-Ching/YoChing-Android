@@ -20,8 +20,7 @@ import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
 import android.view.*
 import android.widget.CheckedTextView
-import com.daimajia.androidanimations.library.Techniques.BounceIn
-import com.daimajia.androidanimations.library.Techniques.ZoomIn
+import com.daimajia.androidanimations.library.Techniques.*
 import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.R.drawable
 
@@ -66,6 +65,15 @@ fun <V: View> V.bounce(): V
 fun <V: View> V.pop(): V
 {
     YoYo.with(ZoomIn)
+            .duration(300)
+            .playOn(this)
+
+    return this
+}
+
+fun <V: View> V.shake(): V
+{
+    YoYo.with(Shake)
             .duration(300)
             .playOn(this)
 
