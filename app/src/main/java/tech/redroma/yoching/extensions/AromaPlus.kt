@@ -36,8 +36,28 @@ internal object Aroma
         AsyncTask.execute block@ {
 
             val aroma = aroma ?: AromaClient.create(AROMA_TOKEN) ?: return@block
+
+            aroma.deviceName = this.deviceName
+
             callback(aroma)
         }
     }
+
+    private val deviceName: String
+        get()
+        {
+            val manufacturer = android.os.Build.MANUFACTURER
+            val model = android.os.Build.MODEL
+
+            return if (model.startsWith(manufacturer))
+            {
+                model.capitalize()
+            }
+            else
+            {
+                "${manufacturer.capitalize()} $model"
+            }
+
+        }
 
 }

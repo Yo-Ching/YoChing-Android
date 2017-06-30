@@ -62,7 +62,7 @@ dependencies {
     //==============================================
     //AROMA
     //==============================================
-    compile "tech.aroma:aroma-java-client:2.1-SNAPSHOT"
+    compile "tech.aroma:aroma-java-client:2.2-SNAPSHOT"
 
     //==============================================
     //THIRD PARTY LIBRARIES
