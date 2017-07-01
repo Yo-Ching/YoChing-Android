@@ -30,9 +30,15 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         super.onCreate(savedInstanceState)
 
-        setupView()
-
         Aroma.send { sendMediumPriorityMessage("App Launched") }
+        setupErrorHandler()
+
+        setupView()
+    }
+
+    private fun setupErrorHandler()
+    {
+        AromaErrorHandler.register(this)
     }
 
     override fun onAttachFragment(fragment: Fragment)

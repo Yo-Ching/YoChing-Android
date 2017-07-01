@@ -16,7 +16,9 @@
 
 package tech.redroma.yoching.extensions
 
+import android.content.Context
 import android.os.AsyncTask
+import java.lang.Thread.UncaughtExceptionHandler
 import tech.aroma.client.Aroma as AromaClient
 
 
@@ -60,5 +62,34 @@ internal object Aroma
             }
 
         }
+
+}
+
+internal class AromaErrorHandler(val delegate: UncaughtExceptionHandler): UncaughtExceptionHandler
+{
+    override fun uncaughtException(t: Thread?, e: Throwable?)
+    {
+        Aroma.send{ sendHighPriorityMessage("App Crashed", "Crash on Thread [$t] \n\n $e") }
+
+        delegate.uncaughtException(t, e)
+    }
+
+    companion object
+    {
+        @JvmStatic
+        fun register(context: Context)
+        {
+            if (Thread.getDefaultUncaughtExceptionHandler() is AromaErrorHandler)
+            {
+                return
+            }
+
+            val existingHandler = Thread.getDefaultUncaughtExceptionHandler() ?: return
+            Thread.setDefaultUncaughtExceptionHandler(AromaErrorHandler(existingHandler))
+
+            LOG.info("Setting ${AromaErrorHandler.javaClass} as the default error handler with $existingHandler as the delegate")
+            Aroma.send { sendLowPriorityMessage("Registering Error Handler", "Using $existingHandler as the delegate error handler") }
+        }
+    }
 
 }
