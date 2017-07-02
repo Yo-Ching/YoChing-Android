@@ -34,7 +34,19 @@ import tech.redroma.yoching.WrexagramLine
 import tech.redroma.yoching.WrexagramLine.SPLIT
 import tech.redroma.yoching.WrexagramLine.STRONG
 
+
+
+//============================================================
+//LOGGER
+//============================================================
+
 object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
+
+//============================================================
+//BUILD INFO
+//============================================================
+
+internal val Activity.buildInfo get() = packageManager.getPackageInfo(packageName, 0)
 
 internal val AppCompatActivity.actionBarTitleView: TextView? get()
 {
@@ -67,6 +79,10 @@ internal inline fun <reified V : View> AppCompatActivity.findView(id: Int): V
 {
     return findViewById(id) as V
 }
+
+//============================================================
+//ICONS
+//============================================================
 
 private object Icons
 {
@@ -140,6 +156,10 @@ fun Context.wrexagramLineFor(lineType: WrexagramLine): Drawable
     }
 }
 
+//============================================================
+//OPENING URLS
+//============================================================
+
 fun Context.openURL(url: String)
 {
     if (url.isEmpty()) return
@@ -151,6 +171,10 @@ fun Context.openURL(url: String)
     val intent = Intent(Intent.ACTION_VIEW, uri)
     startActivity(intent)
 }
+
+//============================================================
+//SDK CHECKS
+//============================================================
 
 fun hasSDKAtLeast(expectedSDKVersion: Int): Boolean
 {
