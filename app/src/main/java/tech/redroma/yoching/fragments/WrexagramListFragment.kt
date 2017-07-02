@@ -7,10 +7,10 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.RecyclerView.OnScrollListener
 import android.view.*
-import android.widget.ImageView
+import android.widget.*
 import android.widget.ImageView.ScaleType.*
-import android.widget.TextView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.activities.ReadActivity
@@ -139,6 +139,7 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
     override fun onClick(v: View?)
     {
         LOG.info("Clicked! $_wrexagram")
+        Aroma.send { sendLowPriorityMessage("Wrexagram Clicked", "From Wrexagram List: \n\n$_wrexagram")}
 
         val readIntent = Intent(context, ReadActivity::class.java)
         readIntent.putExtra(ReadActivity.Parameters.WREXAGRAM_NUMBER, _wrexagram.number)
