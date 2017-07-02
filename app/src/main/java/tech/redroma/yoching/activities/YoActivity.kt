@@ -17,6 +17,7 @@ import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
+import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 import tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener
 import tech.redroma.yoching.views.ViewContainer
 
@@ -30,7 +31,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         super.onCreate(savedInstanceState)
 
-        Aroma.send { sendMediumPriorityMessage("App Launched") }
+        Aroma.send { sendMediumPriorityMessage("App Launched", "v${buildInfo.versionName} Build #${buildInfo.versionCode}") }
         setupErrorHandler()
 
         setupView()
@@ -55,6 +56,11 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
                 {
                 }
             }
+        }
+
+        if (fragment is SettingsFragment)
+        {
+            fragment.listener = SettingsListener
         }
 
         super.onAttachFragment(fragment)
@@ -86,19 +92,21 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         switchToFragment(ThrowTheYoFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.yo_ching))
+        Aroma.send { sendLowPriorityMessage("Throw The Yo Opened") }
     }
 
     override fun onSelect64Wrexagrams()
     {
         switchToFragment(WrexagramListFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.nav_64_wrexagrams))
-
+        Aroma.send { sendLowPriorityMessage("Wrexagram List Opened") }
     }
 
     override fun onSelectSettings()
     {
         switchToFragment(SettingsFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.nav_settings))
+        Aroma.send { sendLowPriorityMessage("Settings Opened") }
     }
 
     override fun onSelectBuyTheBook()
@@ -161,6 +169,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             super.onDrawerOpened(drawerView)
             LOG.info("Drawer opened!")
+            Aroma.send { sendLowPriorityMessage("Nav Menu Opened") }
 
             activity.invalidateOptionsMenu()
             syncState()
@@ -170,10 +179,35 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             super.onDrawerClosed(drawerView)
             LOG.info("Drawer closed!")
+            Aroma.send { sendLowPriorityMessage("Nav Menu Closed") }
 
             activity.invalidateOptionsMenu()
             syncState()
         }
+    }
+
+    private object SettingsListener: YoSettingsListener
+    {
+        override fun onTruePlayerEnabled()
+        {
+            Aroma.send { sendMediumPriorityMessage("True Player Enabled") }
+        }
+
+        override fun onTapThatEnabled()
+        {
+            Aroma.send { sendMediumPriorityMessage("Tap That Enabled") }
+        }
+
+        override fun onStreetStyle()
+        {
+            Aroma.send { sendMediumPriorityMessage("Street Coins Enabled") }
+        }
+
+        override fun onSlickStyle()
+        {
+            Aroma.send { sendMediumPriorityMessage("Slick Coins Enabled") }
+        }
+
     }
 }
 

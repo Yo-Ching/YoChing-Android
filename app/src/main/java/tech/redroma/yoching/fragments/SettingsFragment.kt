@@ -18,7 +18,7 @@ import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 class SettingsFragment : android.support.v4.app.Fragment()
 {
 
-    var listener: tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener? = null
+    var listener: YoSettingsListener? = null
     private val views = Views()
     private val actions = Actions()
 

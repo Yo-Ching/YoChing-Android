@@ -48,13 +48,13 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
     companion object
     {
         @JvmStatic
-        fun newInstance(): tech.redroma.yoching.fragments.ThrowTheYoFragment
+        fun newInstance(): ThrowTheYoFragment
         {
-            return tech.redroma.yoching.fragments.ThrowTheYoFragment()
+            return ThrowTheYoFragment()
         }
     }
 
-    var listener: tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener? = null
+    var listener: ThrowTheYoListener? = null
     private val actions = Actions()
     private val player = Player()
     private val views = Views()
@@ -87,7 +87,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
     {
         super.onAttach(context)
 
-        if (context is ThrowTheYoFragment.ThrowTheYoListener)
+        if (context is ThrowTheYoListener)
         {
             listener = context
         }
@@ -239,6 +239,8 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
             LOG.info("Opening Wrexagram #$number")
 
+            Aroma.send { sendLowPriorityMessage("Yo Throw Complete","Sending user to Wrexagram #$number") }
+
             val intent = Intent(context, ReadActivity::class.java)
             intent.putExtra(ReadActivity.Parameters.WREXAGRAM_NUMBER, number)
             startActivity(intent)
@@ -307,8 +309,9 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
 
         fun processResults(coinTossResults: List<CoinResult>)
         {
-            LOG.info("Processing results: $coinTossResults")
             throwCount += 1
+            LOG.info("Processing results: $coinTossResults")
+            Aroma.send { sendLowPriorityMessage("Yo Was Thrown", "#$throwCount - $coinTossResults") }
 
             val strongLine = coinTossResults.count { it == HEADS } >= 2
             val wrexagramLine = if (strongLine) WrexagramLine.STRONG else SPLIT

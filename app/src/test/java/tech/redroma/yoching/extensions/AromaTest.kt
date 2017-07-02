@@ -18,13 +18,9 @@ package tech.redroma.yoching.extensions
 
 import org.junit.Test
 import org.junit.runner.RunWith
-import tech.sirwellington.alchemy.test.junit.runners.*
-
-import org.junit.Assert.*
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import tech.redroma.yoching.BuildConfig
-import tech.sirwellington.alchemy.arguments.assertions.alphabeticString
 import tech.sirwellington.alchemy.generator.StringGenerators
 import tech.sirwellington.alchemy.generator.one
 

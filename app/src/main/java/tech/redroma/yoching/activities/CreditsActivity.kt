@@ -11,11 +11,13 @@ import com.daimajia.androidanimations.library.YoYo
 import com.plattysoft.leonids.ParticleSystem
 import tech.redroma.yoching.*
 import tech.redroma.yoching.extensions.*
+import java.util.*
 
 class CreditsActivity : AppCompatActivity()
 {
 
     private val views = Views()
+    private val start = Date()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -24,12 +26,14 @@ class CreditsActivity : AppCompatActivity()
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
 
         views.inflate()
+        Aroma.send { sendMediumPriorityMessage("App Credits Opened") }
     }
 
     override fun finish()
     {
         super.finish()
         overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
+        Aroma.send { sendLowPriorityMessage("Credits Closed", "After ${start.secondsSinceNow} seconds.") }
     }
 
     private inner class Views
@@ -114,7 +118,7 @@ class CreditsActivity : AppCompatActivity()
                 finish()
             }
 
-            if (hasSDKAtLeast(android.os.Build.VERSION_CODES.LOLLIPOP))
+            if (isAtLeastLollipop())
             {
                 backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
