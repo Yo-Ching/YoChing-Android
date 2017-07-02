@@ -48,9 +48,9 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
     companion object
     {
         @JvmStatic
-        fun newInstance(): tech.redroma.yoching.fragments.ThrowTheYoFragment
+        fun newInstance(): ThrowTheYoFragment
         {
-            return tech.redroma.yoching.fragments.ThrowTheYoFragment()
+            return ThrowTheYoFragment()
         }
     }
 
