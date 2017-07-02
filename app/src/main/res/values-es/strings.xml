@@ -2,4 +2,18 @@
 <resources>
     <string name="app_name">Yo Ching</string>
     <string name="default_greeting">¿CUAL ES TU SITUACION?</string>
+    <string name="drawer_close">Cierra el menú</string>
+    <string name="drawer_open">Abre el menú</string>
+    <string name="marc_roles">Productor</string>
+    <string name="maya_roles">Estilo Calle</string>
+    <string name="nav_64_wrexagrams">64 Wrexagrams</string>
+    <string name="nav_buy_the_book">Compra El Libro</string>
+    <string name="settings_buy_the_book">Compra El Libro</string>
+    <string name="settings_buy_the_book_description">300+ paginas de sabiduría</string>
+    <string name="settings_change_style">Estilo De Monedas</string>
+    <string name="settings_learn_yo_ching">Aprende Yo Ching</string>
+    <string name="settings_learn_yo_ching_description">Aprende mas sobre los origines de YO CHING</string>
+    <string name="settings_street_style">Calle</string>
+    <string name="settings_street_style_description">Derecho del barrio</string>
+    <string name="whats_up"></string>
 </resources>
