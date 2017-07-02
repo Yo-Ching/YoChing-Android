@@ -7,25 +7,28 @@
               android:background="@drawable/selectable_item_background">
 
     <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@drawable/nav_wrexagrams"
             android:id="@+id/icon"
+            android:layout_gravity="center_vertical"
+            android:layout_height="60dp"
             android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_gravity="center_vertical" />
+            android:layout_width="60dp"
+            app:srcCompat="@drawable/nav_wrexagrams"
+    />
 
     <TextView
-            android:text="@string/nav_throw_the_yo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:id="@+id/text"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             android:layout_weight="1"
+            android:layout_width="0dp"
+            android:text="@string/nav_throw_the_yo"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="20sp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp" />
+            android:textStyle="bold"
+    />
+
 </LinearLayout>
