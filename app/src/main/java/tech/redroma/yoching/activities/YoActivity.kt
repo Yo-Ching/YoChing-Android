@@ -86,19 +86,21 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         switchToFragment(ThrowTheYoFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.yo_ching))
+        Aroma.send { sendLowPriorityMessage("Throw The Yo Opened") }
     }
 
     override fun onSelect64Wrexagrams()
     {
         switchToFragment(WrexagramListFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.nav_64_wrexagrams))
-
+        Aroma.send { sendLowPriorityMessage("Wrexagram List Opened") }
     }
 
     override fun onSelectSettings()
     {
         switchToFragment(SettingsFragment.newInstance())
         setActionBarTitle(resources.getString(R.string.nav_settings))
+        Aroma.send { sendLowPriorityMessage("Settings Opened") }
     }
 
     override fun onSelectBuyTheBook()
@@ -161,6 +163,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             super.onDrawerOpened(drawerView)
             LOG.info("Drawer opened!")
+            Aroma.send { sendLowPriorityMessage("Nav Menu Opened") }
 
             activity.invalidateOptionsMenu()
             syncState()
@@ -170,6 +173,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
         {
             super.onDrawerClosed(drawerView)
             LOG.info("Drawer closed!")
+            Aroma.send { sendLowPriorityMessage("Nav Menu Closed") }
 
             activity.invalidateOptionsMenu()
             syncState()
