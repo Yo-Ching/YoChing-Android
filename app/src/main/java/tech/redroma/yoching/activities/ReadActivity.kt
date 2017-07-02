@@ -59,8 +59,7 @@ class ReadActivity : AppCompatActivity()
         val explosion = if (isAtLeastKitKat())
         {
             Runnable {
-                val explosion = ExplosionField.attach2Window(this)
-                explosion.explode(views.duplicateTitle)
+                ExplosionField.attach2Window(this).explode(views.duplicateTitle)
             }
         }
         else
