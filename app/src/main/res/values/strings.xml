@@ -27,8 +27,18 @@
     <string name="drawer_close">Close navigation drawer</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="galaxy_background_description">Galaxy Background</string>
+    <string name="throw_the_yo_button">THROW THE YO</string>
+    <string name="wrexagram_line">A Wrexagram consists of 6 of these lines</string>
     <string name="yo_ching">YO CHING</string>
     <string name="yo_ching_coin_description">Yo Ching Coin</string>
+
+    <string-array name="greetings">
+        <item>WHAT\'S HAPPENING?</item>
+        <item>WHAT\'S THE SITUATION?</item>
+        <item>WHAT\'S UP?</item>
+        <item>WHAT\'S YOUR QUESTION?</item>
+    </string-array>
+
 
     <!--READ WREXAGRAM-->
     <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
@@ -41,12 +51,6 @@
     <string name="wrexagram_image_content_description">Wrexagram Image</string>
 
 
-    <string-array name="greetings">
-        <item>WHAT\'S HAPPENING?</item>
-        <item>WHAT\'S THE SITUATION?</item>
-        <item>WHAT\'S UP?</item>
-        <item>WHAT\'S YOUR QUESTION?</item>
-    </string-array>
 
     <!--NAVIGATION MENU-->
     <string name="nav_64_wrexagrams">64 Wrexagrams</string>
@@ -92,6 +96,10 @@
     <string name="settings_yo_app_players_description">The crew behind the YO CHING app</string>
     <string name="settings_learn_yo_ching">Learn Yo Ching</string>
     <string name="settings_learn_yo_ching_description">Learn more about YO CHING origins</string>
+
+    <!--MISC-->
+    <string name="right_arrow_description">Right Arrow</string>
+    <string name="checkmark_description">Check Mark</string>
 
 
 </resources>

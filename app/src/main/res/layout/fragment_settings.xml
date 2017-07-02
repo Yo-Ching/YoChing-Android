@@ -111,7 +111,7 @@
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                />
+                        android:contentDescription="@string/checkmark_description" />
 
             </LinearLayout>
 
@@ -178,7 +178,7 @@
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                />
+                        android:contentDescription="@string/checkmark_description" />
 
             </LinearLayout>
 
@@ -260,7 +260,7 @@
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                />
+                        android:contentDescription="@string/checkmark_description" />
 
             </LinearLayout>
 
@@ -327,7 +327,7 @@
                         android:layout_weight="1"
                         android:layout_width="30dp"
                         app:srcCompat="@drawable/yo_check"
-                />
+                        android:contentDescription="@string/checkmark_description" />
 
             </LinearLayout>
 
@@ -408,7 +408,7 @@
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                />
+                        android:contentDescription="@string/right_arrow_description" />
 
             </LinearLayout>
 
@@ -475,7 +475,7 @@
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                />
+                        android:contentDescription="@string/right_arrow_description" />
 
             </LinearLayout>
 
@@ -542,7 +542,7 @@
                         android:layout_weight="1"
                         android:layout_width="40dp"
                         app:srcCompat="@drawable/arrow_right"
-                />
+                        android:contentDescription="@string/right_arrow_description" />
 
             </LinearLayout>
 
