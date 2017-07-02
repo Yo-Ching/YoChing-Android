@@ -1,31 +1,5 @@
 <resources>
 
-    <string name="action_settings">Settings</string>
-    <string name="app_name">Yo Ching</string>
-    <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="galaxy_background_description">Galaxy Background</string>
-    <string name="nav_64_wrexagrams">64 Wrexagrams</string>
-    <string name="nav_buy_the_book">Buy The Book</string>
-    <string name="nav_settings">Settings</string>
-    <string name="nav_throw_the_yo">Throw The Yo</string>
-    <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
-    <string name="placeholder_wrexagram_title">YO CHING</string>
-    <string name="title_activity_read_wrexagram">ReadActivity</string>
-    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.</string>
-    <string name="wrexagram_image_content_description">Wrexagram Image</string>
-    <string name="yo_ching">YO CHING</string>
-    <string name="yo_ching_coin_description">Yo Ching Coin</string>
-
-    <string-array name="greetings">
-        <item>WHAT\'S HAPPENING?</item>
-        <item>WHAT\'S THE SITUATION?</item>
-        <item>WHAT\'S UP?</item>
-        <item>WHAT\'S YOUR QUESTION?</item>
-    </string-array>
-
-
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -43,6 +17,53 @@
         "Bold, graphic, intentional.\n\n"
 
     </string>
+
+    <!--THROW THE YO-->
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Yo Ching</string>
+    <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="galaxy_background_description">Galaxy Background</string>
+    <string name="yo_ching">YO CHING</string>
+    <string name="yo_ching_coin_description">Yo Ching Coin</string>
+
+    <!--READ WREXAGRAM-->
+    <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
+    <string name="placeholder_wrexagram_title">YO CHING</string>
+    <string name="title_activity_read_wrexagram">ReadActivity</string>
+    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.</string>
+    <string name="wrexagram_image_content_description">Wrexagram Image</string>
+
+    <string-array name="greetings">
+        <item>WHAT\'S HAPPENING?</item>
+        <item>WHAT\'S THE SITUATION?</item>
+        <item>WHAT\'S UP?</item>
+        <item>WHAT\'S YOUR QUESTION?</item>
+    </string-array>
+
+    <!--NAVIGATION MENU-->
+    <string name="nav_64_wrexagrams">64 Wrexagrams</string>
+    <string name="nav_buy_the_book">Buy The Book</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_throw_the_yo">Throw The Yo</string>
+
+
+    <!--CREDITS-->
+    <string name="credits_title">Credits</string>
+    <string name="true_player">True Player</string>
+    <string name="true_player_roles">Executive Producer</string>
+    <string name="hugh">Hugh Gallagher</string>
+    <string name="hugh_roles">Writer, Producer, Creative Director</string>
+    <string name="wellington">Wellington Moreno</string>
+    <string name="wellington_roles">Programming Monk, App Designer</string>
+    <string name="marc">Marc Risney</string>
+    <string name="marc_roles">Producer</string>
+    <string name="brendan">Brendan Miller</string>
+    <string name="brendan_roles">Wrexagram Artwork, Yo Bro Profile</string>
+    <string name="maya">Maya G.</string>
+    <string name="maya_roles">Yo Street Coins</string>
 
 
 </resources>
