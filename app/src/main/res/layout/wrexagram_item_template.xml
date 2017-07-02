@@ -60,7 +60,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/wrex_1"
-    />
+            android:contentDescription="@string/wrexagram_image_content_description" />
     <TextView
             android:id="@+id/wrexagram_number"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:layout_marginStart="16dp"
             android:layout_width="0dp"
             android:maxLines="1"
-            android:text="Played"
+            android:text="@string/wrexagra_list_title_placeholder"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
@@ -101,8 +101,8 @@
             android:layout_width="0dp"
             android:lineSpacingExtra="0sp"
             android:maxLines="2"
-            android:text="Being PLAYED is the opposite of being paid. Nothing positive is happening for a brother."
-            android:textSize="11sp"
+            android:text="@string/wrexagra_list_summary_placeholder"
+            android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="@+id/wrexagram_title"
             app:layout_constraintRight_toLeftOf="@+id/wrexagram_side_guideline"
             app:layout_constraintTop_toBottomOf="@+id/vertical_center"
