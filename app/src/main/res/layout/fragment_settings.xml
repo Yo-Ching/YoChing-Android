@@ -44,7 +44,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
                     android:layout_width="wrap_content"
-                    android:text="Throwing Style"
+                    android:text="@string/settings_throwing_style"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
@@ -84,7 +84,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="True Player"
+                            android:text="@string/settings_true_player"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -97,7 +97,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="Build your wrexagram in 6 throws"
+                            android:text="@string/settings_true_player_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -151,7 +151,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Tap That"
+                            android:text="@string/settings_tap_that"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -164,7 +164,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="One Throw for players on the go"
+                            android:text="@string/settings_tap_that_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -191,7 +191,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_width="wrap_content"
-                    android:text="Change Style"
+                    android:text="@string/settings_change_style"
                     android:textAllCaps="true"
                     android:textColor="@android:color/white"
                     android:textSize="26sp"
@@ -233,7 +233,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Street"
+                            android:text="@string/settings_street_style"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -246,7 +246,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="Straight from the Bodega"
+                            android:text="@string/settings_street_style_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -300,7 +300,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Slick"
+                            android:text="@string/settings_slick_style"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -313,7 +313,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="Throw down in style"
+                            android:text="@string/settings_slick_style_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -339,12 +339,13 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_width="wrap_content"
-                    android:text="What's up"
+                    android:text="@string/settings_whats_up"
                     android:textAllCaps="true"
                     android:textColor="@android:color/background_light"
                     android:textSize="26sp"
                     android:textStyle="bold"
             />
+
             <LinearLayout
                     android:background="@drawable/selectable_item_background"
                     android:clickable="true"
@@ -380,7 +381,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Buy The Book"
+                            android:text="@string/settings_buy_the_book"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -393,7 +394,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="300+ pages of YO CHING Wisdom"
+                            android:text="@string/settings_buy_the_book_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -447,7 +448,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Yo App Players"
+                            android:text="@string/settings_yo_app_players"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -460,7 +461,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="The crew behind the YO CHING app"
+                            android:text="@string/settings_yo_app_players_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
@@ -514,7 +515,7 @@
                             android:layout_marginBottom="4dp"
                             android:layout_weight="0.9"
                             android:layout_width="wrap_content"
-                            android:text="Learn Yo Ching"
+                            android:text="@string/settings_learn_yo_ching"
                             android:textColor="@android:color/white"
                             android:textSize="18sp"
                     />
@@ -527,7 +528,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="0.9"
                             android:layout_width="match_parent"
-                            android:text="Learn more about YO CHING origins"
+                            android:text="@string/settings_learn_yo_ching_description"
                             android:textColor="@color/white_alpha_75"
                             android:textSize="12sp"
                     />
