@@ -11,14 +11,14 @@ import com.bluejamesbond.text.DocumentView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.plattysoft.leonids.ParticleSystem
-import com.squareup.picasso.MemoryPolicy
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.R.*
 import tech.redroma.yoching.extensions.*
-import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
 import tyrantgit.explosionfield.ExplosionField
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 class ReadActivity : AppCompatActivity()
 {
@@ -30,26 +30,37 @@ class ReadActivity : AppCompatActivity()
     }
 
     private var wrexagramNumber = 8
-    private lateinit var summary: WrexagramSummary
+    private lateinit var wrexagram: WrexagramSummary
 
     private val views = Views()
+
+    private var startTime = Date()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_read_wrexagram)
 
+        startTime = Date()
         wrexagramNumber = intent.getIntExtra(Parameters.WREXAGRAM_NUMBER, wrexagramNumber)
-
         LOG.info("Loading Wrexagram #$wrexagramNumber")
-
-        Aroma.send {
-            sendMediumPriorityMessage("Wrexagram Viewed", body = "Wrexagram #$wrexagramNumber")
-        }
 
         views.inflate()
         explodeIntoView()
         loadWrexagramInfo()
+
+        Aroma.send {
+            sendMediumPriorityMessage("Wrexagram Viewed", body = "#$wrexagramNumber - ${wrexagram.title}")
+        }
+    }
+
+    override fun onPause()
+    {
+        val millisecondsOpened = Date().time - startTime.time
+        val secondsOpened = TimeUnit.MILLISECONDS.toSeconds(Math.abs(millisecondsOpened))
+        Aroma.send { sendMediumPriorityMessage("Wrexagram Read", "#$wrexagramNumber - ${wrexagram.title} for $secondsOpened seconds.") }
+
+        super.onPause()
     }
 
     private fun explodeIntoView()
@@ -101,14 +112,14 @@ class ReadActivity : AppCompatActivity()
     {
         views.actionBarTitle.text = "WREXAGRAM #$wrexagramNumber"
 
-        summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
+        wrexagram = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
-        views.wrexagramTitle.text = summary.title
+        views.wrexagramTitle.text = wrexagram.title
 
         val body = applicationContext.loadWrexagramBody(wrexagramNumber)
         views.body.text = body
 
-        views.whatsUpBody.text = summary.whatsUp
+        views.whatsUpBody.text = wrexagram.whatsUp
 
         val wrexagramImageId = applicationContext.idForWrexagramImage(wrexagramNumber) ?: return
 
@@ -177,6 +188,7 @@ class ReadActivity : AppCompatActivity()
 
             backButton.setOnClickListener {
                 LOG.info("Back Button clicked!")
+                Aroma.send { sendLowPriorityMessage("Up Button Clicked", "In ReadActivity for Wrexagram #$wrexagramNumber - ${wrexagram.title}") }
                 finish()
             }
 
