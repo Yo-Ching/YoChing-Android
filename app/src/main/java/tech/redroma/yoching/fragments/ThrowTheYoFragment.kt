@@ -22,8 +22,7 @@ import android.view.*
 import android.widget.*
 import com.balysv.materialripple.MaterialRippleLayout
 import com.daimajia.androidanimations.library.Techniques
-import com.daimajia.androidanimations.library.Techniques.FadeIn
-import com.daimajia.androidanimations.library.Techniques.FlipInX
+import com.daimajia.androidanimations.library.Techniques.*
 import com.daimajia.androidanimations.library.YoYo
 import tech.redroma.yoching.*
 import tech.redroma.yoching.CoinResult.HEADS
@@ -169,6 +168,9 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         fun showPrompt()
         {
             prompt.visibility = View.VISIBLE
+            YoYo.with(Techniques.FadeInDown)
+                    .duration(500)
+                    .playOn(prompt)
         }
 
         fun hidePrompt()
@@ -250,18 +252,20 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         private var inFlight = false
         private var throwCount = 0
         private var wrexagram = mutableListOf<WrexagramLine>()
-        private val acceptableAnimations = mutableListOf(FadeIn, FlipInX)
+        private val acceptableAnimations = mutableListOf(BounceInLeft, FadeIn, FlipInX, Landing, FadeInDown, Landing)
         private var currentAnimation = acceptableAnimations.anyElement()
 
         fun throwTheYo()
         {
             if (inFlight)
+            {
                 return
+            }
 
             inFlight = true
 
             if (throwCount >= 6)
-                throwCount = 0
+                reset()
 
             if (throwCount == 0)
                 views.hidePrompt()
@@ -278,7 +282,15 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
                     //All of the coins have landed
                     if (landedCoins.incrementAndGet() >= 3)
                     {
-                        processResults(results)
+                        if (Settings.tapThatEnabled)
+                        {
+                            val randomWrexagram = Int.randomFrom(1, 64)
+                            actions.openWrexagram(randomWrexagram)
+                        }
+                        else
+                        {
+                            processResults(results)
+                        }
                     }
                 }
             }

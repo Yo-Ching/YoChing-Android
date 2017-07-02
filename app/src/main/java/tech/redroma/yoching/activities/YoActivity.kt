@@ -11,10 +11,9 @@ import android.support.v7.widget.Toolbar
 import android.util.AttributeSet
 import android.view.*
 import android.widget.TextView
-import tech.redroma.yoching.R
+import tech.redroma.yoching.*
 import tech.redroma.yoching.R.id
 import tech.redroma.yoching.R.layout
-import tech.redroma.yoching.exoBlack
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
@@ -31,9 +30,15 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         super.onCreate(savedInstanceState)
 
-        setupView()
-
         Aroma.send { sendMediumPriorityMessage("App Launched") }
+        setupErrorHandler()
+
+        setupView()
+    }
+
+    private fun setupErrorHandler()
+    {
+        AromaErrorHandler.register(this)
     }
 
     override fun onAttachFragment(fragment: Fragment)
@@ -98,7 +103,8 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
 
     override fun onSelectBuyTheBook()
     {
-
+        openURL(Links.bookLink)
+        Aroma.send { sendHighPriorityMessage("Buy The Book Clicked", "From navigation menu, to open ${Links.bookLink}") }
     }
 
     private fun switchToFragment(fragment: Fragment)

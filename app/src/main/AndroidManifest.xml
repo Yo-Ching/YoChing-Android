@@ -12,22 +12,26 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/YoChingTheme">
+
         <activity android:name=".activities.YoActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
+                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+
         <activity
                 android:name=".activities.ReadActivity"
                 android:exported="true"
                 android:label="@string/title_activity_read_wrexagram"
-                android:theme="@style/YoChingTheme">
-        </activity>
+                android:theme="@style/YoChingTheme"
+        />
+
         <activity android:name=".activities.CreditsActivity"
-                  android:exported="true">
-        </activity>
+        />
+
     </application>
 
 </manifest>

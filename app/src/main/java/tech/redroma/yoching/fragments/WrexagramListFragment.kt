@@ -9,12 +9,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.ImageView
+import android.widget.ImageView.ScaleType.*
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
 import tech.redroma.yoching.activities.ReadActivity
-import tech.redroma.yoching.extensions.LOG
-import tech.redroma.yoching.extensions.findView
+import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.wrexagrams.*
 
 
@@ -94,8 +94,14 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
     var wrexagramTitle: TextView
     var wrexagramSummary: TextView
     var wrexagramIcon: ImageView
+    var grungeBackground: ImageView
 
     private val context get() = view.context
+
+    private val acceptableScaleTypes = listOf(FIT_XY,
+                                              FIT_START,
+                                              FIT_CENTER,
+                                              CENTER_INSIDE)
 
     init
     {
@@ -103,6 +109,7 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
         wrexagramTitle = view.findView(R.id.wrexagram_title)
         wrexagramSummary = view.findView(R.id.wrexagram_summary)
         wrexagramIcon = view.findView(R.id.wrexagram_icon)
+        grungeBackground = view.findView(R.id.grunge_background)
 
         wrexagramNumber.typeface = context.exoExtraBold()
         wrexagramTitle.typeface = context.exoExtraBold()
@@ -119,12 +126,14 @@ private class WrexagramHolder(val view: View) : RecyclerView.ViewHolder(view), V
         wrexagramSummary.text = wrexagram.subTitle
 
         val imageId = context.idForWrexagramImage(wrexagram.number) ?: return
+
         Picasso.with(context)
                 .load(imageId)
                 .resize(200, 200)
                 .noPlaceholder()
                 .into(wrexagramIcon)
 
+        grungeBackground.scaleType = acceptableScaleTypes.anyElement()
     }
 
     override fun onClick(v: View?)

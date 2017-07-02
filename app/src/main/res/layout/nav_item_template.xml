@@ -4,7 +4,7 @@
               android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="100dp"
->
+              android:background="@drawable/selectable_item_background">
 
     <ImageView
             android:layout_width="60dp"

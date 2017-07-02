@@ -2,7 +2,6 @@ package tech.redroma.yoching.activities
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.AppCompatImageButton
 import android.support.v7.widget.Toolbar
 import android.view.View
 import android.view.ViewGroup
@@ -91,13 +90,13 @@ class CreditsActivity : AppCompatActivity()
             mayaDescription = findView(R.id.maya_description)
             mayaContainer = findView(R.id.maya_container)
 
-            setupUpButton()
+            setupBackButton()
             setFonts()
             setListeners()
             animateCreditsIn()
         }
 
-        fun setupUpButton()
+        fun setupBackButton()
         {
             //Action bar code
             setSupportActionBar(yoActionBar)

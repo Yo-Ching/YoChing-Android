@@ -10,9 +10,11 @@ import android.widget.TextView
 import com.bluejamesbond.text.DocumentView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.plattysoft.leonids.ParticleSystem
+import com.squareup.picasso.MemoryPolicy
+import com.squareup.picasso.Picasso
 import tech.redroma.yoching.*
-import tech.redroma.yoching.R.id
-import tech.redroma.yoching.R.layout
+import tech.redroma.yoching.R.*
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.views.ViewContainer
 import tech.redroma.yoching.wrexagrams.*
@@ -45,23 +47,47 @@ class ReadActivity : AppCompatActivity()
             sendMediumPriorityMessage("Wrexagram Viewed", body = "Wrexagram #$wrexagramNumber")
         }
 
-        views.inflate(this)
+        views.inflate()
+        explodeIntoView()
         loadWrexagramInfo()
     }
 
     private fun explodeIntoView()
     {
-        views.wrexagramTitle.post {
+        views.wrexagramTitle.hide()
+
+        val explosion = if (isAtLeastKitKat())
+        {
+            Runnable {
+                ExplosionField.attach2Window(this).explode(views.duplicateTitle)
+            }
+        }
+        else
+        {
+            Runnable {
+
+                ParticleSystem(this, 200, drawable.particle_black, 900)
+                        .setSpeedModuleAndAngleRange(0.01f, 0.3f, 180, 360)
+                        .setScaleRange(0.2f, 0.4f)
+                        .setFadeOut(700)
+                        .oneShot(views.wrexagramTitle, 75)
+            }
+        }
+
+        val delayForExplosion: Long = if (isAtLeastKitKat()) 30 else 100
+
+        val animation = Runnable {
+
+            views.wrexagramTitle.show()
 
             YoYo.with(Techniques.BounceInDown)
                     .duration(400)
                     .playOn(views.wrexagramTitle)
 
-            views.duplicateTitle.post {
-                val explosion = ExplosionField.attach2Window(this)
-                explosion.explode(views.duplicateTitle)
-            }
+            views.wrexagramTitle.postDelayed(explosion, delayForExplosion)
         }
+
+        views.wrexagramTitle.postDelayed(animation, 300)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean
@@ -75,11 +101,6 @@ class ReadActivity : AppCompatActivity()
     {
         views.actionBarTitle.text = "WREXAGRAM #$wrexagramNumber"
 
-        val image = applicationContext.loadWrexagramImage(wrexagramNumber)
-
-        if (image != null)
-            views.wrexagramImage.setImageBitmap(image)
-
         summary = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
         views.wrexagramTitle.text = summary.title
@@ -89,10 +110,20 @@ class ReadActivity : AppCompatActivity()
 
         views.whatsUpBody.text = summary.whatsUp
 
-        explodeIntoView()
+        val wrexagramImageId = applicationContext.idForWrexagramImage(wrexagramNumber) ?: return
+
+        views.wrexagramImage.post {
+
+            Picasso.with(this)
+                    .load(wrexagramImageId)
+                    .resize(views.wrexagramImage.width, views.wrexagramImage.height)
+                    .into(views.wrexagramImage)
+        }
+
+
     }
 
-    private class Views : ViewContainer
+    private inner class Views
     {
         lateinit var actionBarToolbar: Toolbar
         lateinit var actionBarTitle: TextView
@@ -103,35 +134,55 @@ class ReadActivity : AppCompatActivity()
         lateinit var whatsUpTitle: TextView
         lateinit var whatsUpBody: DocumentView
 
-        override fun inflate(activity: AppCompatActivity)
+        fun inflate()
         {
-            activity.perform {
+            //Pull out the Views
+            actionBarToolbar = findView(id.action_toolbar)
+            actionBarTitle = findView(id.yo_action_bar_title)
+            wrexagramImage = findView(id.wrexagram_image)
+            wrexagramTitle = findView(id.wrexagram_title)
+            duplicateTitle = findView(R.id.wrexagram_title_duplicate)
+            body = findView(id.wrexagram_body)
+            whatsUpTitle = findView(R.id.whats_up_title)
+            whatsUpBody = findView(R.id.whats_up_body)
 
-                //Pull out the Views
-                actionBarToolbar = findView(id.action_toolbar)
-                actionBarTitle = findView(id.yo_action_bar_title)
-                wrexagramImage = findView(id.wrexagram_image)
-                wrexagramTitle = findView(id.wrexagram_title)
-                duplicateTitle = findView(R.id.wrexagram_title_duplicate)
-                body = findView(id.wrexagram_body)
-                whatsUpTitle = findView(R.id.whats_up_title)
-                whatsUpBody = findView(R.id.whats_up_body)
+            setFonts()
+            setupBackButton()
 
-                //Action bar code
-                setSupportActionBar(actionBarToolbar)
-                supportActionBar?.setHomeButtonEnabled(true)
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)
-                title = ""
-                val backButton = resources.getDrawable(R.drawable.arrow_back)
-                supportActionBar?.setHomeAsUpIndicator(backButton)
+            body.layoutParams.height = WRAP_CONTENT
+            whatsUpBody.layoutParams.height = WRAP_CONTENT
+            wrexagramImage.setImageDrawable(null)
+        }
 
-                //Set the typefaces
-                whatsUpTitle.typeface = exoExtraBold()
-                actionBarTitle.typeface = exoBlack()
-                wrexagramTitle.typeface = exoBlack()
+        private fun setFonts()
+        {
+            //Set the typefaces
+            whatsUpTitle.typeface = exoExtraBold()
+            actionBarTitle.typeface = exoBlack()
+            wrexagramTitle.typeface = exoBlack()
+        }
 
-                body.layoutParams.height = WRAP_CONTENT
-                whatsUpBody.layoutParams.height = WRAP_CONTENT
+        fun setupBackButton()
+        {
+            //Action bar code
+            setSupportActionBar(actionBarToolbar)
+            supportActionBar?.setHomeButtonEnabled(true)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            title = ""
+
+            val backButtonIcon = resources.getDrawable(R.drawable.arrow_back)
+            supportActionBar?.setHomeAsUpIndicator(backButtonIcon)
+
+            val backButton = actionBarToolbar.backButton ?: return
+
+            backButton.setOnClickListener {
+                LOG.info("Back Button clicked!")
+                finish()
+            }
+
+            if (isAtLeastLollipop())
+            {
+                backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
 
         }

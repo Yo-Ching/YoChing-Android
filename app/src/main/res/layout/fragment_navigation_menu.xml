@@ -7,45 +7,50 @@
 
 
     <ImageView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:srcCompat="@drawable/galaxy_white_transparent"
             android:id="@+id/galactic_background"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/galaxy_white_transparent"
+    />
 
-    <android.support.constraint.Guideline android:layout_width="wrap_content"
-                                          android:layout_height="wrap_content"
-                                          android:id="@+id/guideline2"
-                                          android:orientation="horizontal"
-                                          app:layout_constraintGuide_percent="0.05"
-                                          tools:layout_editor_absoluteY="29dp"
-                                          tools:layout_editor_absoluteX="0dp" />
-
+    <android.support.constraint.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="29dp"
+            android:layout_width="wrap_content"
+    />
 
 
     <ListView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@android:id/list"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:choiceMode="singleChoice"
+            android:divider="@android:color/transparent"
+            android:drawSelectorOnTop="true"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false"
-            android:divider="@android:color/transparent"
-            android:choiceMode="singleChoice"
-            android:drawSelectorOnTop="true" />
+            android:id="@android:id/list"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_guideline"
+    />
 
-    <View android:layout_width="1dp"
-          android:layout_height="0dp"
-          android:background="@color/white"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintTop_toTopOf="@+id/parent"
-          tools:layout_editor_absoluteX="0dp"
-          app:layout_constraintEnd_toEndOf="parent" />
+    <View
+            android:background="@color/white"
+            android:layout_height="0dp"
+            android:layout_width="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp"
+    />
 
 </android.support.constraint.ConstraintLayout>
