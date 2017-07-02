@@ -180,7 +180,7 @@ class ReadActivity : AppCompatActivity()
                 finish()
             }
 
-            if (hasSDKAtLeast(android.os.Build.VERSION_CODES.LOLLIPOP))
+            if (isAtLeastLollipop())
             {
                 backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
             }
