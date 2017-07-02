@@ -17,6 +17,7 @@ import tech.redroma.yoching.R.layout
 import tech.redroma.yoching.extensions.*
 import tech.redroma.yoching.fragments.*
 import tech.redroma.yoching.fragments.NavigationMenuFragment.NavigationMenuListener
+import tech.redroma.yoching.fragments.SettingsFragment.YoSettingsListener
 import tech.redroma.yoching.fragments.ThrowTheYoFragment.ThrowTheYoListener
 import tech.redroma.yoching.views.ViewContainer
 
@@ -55,6 +56,11 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
                 {
                 }
             }
+        }
+
+        if (fragment is SettingsFragment)
+        {
+            fragment.listener = SettingsListener
         }
 
         super.onAttachFragment(fragment)
@@ -178,6 +184,30 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
             activity.invalidateOptionsMenu()
             syncState()
         }
+    }
+
+    private object SettingsListener: YoSettingsListener
+    {
+        override fun onTruePlayerEnabled()
+        {
+            Aroma.send { sendMediumPriorityMessage("True Player Enabled") }
+        }
+
+        override fun onTapThatEnabled()
+        {
+            Aroma.send { sendMediumPriorityMessage("Tap That Enabled") }
+        }
+
+        override fun onStreetStyle()
+        {
+            Aroma.send { sendMediumPriorityMessage("Street Coins Enabled") }
+        }
+
+        override fun onSlickStyle()
+        {
+            Aroma.send { sendMediumPriorityMessage("Slick Coins Enabled") }
+        }
+
     }
 }
 

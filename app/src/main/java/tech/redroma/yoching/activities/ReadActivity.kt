@@ -34,14 +34,13 @@ class ReadActivity : AppCompatActivity()
 
     private val views = Views()
 
-    private var startTime = Date()
+    private val startTime = Date()
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
         setContentView(layout.activity_read_wrexagram)
 
-        startTime = Date()
         wrexagramNumber = intent.getIntExtra(Parameters.WREXAGRAM_NUMBER, wrexagramNumber)
         LOG.info("Loading Wrexagram #$wrexagramNumber")
 
@@ -56,9 +55,7 @@ class ReadActivity : AppCompatActivity()
 
     override fun onPause()
     {
-        val millisecondsOpened = Date().time - startTime.time
-        val secondsOpened = TimeUnit.MILLISECONDS.toSeconds(Math.abs(millisecondsOpened))
-        Aroma.send { sendMediumPriorityMessage("Wrexagram Read", "#$wrexagramNumber - ${wrexagram.title} for $secondsOpened seconds.") }
+        Aroma.send { sendMediumPriorityMessage("Wrexagram Read", "#$wrexagramNumber - ${wrexagram.title} for ${startTime.secondsSinceNow} seconds.") }
 
         super.onPause()
     }
