@@ -30,7 +30,7 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     {
         super.onCreate(savedInstanceState)
 
-        Aroma.send { sendMediumPriorityMessage("App Launched", "${buildInfo.versionName} Build ${buildInfo.versionCode}") }
+        Aroma.send { sendMediumPriorityMessage("App Launched", "v${buildInfo.versionName} Build #${buildInfo.versionCode}") }
         setupErrorHandler()
 
         setupView()
