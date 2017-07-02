@@ -7,30 +7,33 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar android:layout_width="match_parent"
-                                       android:layout_height="wrap_content"
-                                       android:background="@color/colorPrimary"
-                                       android:id="@+id/action_toolbar"
-                                       android:paddingBottom="10dp"
-                                       android:paddingTop="10dp"
-                                       app:layout_constraintRight_toRightOf="parent"
-                                       app:layout_constraintLeft_toLeftOf="parent"
-                                       app:layout_constraintTop_toTopOf="parent"
-                                       android:minHeight="0dp"
-                                       android:elevation="10dp">
+    <android.support.v7.widget.Toolbar
+            android:background="@color/colorPrimary"
+            android:elevation="10dp"
+            android:id="@+id/action_toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="0dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:textAlignment="center"
-                  android:id="@+id/yo_action_bar_title"
-                  android:text="@string/yo_ching"
-                  android:textColor="#FFFFFF"
-                  android:textSize="30sp"
-                  android:textStyle="bold"
-                  android:gravity="center_horizontal"
-                  android:paddingTop="5dp"
-                  android:textAllCaps="true" />
+        <TextView
+                android:gravity="center_horizontal"
+                android:id="@+id/yo_action_bar_title"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:paddingTop="5dp"
+                android:text="@string/yo_ching"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+        />
 
     </android.support.v7.widget.Toolbar>
 
@@ -50,17 +53,17 @@
 
 
             <FrameLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/fragment_container"
                     android:layout_height="match_parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_marginTop="0dp"
-                    app:layout_constraintTop_toBottomOf="@+id/action_toolbar"
+                    android:layout_marginBottom="0dp"
                     android:layout_marginLeft="0dp"
                     android:layout_marginRight="0dp"
-                    android:layout_marginBottom="0dp"
-                    android:id="@+id/fragment_container">
+                    android:layout_marginTop="0dp"
+                    android:layout_width="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/action_toolbar">
 
             </FrameLayout>
 
@@ -69,18 +72,19 @@
 
         <!--SIDE MENU-->
         <FrameLayout
+                android:background="@color/colorPrimary"
                 android:id="@+id/navList"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
                 android:layout_gravity="start"
-                android:background="@color/colorPrimary">
+                android:layout_height="match_parent"
+                android:layout_width="300dp">
 
             <fragment
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:name="tech.redroma.yoching.fragments.NavigationMenuFragment"
                     android:id="@+id/navigationMenuFragment"
-                    tools:layout="@layout/fragment_navigation_menu" />
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:name="tech.redroma.yoching.fragments.NavigationMenuFragment"
+                    tools:layout="@layout/fragment_navigation_menu"
+            />
 
         </FrameLayout>
 
