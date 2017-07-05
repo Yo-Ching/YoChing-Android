@@ -44,8 +44,9 @@ internal object Aroma
             {
                 aroma.deviceName = aroma.hostname
                 aroma.hostname = this.deviceName
-                aroma.bodySuffix = "\n\n$osVersion"
+                aroma.bodySuffix = "\n\nAndroid v$osVersion"
 
+                this.aroma = aroma
                 initialized = true
             }
 
