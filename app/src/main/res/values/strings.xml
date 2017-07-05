@@ -59,22 +59,18 @@
 
     <!--CREDITS-->
     <string name="credits_title">Credits</string>
-    <string name="true_player">True Player</string>
-    <string name="true_player_roles">Executive Producer</string>
-    <string name="hugh"
-            translatable="false">Hugh Gallagher</string>
-    <string name="hugh_roles">Writer, Producer, Creative Director</string>
-    <string name="wellington">Wellington Moreno</string>
-    <string name="wellington_roles">Programming Monk, App Designer</string>
-    <string name="marc"
-            translatable="false">Marc Risney</string>
-    <string name="marc_roles">Producer</string>
-    <string name="brendan"
-            translatable="false">Brendan Miller</string>
-    <string name="brendan_roles">Wrexagram Artwork, Yo Bro Profile</string>
-    <string name="maya"
-            translatable="false">Maya G.</string>
-    <string name="maya_roles">Yo Street Coins</string>
+    <string name="credits_true_player">True Player</string>
+    <string name="credits_true_player_roles">Executive Producer</string>
+    <string name="credits_hugh" translatable="false">Hugh Gallagher</string>
+    <string name="credits_hugh_roles">Writer, Producer, Creative Director</string>
+    <string name="credits_wellington">Wellington Moreno</string>
+    <string name="credits_wellington_roles">Programming Monk, App Designer</string>
+    <string name="credits_marc" translatable="false">Marc Risney</string>
+    <string name="credits_marc_roles">Producer</string>
+    <string name="credits_brendan" translatable="false">Brendan Miller</string>
+    <string name="credits_brendan_roles">Wrexagram Artwork, Yo Bro Profile</string>
+    <string name="credits_maya" translatable="false">Maya G.</string>
+    <string name="credits_maya_roles">Yo Street Coins</string>
 
     <!--SETTINGS-->
     <string name="settings_throwing_style">Throwing Style</string>
