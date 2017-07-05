@@ -98,10 +98,11 @@
     <string name="settings_learn_yo_ching_description">Learn more about YO CHING origins</string>
 
     <!--MISC-->
-    <string name="right_arrow_description">Right Arrow</string>
     <string name="checkmark_description">Check Mark</string>
-    <string name="wrexagra_list_title_placeholder">Played</string>
-    <string name="wrexagra_list_summary_placeholder">Being PLAYED is the opposite of being paid. Nothing positive is
+    <string name="right_arrow_description">Right Arrow</string>
+    <string name="wrexagram_list_number_placeholder">44</string>
+    <string name="wrexagram_list_title_placeholder">Played</string>
+    <string name="wrexagram_list_summary_placeholder">Being PLAYED is the opposite of being paid. Nothing positive is
         happening for a brother.
     </string>
 

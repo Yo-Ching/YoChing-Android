@@ -50,6 +50,7 @@
     />
 
     <ImageView
+            android:contentDescription="@string/wrexagram_image_content_description"
             android:id="@+id/wrexagram_icon"
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -60,13 +61,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/wrex_1"
-            android:contentDescription="@string/wrexagram_image_content_description" />
+    />
     <TextView
             android:id="@+id/wrexagram_number"
             android:layout_height="wrap_content"
             android:layout_width="34dp"
             android:maxLines="1"
-            android:text="44"
+            android:text="@string/wrexagram_list_number_placeholder"
             android:textColor="@color/colorPrimary"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -82,15 +83,15 @@
             android:layout_marginStart="16dp"
             android:layout_width="0dp"
             android:maxLines="1"
-            android:text="@string/wrexagra_list_title_placeholder"
+            android:text="@string/wrexagram_list_title_placeholder"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/vertical_center"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toRightOf="@+id/wrexagram_number"
             app:layout_constraintRight_toLeftOf="@+id/wrexagram_side_guideline"
-            app:layout_constraintBottom_toTopOf="@id/vertical_center"
             autofit:minTextSize="14sp"
     />
 
@@ -101,7 +102,7 @@
             android:layout_width="0dp"
             android:lineSpacingExtra="0sp"
             android:maxLines="2"
-            android:text="@string/wrexagra_list_summary_placeholder"
+            android:text="@string/wrexagram_list_summary_placeholder"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="@+id/wrexagram_title"
             app:layout_constraintRight_toLeftOf="@+id/wrexagram_side_guideline"
