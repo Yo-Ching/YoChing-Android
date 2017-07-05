@@ -50,7 +50,7 @@
     />
 
     <ImageView
-            android:contentDescription="@string/wrexagram_image_content_description"
+            android:contentDescription="@string/read_wrexagram_wrexagram_image_content_description"
             android:id="@+id/wrexagram_icon"
             android:layout_height="0dp"
             android:layout_width="0dp"

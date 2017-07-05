@@ -25,7 +25,7 @@
         <activity
                 android:name=".activities.ReadActivity"
                 android:exported="true"
-                android:label="@string/title_activity_read_wrexagram"
+                android:label="@string/read_wrexagram_activity_title"
                 android:theme="@style/YoChingTheme"
         />
 

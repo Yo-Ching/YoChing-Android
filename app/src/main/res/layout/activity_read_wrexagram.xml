@@ -27,7 +27,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:id="@+id/yo_action_bar_title"
-                android:text="@string/placeholder_wrexagram_number"
+                android:text="@string/read_wrexagram_placeholder_wrexagram_number"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -89,7 +89,7 @@
             />
 
             <ImageView
-                    android:contentDescription="@string/wrexagram_image_content_description"
+                    android:contentDescription="@string/read_wrexagram_wrexagram_image_content_description"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:id="@+id/wrexagram_image"
@@ -105,7 +105,7 @@
                     android:id="@+id/wrexagram_title"
                     android:layout_height="wrap_content"
                     android:layout_width="0dp"
-                    android:text="@string/placeholder_wrexagram_title"
+                    android:text="@string/read_wrexagram_placeholder_wrexagram_title"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="30sp"
@@ -120,7 +120,7 @@
                     android:id="@+id/wrexagram_title_duplicate"
                     android:layout_height="0dp"
                     android:layout_width="0dp"
-                    android:text="@string/wrexagram_duplicate_placeholder"
+                    android:text="@string/read_wrexagram_placeholder_duplicate_title"
                     android:textAlignment="center"
                     android:textColor="@color/colorPrimary"
                     android:textSize="30sp"
@@ -204,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
-                    android:text="@string/whats_up"
+                    android:text="@string/read_wrexagram_whats_up"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="@color/colorPrimary"
@@ -225,7 +225,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
                     android:layout_width="0dp"
-                    android:text="@string/whats_up_placeholder"
+                    android:text="@string/read_wrexagram_placeholder_whats_up"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimary"
@@ -244,7 +244,7 @@
                     ext:documentView_textSize="18sp"
                     ext:documentView_textSubPixel="true"
                     ext:documentView_textTypefacePath="fonts/Signika 600.ttf"
-            />
+                    app:documentView_text="@string/read_wrexagram_placeholder_whats_up" />
 
             <Space
                     android:layout_height="24dp"

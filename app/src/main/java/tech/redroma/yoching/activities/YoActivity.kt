@@ -1,14 +1,12 @@
 package tech.redroma.yoching.activities
 
 import android.app.Activity
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import android.util.AttributeSet
 import android.view.*
 import android.widget.TextView
 import tech.redroma.yoching.*
@@ -161,8 +159,8 @@ class YoActivity : AppCompatActivity(), NavigationMenuListener
     private class DrawerToggle(val activity: Activity,
                                val drawerLayout: DrawerLayout) : ActionBarDrawerToggle(activity,
                                                                                        drawerLayout,
-                                                                                       R.string.drawer_open,
-                                                                                       R.string.drawer_close)
+                                                                                       R.string.drawer_open_description,
+                                                                                       R.string.drawer_close_description)
     {
 
         override fun onDrawerOpened(drawerView: View?)

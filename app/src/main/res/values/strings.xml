@@ -23,12 +23,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">Yo Ching</string>
-    <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="drawer_open">Open navigation drawer</string>
+    <string name="default_greeting">WHAT\'S YOUR QUESTION?</string>
+    <string name="drawer_close_description">Close the navigation drawer</string>
+    <string name="drawer_open_description">Open the navigation drawer</string>
     <string name="galaxy_background_description">Galaxy Background</string>
     <string name="throw_the_yo_button">THROW THE YO</string>
-    <string name="wrexagram_line">A Wrexagram consists of 6 of these lines</string>
+    <string name="wrexagram_line_description">A Wrexagram consists of 6 of these lines</string>
     <string name="yo_ching">YO CHING</string>
     <string name="yo_ching_coin_description">Yo Ching Coin</string>
 
@@ -41,15 +41,13 @@
 
 
     <!--READ WREXAGRAM-->
-    <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
-    <string name="placeholder_wrexagram_title">YO CHING</string>
-    <string name="title_activity_read_wrexagram">ReadActivity</string>
-    <string name="whats_up">What\'s Up?</string>
-    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.</string>
-    <string name="wrexagram_duplicate_placeholder"
-            translatable="false">•••••••••••••••••••••</string>
-    <string name="wrexagram_image_content_description">Wrexagram Image</string>
-
+    <string name="read_wrexagram_activity_title">ReadActivity</string>
+    <string name="read_wrexagram_placeholder_duplicate_title" translatable="false">•••••••••••••••••••••</string>
+    <string name="read_wrexagram_placeholder_whats_up">Not the time for large moves or big plays. Just handle day to day operations.</string>
+    <string name="read_wrexagram_placeholder_wrexagram_number">WREXAGRAM 9</string>
+    <string name="read_wrexagram_placeholder_wrexagram_title">YO CHING</string>
+    <string name="read_wrexagram_whats_up">What\'s Up?</string>
+    <string name="read_wrexagram_wrexagram_image_content_description">Wrexagram Image</string>
 
 
     <!--NAVIGATION MENU-->
