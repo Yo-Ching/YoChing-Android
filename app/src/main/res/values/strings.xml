@@ -1,32 +1,7 @@
 <resources>
 
-    <string name="action_settings">Settings</string>
-    <string name="app_name">Yo Ching</string>
-    <string name="default_greeting">WHAT\'S YOUR SITUATION?</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="galaxy_background_description">Galaxy Background</string>
-    <string name="nav_64_wrexagrams">64 Wrexagrams</string>
-    <string name="nav_buy_the_book">Buy The Book</string>
-    <string name="nav_settings">Settings</string>
-    <string name="nav_throw_the_yo">Throw The Yo</string>
-    <string name="placeholder_wrexagram_number">WREXAGRAM 9</string>
-    <string name="placeholder_wrexagram_title">YO CHING</string>
-    <string name="title_activity_read_wrexagram">ReadActivity</string>
-    <string name="whats_up_placeholder">Not the time for large moves or big plays. Just handle day to day operations.</string>
-    <string name="wrexagram_image_content_description">Wrexagram Image</string>
-    <string name="yo_ching">YO CHING</string>
-    <string name="yo_ching_coin_description">Yo Ching Coin</string>
-
-    <string-array name="greetings">
-        <item>WHAT\'S HAPPENING?</item>
-        <item>WHAT\'S THE SITUATION?</item>
-        <item>WHAT\'S UP?</item>
-        <item>WHAT\'S YOUR QUESTION?</item>
-    </string-array>
-
-
-    <string name="large_text">
+    <string name="large_text"
+            translatable="false">
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -42,6 +17,87 @@
 
         "Bold, graphic, intentional.\n\n"
 
+    </string>
+
+    <!--THROW THE YO-->
+
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Yo Ching</string>
+    <string name="default_greeting">WHAT\'S YOUR QUESTION?</string>
+    <string name="drawer_close_description">Close the navigation drawer</string>
+    <string name="drawer_open_description">Open the navigation drawer</string>
+    <string name="galaxy_background_description">Galaxy Background</string>
+    <string name="throw_the_yo_button">THROW THE YO</string>
+    <string name="wrexagram_line_description">A Wrexagram consists of 6 of these lines</string>
+    <string name="yo_ching">YO CHING</string>
+    <string name="yo_ching_coin_description">Yo Ching Coin</string>
+
+    <string-array name="greetings">
+        <item>WHAT\'S HAPPENING?</item>
+        <item>WHAT\'S THE SITUATION?</item>
+        <item>WHAT\'S UP?</item>
+        <item>WHAT\'S YOUR QUESTION?</item>
+    </string-array>
+
+
+    <!--READ WREXAGRAM-->
+    <string name="read_wrexagram_activity_title">ReadActivity</string>
+    <string name="read_wrexagram_placeholder_duplicate_title" translatable="false">•••••••••••••••••••••</string>
+    <string name="read_wrexagram_placeholder_whats_up">Not the time for large moves or big plays. Just handle day to day operations.</string>
+    <string name="read_wrexagram_placeholder_wrexagram_number">WREXAGRAM 9</string>
+    <string name="read_wrexagram_placeholder_wrexagram_title">YO CHING</string>
+    <string name="read_wrexagram_whats_up">What\'s Up?</string>
+    <string name="read_wrexagram_wrexagram_image_content_description">Wrexagram Image</string>
+
+
+    <!--NAVIGATION MENU-->
+    <string name="nav_64_wrexagrams">64 Wrexagrams</string>
+    <string name="nav_buy_the_book">Buy The Book</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_throw_the_yo">Throw The Yo</string>
+
+
+    <!--CREDITS-->
+    <string name="credits_title">Credits</string>
+    <string name="credits_true_player">True Player</string>
+    <string name="credits_true_player_roles">Executive Producer</string>
+    <string name="credits_hugh" translatable="false">Hugh Gallagher</string>
+    <string name="credits_hugh_roles">Writer, Producer, Creative Director</string>
+    <string name="credits_wellington">Wellington Moreno</string>
+    <string name="credits_wellington_roles">Programming Monk, App Designer</string>
+    <string name="credits_marc" translatable="false">Marc Risney</string>
+    <string name="credits_marc_roles">Producer</string>
+    <string name="credits_brendan" translatable="false">Brendan Miller</string>
+    <string name="credits_brendan_roles">Wrexagram Artwork, Yo Bro Profile</string>
+    <string name="credits_maya" translatable="false">Maya G.</string>
+    <string name="credits_maya_roles">Yo Street Coins</string>
+
+    <!--SETTINGS-->
+    <string name="settings_throwing_style">Throwing Style</string>
+    <string name="settings_true_player">True Player</string>
+    <string name="settings_true_player_description">Build your wrexagram in 6 throws</string>
+    <string name="settings_tap_that">Tap That</string>
+    <string name="settings_tap_that_description">One Throw for players on the go</string>
+    <string name="settings_change_style">Change Style</string>
+    <string name="settings_street_style">Street</string>
+    <string name="settings_street_style_description">Straight from the Bodega</string>
+    <string name="settings_slick_style">Slick</string>
+    <string name="settings_slick_style_description">Throw down in style</string>
+    <string name="settings_whats_up">What\'s up</string>
+    <string name="settings_buy_the_book">Buy The Book</string>
+    <string name="settings_buy_the_book_description">300+ pages of YO CHING Wisdom</string>
+    <string name="settings_yo_app_players">Yo App Players</string>
+    <string name="settings_yo_app_players_description">The crew behind the YO CHING app</string>
+    <string name="settings_learn_yo_ching">Learn Yo Ching</string>
+    <string name="settings_learn_yo_ching_description">Learn more about YO CHING origins</string>
+
+    <!--MISC-->
+    <string name="checkmark_description">Check Mark</string>
+    <string name="right_arrow_description">Right Arrow</string>
+    <string name="wrexagram_list_number_placeholder">44</string>
+    <string name="wrexagram_list_title_placeholder">Played</string>
+    <string name="wrexagram_list_summary_placeholder">Being PLAYED is the opposite of being paid. Nothing positive is
+        happening for a brother.
     </string>
 
 

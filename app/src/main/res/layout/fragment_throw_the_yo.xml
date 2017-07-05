@@ -123,47 +123,64 @@
             app:layout_constraintTop_toTopOf="@+id/wrexagram_lines_top_guideline">
 
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_6"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
+
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_5"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
+
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_4"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
+
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_3"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
+
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_2"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
+
         <ImageView
+                android:contentDescription="@string/wrexagram_line_description"
                 android:id="@+id/line_1"
                 android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                app:srcCompat="@drawable/wrex_strong_line"
                 android:layout_weight="1"
-                android:paddingBottom="-2dp" />
+                android:layout_width="match_parent"
+                android:paddingBottom="-2dp"
+                app:srcCompat="@drawable/wrex_strong_line"
+        />
 
     </LinearLayout>
 
@@ -180,7 +197,6 @@
 
     <ImageView
             android:contentDescription="@string/yo_ching_coin_description"
-            android:elevation="0dp"
             android:foregroundGravity="center_vertical"
             android:id="@+id/coin_1"
             android:layout_gravity="center_vertical"
@@ -203,7 +219,6 @@
 
     <ImageView
             android:contentDescription="@string/yo_ching_coin_description"
-            android:elevation="0dp"
             android:foregroundGravity="center_vertical"
             android:id="@+id/coin_2"
             android:layout_gravity="center_vertical"
@@ -228,7 +243,6 @@
 
     <ImageView
             android:contentDescription="@string/yo_ching_coin_description"
-            android:elevation="0dp"
             android:foregroundGravity="center_vertical"
             android:id="@+id/coin_3"
             android:layout_gravity="center_vertical"
@@ -288,7 +302,7 @@
                 android:id="@+id/throw_the_yo_button"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:text="THROW THE YO"
+                android:text="@string/throw_the_yo_button"
                 android:textColor="@color/white"
                 android:textSize="30sp"
 
