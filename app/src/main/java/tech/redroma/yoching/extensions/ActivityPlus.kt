@@ -46,7 +46,7 @@ object LOG : Logger by LoggerFactory.getLogger(LOG::class.java)
 //BUILD INFO
 //============================================================
 
-internal val Activity.buildInfo get() = packageManager.getPackageInfo(packageName, 0)
+internal val Context.buildInfo get() = packageManager.getPackageInfo(packageName, 0)
 internal val osVersion get() = android.os.Build.VERSION.RELEASE
 
 internal val AppCompatActivity.actionBarTitleView: TextView? get()

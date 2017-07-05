@@ -32,6 +32,7 @@ private const val AROMA_TOKEN = "d145da35-acba-43fc-b73f-49d9d173e12b"
 internal object Aroma
 {
     private var aroma: AromaClient? = null
+    private var initialized = false
 
     fun send(callback: AromaClient.() -> Unit)
     {
@@ -39,8 +40,14 @@ internal object Aroma
 
             val aroma = aroma ?: AromaClient.create(AROMA_TOKEN) ?: return@block
 
-            aroma.deviceName = aroma.hostname
-            aroma.hostname = this.deviceName
+            if (!initialized)
+            {
+                aroma.deviceName = aroma.hostname
+                aroma.hostname = this.deviceName
+                aroma.bodySuffix = "\n\n$osVersion"
+
+                initialized = true
+            }
 
             callback(aroma)
         }
