@@ -231,20 +231,20 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    app:documentView_text="@string/read_wrexagram_placeholder_whats_up"
                     app:layout_constraintLeft_toLeftOf="@+id/left_guideline"
                     app:layout_constraintRight_toLeftOf="@+id/right_guideline"
                     app:layout_constraintTop_toBottomOf="@+id/whats_up_title"
                     ext:documentView_antialias="true"
                     ext:documentView_cacheConfig="auto_quality"
                     ext:documentView_reverse="false"
-                    ext:documentView_text="@string/whats_up_placeholder"
                     ext:documentView_textAlignment="justified"
                     ext:documentView_textColor="@color/bodyColor"
                     ext:documentView_textFormat="plain"
                     ext:documentView_textSize="18sp"
                     ext:documentView_textSubPixel="true"
                     ext:documentView_textTypefacePath="fonts/Signika 600.ttf"
-                    app:documentView_text="@string/read_wrexagram_placeholder_whats_up" />
+            />
 
             <Space
                     android:layout_height="24dp"
