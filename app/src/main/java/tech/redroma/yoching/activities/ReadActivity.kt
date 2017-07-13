@@ -107,7 +107,7 @@ class ReadActivity : AppCompatActivity()
 
     private fun loadWrexagramInfo()
     {
-        views.actionBarTitle.text = "WREXAGRAM #$wrexagramNumber"
+        views.actionBarTitle.text = "WREXAGRAM $wrexagramNumber"
 
         wrexagram = applicationContext.loadWrexagramSummary(wrexagramNumber) ?: DEFAULT_SUMMARY
 
