@@ -123,7 +123,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
         fun inflate(view: View)
         {
             prompt = view.findViewById(R.id.yo_prompt) as TextView
-            prompt.typeface = context.exoBlack()
+            prompt.typeface = context.exoExtraBold()
 
             line1 = view.findView(R.id.line_1)
             line2 = view.findView(R.id.line_2)
@@ -149,7 +149,7 @@ class ThrowTheYoFragment : android.support.v4.app.Fragment()
             coins.forEach {
                 it.setImageDrawable(context.headsIcon)
             }
-            throwButton.typeface = context.exoDemiBold()
+            throwButton.typeface = context.exoBold()
         }
 
         private fun setListeners()
