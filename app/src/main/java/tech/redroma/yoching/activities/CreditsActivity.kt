@@ -22,6 +22,7 @@ class CreditsActivity : AppCompatActivity()
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_credits)
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_to_left)
 
@@ -32,6 +33,7 @@ class CreditsActivity : AppCompatActivity()
     override fun finish()
     {
         super.finish()
+
         overridePendingTransition(R.anim.enter_from_left, R.anim.exit_to_right)
         Aroma.send { sendLowPriorityMessage("Credits Closed", "After ${start.secondsSinceNow} seconds.") }
     }
@@ -120,7 +122,8 @@ class CreditsActivity : AppCompatActivity()
 
             if (isAtLeastLollipop())
             {
-                backButton.setBackgroundDrawable(resources.getDrawable(R.drawable.ripple_circular))
+                val backIcon = resources.getDrawable(R.drawable.ripple_circular)
+                backButton.setBackgroundDrawable(backIcon)
             }
 
         }
@@ -159,13 +162,13 @@ class CreditsActivity : AppCompatActivity()
 
                 listOf(maya, brendan, marc, wellington, hugh, truePlayer)
                         .onEach { it.hide() }
-                        .onEach { it.animateCreditsIn(delay); delay += step }
+                        .onEach { it.animateIntoView(delay); delay += step }
 
             }
 
         }
 
-        private fun View.animateCreditsIn(delay: Long)
+        private fun View.animateIntoView(delay: Long)
         {
             val technique = Techniques.SlideInLeft
             val duration = 800L
@@ -178,12 +181,12 @@ class CreditsActivity : AppCompatActivity()
             YoYo.with(technique)
                     .delay(delay)
                     .duration(duration)
-                    .onStart { showInTime(); boom(this, delay + duration + 100) }
+                    .onStart { showInTime(); this.explode(delay + duration + 100) }
                     .playOn(this)
 
         }
 
-        private fun boom(view: View, delay: Long)
+        private fun View.explode(delay: Long)
         {
             val action = Runnable {
 
@@ -191,10 +194,10 @@ class CreditsActivity : AppCompatActivity()
                         .setSpeedModuleAndAngleRange(0.01f, 0.3f, 180, 360)
                         .setScaleRange(0.2f, 0.4f)
                         .setFadeOut(1000)
-                        .oneShot(view, 75)
+                        .oneShot(this, 75)
             }
 
-            view.postDelayed(action, delay)
+            this.postDelayed(action, delay)
         }
 
     }
