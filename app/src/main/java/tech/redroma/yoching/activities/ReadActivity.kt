@@ -22,12 +22,12 @@ import java.util.concurrent.TimeUnit
 
 class ReadActivity : AppCompatActivity()
 {
-    private val DEFAULT_SUMMARY = WrexagramSummary(number = 1, title = "BRING IT", subTitle = "", whatsUp = "")
-
     object Parameters
     {
         const val WREXAGRAM_NUMBER = "wrexagram_number"
     }
+
+    private val DEFAULT_SUMMARY = WrexagramSummary(number = 1, title = "BRING IT", subTitle = "", whatsUp = "")
 
     private var wrexagramNumber = 8
     private lateinit var wrexagram: WrexagramSummary
@@ -45,8 +45,8 @@ class ReadActivity : AppCompatActivity()
         LOG.info("Loading Wrexagram #$wrexagramNumber")
 
         views.inflate()
-        explodeIntoView()
         loadWrexagramInfo()
+        explodeIntoView()
 
         Aroma.send {
             sendMediumPriorityMessage("Wrexagram Viewed", body = "#$wrexagramNumber - ${wrexagram.title}")
